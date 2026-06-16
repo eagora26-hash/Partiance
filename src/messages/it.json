@@ -1,0 +1,362 @@
+{
+  "common": {
+    "brand": "Partnerly",
+    "tagline": "Build Better Together",
+    "getStarted": "Registrati gratis",
+    "explore": "Scopri la piattaforma",
+    "login": "Accedi",
+    "learnMore": "Scopri di più",
+    "viewAll": "Vedi tutto",
+    "freeForever": "Gratis per sempre",
+    "noCard": "Nessuna carta richiesta"
+  },
+  "nav": {
+    "how": "Come funziona",
+    "features": "Funzionalità",
+    "projects": "Progetti",
+    "investors": "Investitori",
+    "pricing": "Prezzi",
+    "faq": "FAQ",
+    "menu": "Menu",
+    "close": "Chiudi"
+  },
+  "hero": {
+    "badge": "Intelligenza Artificiale · Costruita per l'Italia",
+    "titleLine1": "Trova le persone giuste",
+    "titleLine2": "per costruire il tuo",
+    "titleEmphasis": "prossimo business.",
+    "subtitle": "La piattaforma AI che unisce imprenditori, investitori e professionisti per trasformare le idee in grandi progetti.",
+    "ctaPrimary": "Registrati gratis",
+    "ctaSecondary": "Scopri i progetti",
+    "trustedBy": "Già scelta da builder in tutta Italia",
+    "props": {
+      "soci": { "title": "Trova soci e co-founder", "desc": "Match AI su competenze e obiettivi comuni" },
+      "investitori": { "title": "Trova investitori", "desc": "Presenta il tuo progetto a investitori qualificati" },
+      "collaboratori": { "title": "Trova collaboratori", "desc": "Professionisti pronti a costruire con te" }
+    },
+    "matchCard": {
+      "match": "Match",
+      "you": "Il tuo match AI",
+      "compatibility": "Compatibilità",
+      "reasons": {
+        "industry": "Settore di interesse",
+        "skills": "Competenze complementari",
+        "goals": "Obiettivi allineati",
+        "availability": "Disponibilità compatibile",
+        "values": "Valori in comune"
+      }
+    },
+    "people": {
+      "marco": { "name": "Marco Rossi", "role": "CTO & Developer", "location": "Milano, Italia" },
+      "giulia": { "name": "Giulia Bianchi", "role": "Marketing Strategist", "location": "Roma, Italia" }
+    },
+    "project": {
+      "title": "Piattaforma Wellness Aziendale",
+      "desc": "Piattaforma digitale per promuovere il benessere dei dipendenti nelle aziende.",
+      "looking": "Cerchiamo",
+      "role": "CTO",
+      "budget": "Budget disponibile",
+      "budgetValue": "30.000 €"
+    }
+  },
+  "stats": {
+    "title": "Numeri che parlano",
+    "subtitle": "Un ecosistema in crescita, costruito sulla fiducia.",
+    "items": {
+      "builders": { "value": "12.000+", "label": "Builder attivi" },
+      "matches": { "value": "48.000+", "label": "Match generati" },
+      "accuracy": { "value": "93%", "label": "Precisione del match AI" },
+      "cities": { "value": "60+", "label": "Città italiane" }
+    }
+  },
+  "how": {
+    "eyebrow": "Come funziona",
+    "title": "Dal profilo al partner ideale in 3 passi",
+    "subtitle": "Niente mesi di networking. La nostra AI fa il lavoro pesante per te.",
+    "steps": {
+      "profile": {
+        "title": "Crea il tuo profilo",
+        "desc": "Indica le tue competenze, i tuoi interessi e cosa stai cercando. Tre minuti, non di più."
+      },
+      "publish": {
+        "title": "Pubblica il tuo progetto",
+        "desc": "Descrivi la tua idea o cosa stai cercando: soci, investitori o collaboratori."
+      },
+      "match": {
+        "title": "Ricevi i match AI",
+        "desc": "La nostra AI ti suggerisce le persone giuste e spiega ogni match, sempre."
+      }
+    }
+  },
+  "projects": {
+    "eyebrow": "Progetti in evidenza",
+    "title": "Idee che cercano i partner giusti",
+    "viewAll": "Vedi tutti i progetti",
+    "looking": "Cercasi",
+    "budget": "Budget",
+    "items": {
+      "wellness": { "title": "App Wellness Aziendale", "desc": "App per migliorare il benessere dei dipendenti in azienda.", "looking": "CTO", "budget": "20.000 €", "tags": "Idea, Wellness, Milano" },
+      "tourism": { "title": "Marketplace Turismo Esperienziale", "desc": "Piattaforma per prenotare esperienze di viaggio uniche.", "looking": "Investitore", "budget": "100.000 €", "tags": "MVP, Turismo, Italia" },
+      "food": { "title": "Food Delivery Sostenibile", "desc": "Servizio di consegna cibo a km0 e a basso impatto ambientale.", "looking": "Marketing Manager", "budget": "50.000 €", "tags": "Startup, Food, Bologna" },
+      "edtech": { "title": "Piattaforma EdTech", "desc": "Corsi online di alta qualità per studenti e professionisti.", "looking": "Co-founder", "budget": "30.000 €", "tags": "Idea, Education, Torino" }
+    }
+  },
+  "ai": {
+    "eyebrow": "Il sistema operativo AI",
+    "title": "Non solo match. Un copilota per il tuo business.",
+    "subtitle": "Partnerly non si ferma alla connessione. Ti accompagna mentre costruisci.",
+    "features": {
+      "match": { "title": "Co-Founder Match AI", "desc": "Compatibilità calcolata su competenze, obiettivi e valori. Ogni match è spiegato." },
+      "validator": { "title": "Validatore di Idee", "desc": "Valuta la tua idea di business e ricevi un punteggio con punti di forza e rischi." },
+      "plan": { "title": "Business Plan AI", "desc": "Genera un piano strutturato, pronto per investitori, partendo dalla tua idea." },
+      "investor": { "title": "Investor Readiness", "desc": "Scopri quanto sei pronto per raccogliere capitali e cosa migliorare." }
+    }
+  },
+  "pricing": {
+    "eyebrow": "Prezzi semplici",
+    "title": "Inizia gratis. Cresci quando sei pronto.",
+    "subtitle": "Nessuna sorpresa. Disdici quando vuoi.",
+    "perMonth": "/mese",
+    "mostPopular": "Più scelto",
+    "plans": {
+      "free": {
+        "name": "Free",
+        "price": "0 €",
+        "tagline": "Per iniziare a esplorare",
+        "cta": "Inizia gratis",
+        "features": "10 match AI al mese|1 progetto attivo|Profilo base|Accesso alla community"
+      },
+      "premium": {
+        "name": "Premium",
+        "price": "9,99 €",
+        "tagline": "Per chi costruisce sul serio",
+        "cta": "Passa a Premium",
+        "features": "Match illimitati|Chat illimitata|5 progetti attivi|AI Copilot completo|Business Plan AI"
+      },
+      "business": {
+        "name": "Business",
+        "price": "24,99 €",
+        "tagline": "Per founder e investitori",
+        "cta": "Scegli Business",
+        "features": "Tutto di Premium|Accesso investitori|Contatto diretto investitori|Analytics avanzate|Matching prioritario"
+      }
+    }
+  },
+  "faq": {
+    "eyebrow": "Domande frequenti",
+    "title": "Tutto quello che vuoi sapere",
+    "items": {
+      "what": { "q": "Cos'è esattamente Partnerly?", "a": "Partnerly è un sistema operativo AI per il business: connette imprenditori, co-founder, investitori e professionisti e li aiuta a costruire aziende insieme, più velocemente." },
+      "how": { "q": "Come funziona il match AI?", "a": "La nostra AI analizza competenze, obiettivi, settore, disponibilità e valori per calcolare la compatibilità. Ogni match è sempre spiegato, mai un semplice numero." },
+      "free": { "q": "È davvero gratis?", "a": "Sì. Il piano Free è gratuito per sempre e include 10 match al mese, un progetto e l'accesso alla community. Nessuna carta richiesta." },
+      "italy": { "q": "È pensata per l'Italia?", "a": "Esatto. Partnerly nasce italiana: copywriting, città, settori e community sono costruiti per il mercato italiano, in italiano e in inglese." },
+      "data": { "q": "I miei dati sono al sicuro?", "a": "La sicurezza è una priorità. Usiamo autenticazione di livello enterprise e non condividiamo mai i tuoi dati senza il tuo consenso." }
+    }
+  },
+  "cta": {
+    "title": "Il tuo prossimo socio è già qui.",
+    "subtitle": "Unisciti ai builder che stanno costruendo il futuro del business in Italia.",
+    "button": "Registrati gratis",
+    "note": "Gratis per sempre · Nessuna carta richiesta"
+  },
+  "auth": {
+    "register": {
+      "title": "Crea il tuo account",
+      "subtitle": "Inizia gratis. Trova i partner giusti per il tuo business.",
+      "name": "Nome e cognome",
+      "namePlaceholder": "Mario Rossi",
+      "email": "Email",
+      "emailPlaceholder": "tu@esempio.it",
+      "password": "Password",
+      "passwordPlaceholder": "Almeno 8 caratteri",
+      "submit": "Registrati gratis",
+      "submitting": "Creazione account...",
+      "haveAccount": "Hai già un account?",
+      "login": "Accedi",
+      "orContinue": "oppure continua con",
+      "success": "Account creato! Ti diamo il benvenuto."
+    },
+    "login": {
+      "title": "Bentornato",
+      "subtitle": "Accedi per continuare a costruire.",
+      "email": "Email",
+      "password": "Password",
+      "forgot": "Password dimenticata?",
+      "submit": "Accedi",
+      "submitting": "Accesso in corso...",
+      "noAccount": "Non hai un account?",
+      "register": "Registrati"
+    },
+    "forgot": {
+      "title": "Reimposta la password",
+      "subtitle": "Inserisci la tua email: ti invieremo un link per reimpostare la password.",
+      "email": "Email",
+      "submit": "Invia il link",
+      "submitting": "Invio in corso...",
+      "sent": "Se l'email esiste, riceverai a breve un link per reimpostare la password.",
+      "back": "Torna al login"
+    },
+    "reset": {
+      "title": "Scegli una nuova password",
+      "password": "Nuova password",
+      "submit": "Aggiorna password",
+      "submitting": "Aggiornamento...",
+      "success": "Password aggiornata. Ora puoi accedere.",
+      "invalid": "Il link non è valido o è scaduto."
+    },
+    "verify": {
+      "verifying": "Verifica in corso...",
+      "success": "Email verificata! Il tuo account è attivo.",
+      "invalid": "Link di verifica non valido o scaduto.",
+      "goDashboard": "Vai alla dashboard"
+    },
+    "errors": {
+      "email_in_use": "Questa email è già registrata.",
+      "invalid_credentials": "Email o password non corretti.",
+      "validation_error": "Controlla i dati inseriti.",
+      "rate_limited": "Troppi tentativi. Riprova tra un minuto.",
+      "invalid_or_expired_token": "Il link non è valido o è scaduto.",
+      "name_too_short": "Inserisci nome e cognome.",
+      "password_too_short": "La password deve avere almeno 8 caratteri.",
+      "password_needs_lowercase": "Aggiungi una lettera minuscola.",
+      "password_needs_uppercase": "Aggiungi una lettera maiuscola.",
+      "password_needs_number": "Aggiungi un numero.",
+      "generic": "Qualcosa è andato storto. Riprova."
+    }
+  },
+  "onboarding": {
+    "progress": "Passo {current} di {total}",
+    "next": "Continua",
+    "back": "Indietro",
+    "finish": "Genera il mio profilo",
+    "finishing": "Analisi in corso...",
+    "skip": "Salta per ora",
+    "steps": {
+      "persona": { "title": "Chi sei?", "subtitle": "Scegli il ruolo che ti rappresenta meglio." },
+      "skills": { "title": "Le tue competenze", "subtitle": "Seleziona ciò in cui eccelli. Scegline almeno una." },
+      "goals": { "title": "I tuoi obiettivi", "subtitle": "Cosa vuoi ottenere con Partnerly?" },
+      "personality": { "title": "Il tuo stile", "subtitle": "Aiutaci a capire come lavori. Niente risposte giuste o sbagliate." },
+      "analysis": { "title": "Il tuo Business DNA", "subtitle": "Ecco cosa abbiamo capito di te." }
+    },
+    "persona": {
+      "FOUNDER": "Founder",
+      "INVESTOR": "Investitore",
+      "DEVELOPER": "Sviluppatore",
+      "DESIGNER": "Designer",
+      "FREELANCER": "Freelancer",
+      "AGENCY": "Agenzia",
+      "MENTOR": "Mentor"
+    },
+    "fields": {
+      "city": "La tua città",
+      "cityPlaceholder": "Milano",
+      "availability": "Disponibilità",
+      "headline": "Una frase su di te (opzionale)",
+      "headlinePlaceholder": "Es. CTO che cerca un co-founder di prodotto"
+    },
+    "availability": {
+      "FULL_TIME": "Tempo pieno",
+      "PART_TIME": "Part-time",
+      "WEEKENDS": "Weekend",
+      "OCCASIONAL": "Occasionale"
+    },
+    "industries": "Settori di interesse",
+    "personality": {
+      "openness": "Apertura alle novità",
+      "conscientiousness": "Organizzazione",
+      "extraversion": "Energia sociale",
+      "agreeableness": "Collaborazione",
+      "risk": "Propensione al rischio",
+      "low": "Bassa",
+      "high": "Alta"
+    },
+    "result": {
+      "founderTypeLabel": "Sei un",
+      "traitsLabel": "I tuoi tratti distintivi",
+      "matchesReady": "Abbiamo già trovato {count} match per te.",
+      "noMatches": "Stiamo cercando i match giusti per te.",
+      "cta": "Vai alla dashboard"
+    },
+    "errors": {
+      "validation_error": "Controlla le tue risposte e riprova.",
+      "invalid_reference": "Selezione non valida. Ricarica la pagina.",
+      "generic": "Qualcosa è andato storto. Riprova."
+    }
+  },
+  "dna": {
+    "founderType": {
+      "visionary": "Visionario",
+      "operator": "Operatore",
+      "builder": "Builder",
+      "craftsman": "Artigiano del prodotto",
+      "backer": "Sostenitore",
+      "specialist": "Specialista",
+      "guide": "Guida"
+    },
+    "summary": {
+      "visionary": "Vedi opportunità dove gli altri vedono ostacoli e sai ispirare le persone a seguirti.",
+      "operator": "Trasformi le idee in esecuzione: struttura, disciplina e risultati.",
+      "builder": "Costruisci. La tecnologia è il tuo linguaggio e il prodotto la tua firma.",
+      "craftsman": "Curi ogni dettaglio dell'esperienza: per te la forma è sostanza.",
+      "backer": "Riconosci il valore e lo alimenti con capitale e visione.",
+      "specialist": "Porti una competenza profonda e verticale dove serve di più.",
+      "guide": "Hai già percorso la strada e aiuti gli altri a non perdersi."
+    },
+    "trait": {
+      "boldRiskTaker": "Audace",
+      "measured": "Ponderato",
+      "executor": "Esecutore",
+      "innovator": "Innovatore",
+      "connector": "Connettore",
+      "focused": "Concentrato",
+      "collaborator": "Collaborativo"
+    }
+  },
+  "match": {
+    "reason": {
+      "skills": "Competenze complementari",
+      "goals": "Obiettivi allineati",
+      "industry": "Stesso settore",
+      "availability": "Disponibilità compatibile",
+      "personality": "Stili compatibili",
+      "location": "Stessa città"
+    }
+  },
+  "dashboard": {
+    "welcome": "Bentornato, {name}",
+    "subtitle": "Ecco cosa succede oggi nel tuo ecosistema.",
+    "verifyBanner": "Conferma la tua email per sbloccare tutte le funzionalità.",
+    "logout": "Esci",
+    "cards": {
+      "matches": "Match recenti",
+      "matchesEmpty": "Nessun match ancora. Completa il profilo per iniziare.",
+      "projects": "I tuoi progetti",
+      "projectsEmpty": "Non hai ancora progetti. Creane uno per ricevere match.",
+      "plan": "Il tuo piano",
+      "activity": "Attività recente"
+    },
+    "completeProfile": "Completa il profilo",
+    "createProject": "Crea progetto"
+  },
+  "footer": {
+    "tagline": "L'ecosistema AI per costruire business in Italia.",
+    "product": "Prodotto",
+    "company": "Azienda",
+    "legal": "Legale",
+    "links": {
+      "how": "Come funziona",
+      "features": "Funzionalità",
+      "pricing": "Prezzi",
+      "projects": "Progetti",
+      "about": "Chi siamo",
+      "blog": "Blog",
+      "careers": "Lavora con noi",
+      "contact": "Contatti",
+      "privacy": "Privacy",
+      "terms": "Termini",
+      "cookies": "Cookie"
+    },
+    "rights": "Tutti i diritti riservati.",
+    "madeIn": "Costruito con cura in Italia."
+  }
+}

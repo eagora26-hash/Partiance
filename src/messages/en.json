@@ -1,0 +1,362 @@
+{
+  "common": {
+    "brand": "Partnerly",
+    "tagline": "Build Better Together",
+    "getStarted": "Sign up free",
+    "explore": "Explore the platform",
+    "login": "Log in",
+    "learnMore": "Learn more",
+    "viewAll": "View all",
+    "freeForever": "Free forever",
+    "noCard": "No card required"
+  },
+  "nav": {
+    "how": "How it works",
+    "features": "Features",
+    "projects": "Projects",
+    "investors": "Investors",
+    "pricing": "Pricing",
+    "faq": "FAQ",
+    "menu": "Menu",
+    "close": "Close"
+  },
+  "hero": {
+    "badge": "Artificial Intelligence · Built for Italy",
+    "titleLine1": "Find the right people",
+    "titleLine2": "to build your",
+    "titleEmphasis": "next business.",
+    "subtitle": "The AI platform that connects entrepreneurs, investors and professionals to turn ideas into great companies.",
+    "ctaPrimary": "Sign up free",
+    "ctaSecondary": "Explore projects",
+    "trustedBy": "Already chosen by builders across Italy",
+    "props": {
+      "soci": { "title": "Find co-founders", "desc": "AI matches on shared skills and goals" },
+      "investitori": { "title": "Find investors", "desc": "Pitch your project to qualified investors" },
+      "collaboratori": { "title": "Find collaborators", "desc": "Professionals ready to build with you" }
+    },
+    "matchCard": {
+      "match": "Match",
+      "you": "Your AI match",
+      "compatibility": "Compatibility",
+      "reasons": {
+        "industry": "Shared industry",
+        "skills": "Complementary skills",
+        "goals": "Aligned goals",
+        "availability": "Compatible availability",
+        "values": "Shared values"
+      }
+    },
+    "people": {
+      "marco": { "name": "Marco Rossi", "role": "CTO & Developer", "location": "Milan, Italy" },
+      "giulia": { "name": "Giulia Bianchi", "role": "Marketing Strategist", "location": "Rome, Italy" }
+    },
+    "project": {
+      "title": "Corporate Wellness Platform",
+      "desc": "A digital platform to promote employee wellbeing in companies.",
+      "looking": "Looking for",
+      "role": "CTO",
+      "budget": "Available budget",
+      "budgetValue": "€30,000"
+    }
+  },
+  "stats": {
+    "title": "Numbers that speak",
+    "subtitle": "A growing ecosystem, built on trust.",
+    "items": {
+      "builders": { "value": "12,000+", "label": "Active builders" },
+      "matches": { "value": "48,000+", "label": "Matches generated" },
+      "accuracy": { "value": "93%", "label": "AI match accuracy" },
+      "cities": { "value": "60+", "label": "Italian cities" }
+    }
+  },
+  "how": {
+    "eyebrow": "How it works",
+    "title": "From profile to ideal partner in 3 steps",
+    "subtitle": "No months of networking. Our AI does the heavy lifting for you.",
+    "steps": {
+      "profile": {
+        "title": "Create your profile",
+        "desc": "Tell us your skills, interests and what you're looking for. Three minutes, no more."
+      },
+      "publish": {
+        "title": "Publish your project",
+        "desc": "Describe your idea or what you need: co-founders, investors or collaborators."
+      },
+      "match": {
+        "title": "Get AI matches",
+        "desc": "Our AI suggests the right people and explains every match, always."
+      }
+    }
+  },
+  "projects": {
+    "eyebrow": "Featured projects",
+    "title": "Ideas looking for the right partners",
+    "viewAll": "View all projects",
+    "looking": "Looking for",
+    "budget": "Budget",
+    "items": {
+      "wellness": { "title": "Corporate Wellness App", "desc": "An app to improve employee wellbeing in companies.", "looking": "CTO", "budget": "€20,000", "tags": "Idea, Wellness, Milan" },
+      "tourism": { "title": "Experiential Travel Marketplace", "desc": "A platform to book unique travel experiences.", "looking": "Investor", "budget": "€100,000", "tags": "MVP, Travel, Italy" },
+      "food": { "title": "Sustainable Food Delivery", "desc": "Zero-kilometre, low-impact food delivery service.", "looking": "Marketing Manager", "budget": "€50,000", "tags": "Startup, Food, Bologna" },
+      "edtech": { "title": "EdTech Platform", "desc": "High-quality online courses for students and professionals.", "looking": "Co-founder", "budget": "€30,000", "tags": "Idea, Education, Turin" }
+    }
+  },
+  "ai": {
+    "eyebrow": "The AI operating system",
+    "title": "Not just matches. A copilot for your business.",
+    "subtitle": "Partnerly doesn't stop at the connection. It stays with you while you build.",
+    "features": {
+      "match": { "title": "Co-Founder Match AI", "desc": "Compatibility computed on skills, goals and values. Every match is explained." },
+      "validator": { "title": "Idea Validator", "desc": "Score your business idea and get its strengths and risks at a glance." },
+      "plan": { "title": "AI Business Plan", "desc": "Generate a structured, investor-ready plan straight from your idea." },
+      "investor": { "title": "Investor Readiness", "desc": "See how ready you are to raise capital and exactly what to improve." }
+    }
+  },
+  "pricing": {
+    "eyebrow": "Simple pricing",
+    "title": "Start free. Grow when you're ready.",
+    "subtitle": "No surprises. Cancel anytime.",
+    "perMonth": "/month",
+    "mostPopular": "Most popular",
+    "plans": {
+      "free": {
+        "name": "Free",
+        "price": "€0",
+        "tagline": "To start exploring",
+        "cta": "Start free",
+        "features": "10 AI matches per month|1 active project|Basic profile|Community access"
+      },
+      "premium": {
+        "name": "Premium",
+        "price": "€9.99",
+        "tagline": "For serious builders",
+        "cta": "Go Premium",
+        "features": "Unlimited matches|Unlimited chat|5 active projects|Full AI Copilot|AI Business Plan"
+      },
+      "business": {
+        "name": "Business",
+        "price": "€24.99",
+        "tagline": "For founders and investors",
+        "cta": "Choose Business",
+        "features": "Everything in Premium|Investor access|Direct investor contact|Advanced analytics|Priority matching"
+      }
+    }
+  },
+  "faq": {
+    "eyebrow": "Frequently asked questions",
+    "title": "Everything you want to know",
+    "items": {
+      "what": { "q": "What exactly is Partnerly?", "a": "Partnerly is an AI business operating system: it connects entrepreneurs, co-founders, investors and professionals and helps them build companies together, faster." },
+      "how": { "q": "How does the AI match work?", "a": "Our AI analyses skills, goals, industry, availability and values to compute compatibility. Every match is always explained, never just a number." },
+      "free": { "q": "Is it really free?", "a": "Yes. The Free plan is free forever and includes 10 matches a month, one project and community access. No card required." },
+      "italy": { "q": "Is it built for Italy?", "a": "Exactly. Partnerly is Italian by design: copy, cities, industries and community are built for the Italian market, in Italian and English." },
+      "data": { "q": "Is my data safe?", "a": "Security is a priority. We use enterprise-grade authentication and never share your data without your consent." }
+    }
+  },
+  "cta": {
+    "title": "Your next co-founder is already here.",
+    "subtitle": "Join the builders shaping the future of business in Italy.",
+    "button": "Sign up free",
+    "note": "Free forever · No card required"
+  },
+  "auth": {
+    "register": {
+      "title": "Create your account",
+      "subtitle": "Start free. Find the right partners for your business.",
+      "name": "Full name",
+      "namePlaceholder": "John Smith",
+      "email": "Email",
+      "emailPlaceholder": "you@example.com",
+      "password": "Password",
+      "passwordPlaceholder": "At least 8 characters",
+      "submit": "Sign up free",
+      "submitting": "Creating account...",
+      "haveAccount": "Already have an account?",
+      "login": "Log in",
+      "orContinue": "or continue with",
+      "success": "Account created! Welcome aboard."
+    },
+    "login": {
+      "title": "Welcome back",
+      "subtitle": "Log in to keep building.",
+      "email": "Email",
+      "password": "Password",
+      "forgot": "Forgot password?",
+      "submit": "Log in",
+      "submitting": "Logging in...",
+      "noAccount": "Don't have an account?",
+      "register": "Sign up"
+    },
+    "forgot": {
+      "title": "Reset your password",
+      "subtitle": "Enter your email and we'll send you a reset link.",
+      "email": "Email",
+      "submit": "Send reset link",
+      "submitting": "Sending...",
+      "sent": "If that email exists, you'll receive a reset link shortly.",
+      "back": "Back to login"
+    },
+    "reset": {
+      "title": "Choose a new password",
+      "password": "New password",
+      "submit": "Update password",
+      "submitting": "Updating...",
+      "success": "Password updated. You can now log in.",
+      "invalid": "This link is invalid or has expired."
+    },
+    "verify": {
+      "verifying": "Verifying...",
+      "success": "Email verified! Your account is active.",
+      "invalid": "Invalid or expired verification link.",
+      "goDashboard": "Go to dashboard"
+    },
+    "errors": {
+      "email_in_use": "This email is already registered.",
+      "invalid_credentials": "Incorrect email or password.",
+      "validation_error": "Please check the details you entered.",
+      "rate_limited": "Too many attempts. Try again in a minute.",
+      "invalid_or_expired_token": "This link is invalid or has expired.",
+      "name_too_short": "Please enter your full name.",
+      "password_too_short": "Password must be at least 8 characters.",
+      "password_needs_lowercase": "Add a lowercase letter.",
+      "password_needs_uppercase": "Add an uppercase letter.",
+      "password_needs_number": "Add a number.",
+      "generic": "Something went wrong. Please try again."
+    }
+  },
+  "onboarding": {
+    "progress": "Step {current} of {total}",
+    "next": "Continue",
+    "back": "Back",
+    "finish": "Generate my profile",
+    "finishing": "Analyzing...",
+    "skip": "Skip for now",
+    "steps": {
+      "persona": { "title": "Who are you?", "subtitle": "Pick the role that fits you best." },
+      "skills": { "title": "Your skills", "subtitle": "Select what you excel at. Choose at least one." },
+      "goals": { "title": "Your goals", "subtitle": "What do you want to achieve on Partnerly?" },
+      "personality": { "title": "Your style", "subtitle": "Help us understand how you work. No right or wrong answers." },
+      "analysis": { "title": "Your Business DNA", "subtitle": "Here's what we learned about you." }
+    },
+    "persona": {
+      "FOUNDER": "Founder",
+      "INVESTOR": "Investor",
+      "DEVELOPER": "Developer",
+      "DESIGNER": "Designer",
+      "FREELANCER": "Freelancer",
+      "AGENCY": "Agency",
+      "MENTOR": "Mentor"
+    },
+    "fields": {
+      "city": "Your city",
+      "cityPlaceholder": "Milan",
+      "availability": "Availability",
+      "headline": "One line about you (optional)",
+      "headlinePlaceholder": "e.g. CTO looking for a product co-founder"
+    },
+    "availability": {
+      "FULL_TIME": "Full-time",
+      "PART_TIME": "Part-time",
+      "WEEKENDS": "Weekends",
+      "OCCASIONAL": "Occasional"
+    },
+    "industries": "Industries of interest",
+    "personality": {
+      "openness": "Openness to new things",
+      "conscientiousness": "Organization",
+      "extraversion": "Social energy",
+      "agreeableness": "Collaboration",
+      "risk": "Risk appetite",
+      "low": "Low",
+      "high": "High"
+    },
+    "result": {
+      "founderTypeLabel": "You're a",
+      "traitsLabel": "Your defining traits",
+      "matchesReady": "We've already found {count} matches for you.",
+      "noMatches": "We're finding the right matches for you.",
+      "cta": "Go to dashboard"
+    },
+    "errors": {
+      "validation_error": "Please check your answers and try again.",
+      "invalid_reference": "Invalid selection. Please reload the page.",
+      "generic": "Something went wrong. Please try again."
+    }
+  },
+  "dna": {
+    "founderType": {
+      "visionary": "Visionary",
+      "operator": "Operator",
+      "builder": "Builder",
+      "craftsman": "Product Craftsman",
+      "backer": "Backer",
+      "specialist": "Specialist",
+      "guide": "Guide"
+    },
+    "summary": {
+      "visionary": "You see opportunity where others see obstacles, and you inspire people to follow.",
+      "operator": "You turn ideas into execution: structure, discipline and results.",
+      "builder": "You build. Technology is your language and the product your signature.",
+      "craftsman": "You sweat every detail of the experience — for you, form is substance.",
+      "backer": "You spot value and fuel it with capital and vision.",
+      "specialist": "You bring deep, vertical expertise exactly where it's needed.",
+      "guide": "You've walked the road and you help others not get lost."
+    },
+    "trait": {
+      "boldRiskTaker": "Bold",
+      "measured": "Measured",
+      "executor": "Executor",
+      "innovator": "Innovator",
+      "connector": "Connector",
+      "focused": "Focused",
+      "collaborator": "Collaborative"
+    }
+  },
+  "match": {
+    "reason": {
+      "skills": "Complementary skills",
+      "goals": "Aligned goals",
+      "industry": "Same industry",
+      "availability": "Compatible availability",
+      "personality": "Compatible styles",
+      "location": "Same city"
+    }
+  },
+  "dashboard": {
+    "welcome": "Welcome back, {name}",
+    "subtitle": "Here's what's happening in your ecosystem today.",
+    "verifyBanner": "Verify your email to unlock all features.",
+    "logout": "Log out",
+    "cards": {
+      "matches": "Recent matches",
+      "matchesEmpty": "No matches yet. Complete your profile to get started.",
+      "projects": "Your projects",
+      "projectsEmpty": "No projects yet. Create one to start getting matches.",
+      "plan": "Your plan",
+      "activity": "Recent activity"
+    },
+    "completeProfile": "Complete profile",
+    "createProject": "Create project"
+  },
+  "footer": {
+    "tagline": "The AI ecosystem to build businesses in Italy.",
+    "product": "Product",
+    "company": "Company",
+    "legal": "Legal",
+    "links": {
+      "how": "How it works",
+      "features": "Features",
+      "pricing": "Pricing",
+      "projects": "Projects",
+      "about": "About",
+      "blog": "Blog",
+      "careers": "Careers",
+      "contact": "Contact",
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "cookies": "Cookies"
+    },
+    "rights": "All rights reserved.",
+    "madeIn": "Crafted with care in Italy."
+  }
+}

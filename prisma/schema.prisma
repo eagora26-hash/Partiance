@@ -1,0 +1,463 @@
+// ============================================================
+// PARTNERLY — Database schema (PostgreSQL via Prisma)
+// Source of truth: docs/DATABASE_ARCHITECTURE.md + MATCHING_ENGINE.md
+//                  + SUBSCRIPTION_SYSTEM.md + AUTH_SYSTEM.md
+// Designed for production: relations, indexes, constraints, cascade rules.
+// ============================================================
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ----------------------------------------------------------------
+// ENUMS
+// ----------------------------------------------------------------
+enum UserRole {
+  USER
+  ADMIN
+}
+
+enum PersonaType {
+  FOUNDER
+  INVESTOR
+  DEVELOPER
+  DESIGNER
+  FREELANCER
+  AGENCY
+  MENTOR
+}
+
+enum Availability {
+  FULL_TIME
+  PART_TIME
+  WEEKENDS
+  OCCASIONAL
+}
+
+enum ProjectStage {
+  IDEA
+  MVP
+  STARTUP
+  SCALING
+}
+
+enum ProjectStatus {
+  DRAFT
+  PUBLISHED
+  PAUSED
+  CLOSED
+}
+
+enum LookingFor {
+  COFOUNDER
+  INVESTOR
+  COLLABORATOR
+  MENTOR
+}
+
+enum MatchStatus {
+  PENDING
+  VIEWED
+  ACCEPTED
+  REJECTED
+}
+
+enum SubscriptionPlan {
+  FREE
+  PREMIUM
+  BUSINESS
+}
+
+enum SubscriptionStatus {
+  ACTIVE
+  PAST_DUE
+  CANCELED
+  INCOMPLETE
+}
+
+enum NotificationType {
+  MATCH
+  MESSAGE
+  SYSTEM
+  PROJECT
+  SUBSCRIPTION
+}
+
+// ----------------------------------------------------------------
+// AUTH (Auth.js / NextAuth models + Partnerly extensions)
+// ----------------------------------------------------------------
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  emailVerified DateTime?
+  // Null for OAuth-only accounts; bcrypt hash for credentials accounts.
+  passwordHash  String?
+  name          String?
+  image         String?
+  role          UserRole  @default(USER)
+  locale        String    @default("it")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Auth.js relations
+  accounts Account[]
+  sessions Session[]
+
+  // Domain relations
+  profile          Profile?
+  projects         Project[]
+  subscription     Subscription?
+  transactions     Transaction[]
+  notifications    Notification[]
+  activityLogs     ActivityLog[]
+  bookmarks        Bookmark[]
+  verificationTok  VerificationToken[]
+  passwordResets   PasswordResetToken[]
+  sentMatches      Match[]            @relation("MatchSource")
+  receivedMatches  Match[]            @relation("MatchTarget")
+  sentMessages     Message[]          @relation("MessageSender")
+  receivedMessages Message[]          @relation("MessageRecipient")
+
+  @@index([role])
+  @@map("users")
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@map("accounts")
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("sessions")
+}
+
+// Email verification (token-based, our own flow alongside Auth.js).
+model VerificationToken {
+  id        String   @id @default(cuid())
+  userId    String
+  token     String   @unique
+  expires   DateTime
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("verification_tokens")
+}
+
+model PasswordResetToken {
+  id        String   @id @default(cuid())
+  userId    String
+  token     String   @unique
+  expires   DateTime
+  usedAt    DateTime?
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("password_reset_tokens")
+}
+
+// ----------------------------------------------------------------
+// PROFILE & TAXONOMY
+// ----------------------------------------------------------------
+model Profile {
+  id           String        @id @default(cuid())
+  userId       String        @unique
+  persona      PersonaType?
+  headline     String?
+  bio          String?       @db.Text
+  city         String?
+  region       String?
+  availability Availability?
+  // Big-five-ish personality vector + onboarding "Business DNA" snapshot.
+  personality  Json?
+  businessDna  Json?
+  // Onboarding lifecycle
+  onboardingStep      Int     @default(0)
+  onboardingCompleted Boolean @default(false)
+  // Gamification scores (GAMIFICATION_SYSTEM.md)
+  trustScore   Int @default(0)
+  builderScore Int @default(0)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user       User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  skills     ProfileSkill[]
+  goals      ProfileGoal[]
+  industries ProfileIndustry[]
+
+  @@index([persona])
+  @@index([city])
+  @@map("profiles")
+}
+
+model Skill {
+  id      String         @id @default(cuid())
+  slug    String         @unique
+  nameIt  String
+  nameEn  String
+  profiles ProfileSkill[]
+
+  @@map("skills")
+}
+
+model Goal {
+  id      String        @id @default(cuid())
+  slug    String        @unique
+  nameIt  String
+  nameEn  String
+  profiles ProfileGoal[]
+
+  @@map("goals")
+}
+
+model Industry {
+  id       String            @id @default(cuid())
+  slug     String            @unique
+  nameIt   String
+  nameEn   String
+  profiles ProfileIndustry[]
+  projects ProjectIndustry[]
+
+  @@map("industries")
+}
+
+// Join tables (explicit so we can carry metadata e.g. proficiency).
+model ProfileSkill {
+  profileId String
+  skillId   String
+  level     Int     @default(3) // 1..5 proficiency
+
+  profile Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  skill   Skill   @relation(fields: [skillId], references: [id], onDelete: Cascade)
+
+  @@id([profileId, skillId])
+  @@index([skillId])
+  @@map("profile_skills")
+}
+
+model ProfileGoal {
+  profileId String
+  goalId    String
+
+  profile Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  goal    Goal    @relation(fields: [goalId], references: [id], onDelete: Cascade)
+
+  @@id([profileId, goalId])
+  @@index([goalId])
+  @@map("profile_goals")
+}
+
+model ProfileIndustry {
+  profileId  String
+  industryId String
+
+  profile  Profile  @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  industry Industry @relation(fields: [industryId], references: [id], onDelete: Cascade)
+
+  @@id([profileId, industryId])
+  @@index([industryId])
+  @@map("profile_industries")
+}
+
+// ----------------------------------------------------------------
+// PROJECTS
+// ----------------------------------------------------------------
+model Project {
+  id          String        @id @default(cuid())
+  ownerId     String
+  title       String
+  slug        String        @unique
+  description String        @db.Text
+  stage       ProjectStage  @default(IDEA)
+  status      ProjectStatus @default(DRAFT)
+  lookingFor  LookingFor[]
+  budgetCents Int? // budget in euro cents (avoid floats for money)
+  city        String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  owner      User              @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  industries ProjectIndustry[]
+  bookmarks  Bookmark[]
+
+  @@index([ownerId])
+  @@index([status])
+  @@index([stage])
+  @@map("projects")
+}
+
+model ProjectIndustry {
+  projectId  String
+  industryId String
+
+  project  Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  industry Industry @relation(fields: [industryId], references: [id], onDelete: Cascade)
+
+  @@id([projectId, industryId])
+  @@index([industryId])
+  @@map("project_industries")
+}
+
+model Bookmark {
+  id        String   @id @default(cuid())
+  userId    String
+  projectId String
+  createdAt DateTime @default(now())
+
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, projectId])
+  @@index([projectId])
+  @@map("bookmarks")
+}
+
+// ----------------------------------------------------------------
+// MATCHING (deterministic + AI-assisted; always explained)
+// ----------------------------------------------------------------
+model Match {
+  id       String      @id @default(cuid())
+  sourceId String
+  targetId String
+  score    Int // 0..100 overall compatibility
+  // Per-dimension breakdown so we can ALWAYS explain a match (MATCHING_ENGINE).
+  breakdown Json // { skills, goals, industry, availability, personality, location }
+  reasons   String[] // human-readable, localized keys
+  status    MatchStatus @default(PENDING)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  source User @relation("MatchSource", fields: [sourceId], references: [id], onDelete: Cascade)
+  target User @relation("MatchTarget", fields: [targetId], references: [id], onDelete: Cascade)
+
+  @@unique([sourceId, targetId])
+  @@index([targetId])
+  @@index([status])
+  @@map("matches")
+}
+
+// ----------------------------------------------------------------
+// MESSAGING
+// ----------------------------------------------------------------
+model Message {
+  id          String   @id @default(cuid())
+  senderId    String
+  recipientId String
+  body        String   @db.Text
+  readAt      DateTime?
+  createdAt   DateTime @default(now())
+
+  sender    User @relation("MessageSender", fields: [senderId], references: [id], onDelete: Cascade)
+  recipient User @relation("MessageRecipient", fields: [recipientId], references: [id], onDelete: Cascade)
+
+  @@index([senderId, recipientId])
+  @@index([recipientId, readAt])
+  @@map("messages")
+}
+
+// ----------------------------------------------------------------
+// SUBSCRIPTIONS & BILLING (Stripe is source of truth for access)
+// ----------------------------------------------------------------
+model Subscription {
+  id                   String             @id @default(cuid())
+  userId               String             @unique
+  plan                 SubscriptionPlan   @default(FREE)
+  status               SubscriptionStatus @default(ACTIVE)
+  stripeCustomerId     String?            @unique
+  stripeSubscriptionId String?            @unique
+  currentPeriodEnd     DateTime?
+  cancelAtPeriodEnd    Boolean            @default(false)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([plan])
+  @@map("subscriptions")
+}
+
+model Transaction {
+  id              String   @id @default(cuid())
+  userId          String
+  amountCents     Int
+  currency        String   @default("eur")
+  description     String?
+  stripePaymentId String?  @unique
+  createdAt       DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("transactions")
+}
+
+// ----------------------------------------------------------------
+// NOTIFICATIONS
+// ----------------------------------------------------------------
+model Notification {
+  id        String           @id @default(cuid())
+  userId    String
+  type      NotificationType
+  titleKey  String // i18n key (never hardcode text — runtime_rules)
+  data      Json?
+  readAt    DateTime?
+  createdAt DateTime         @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, readAt])
+  @@map("notifications")
+}
+
+// ----------------------------------------------------------------
+// ANALYTICS / AUDIT (METRICS_AND_EVENTS_SYSTEM.md)
+// ----------------------------------------------------------------
+model ActivityLog {
+  id        String   @id @default(cuid())
+  userId    String?
+  event     String // e.g. user_signed_up, match_generated (METRICS schema)
+  metadata  Json?
+  sessionId String?
+  ip        String?
+  createdAt DateTime @default(now())
+
+  user User? @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([event])
+  @@index([userId])
+  @@index([createdAt])
+  @@map("activity_logs")
+}
