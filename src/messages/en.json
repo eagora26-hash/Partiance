@@ -99,7 +99,63 @@
       "tourism": { "title": "Experiential Travel Marketplace", "desc": "A platform to book unique travel experiences.", "looking": "Investor", "budget": "€100,000", "tags": "MVP, Travel, Italy" },
       "food": { "title": "Sustainable Food Delivery", "desc": "Zero-kilometre, low-impact food delivery service.", "looking": "Marketing Manager", "budget": "€50,000", "tags": "Startup, Food, Bologna" },
       "edtech": { "title": "EdTech Platform", "desc": "High-quality online courses for students and professionals.", "looking": "Co-founder", "budget": "€30,000", "tags": "Idea, Education, Turin" }
+    },
+    "mine": {
+      "title": "Your projects",
+      "subtitle": "Manage the ideas you've published.",
+      "empty": "You haven't published any projects yet.",
+      "create": "New project",
+      "edit": "Edit",
+      "delete": "Delete",
+      "confirmDelete": "Delete this project? This cannot be undone.",
+      "status": { "PUBLISHED": "Published", "DRAFT": "Draft", "PAUSED": "Paused", "CLOSED": "Closed" }
+    },
+    "form": {
+      "newTitle": "Create a project",
+      "editTitle": "Edit project",
+      "title": "Project title",
+      "titlePlaceholder": "e.g. Corporate Wellness Platform",
+      "description": "Description",
+      "descriptionPlaceholder": "Describe your idea, what you're building and who you need...",
+      "stage": "Project stage",
+      "lookingFor": "What you're looking for",
+      "budget": "Available budget (€, optional)",
+      "city": "City (optional)",
+      "industries": "Industries",
+      "submit": "Publish project",
+      "submitting": "Publishing...",
+      "save": "Save changes",
+      "saving": "Saving..."
+    },
+    "stage": { "IDEA": "Idea", "MVP": "MVP", "STARTUP": "Startup", "SCALING": "Scaling" },
+    "lookingForOptions": {
+      "COFOUNDER": "Co-founder",
+      "INVESTOR": "Investor",
+      "COLLABORATOR": "Collaborator",
+      "MENTOR": "Mentor"
+    },
+    "errors": {
+      "validation_error": "Please check the project details.",
+      "title_too_short": "The title is too short.",
+      "title_too_long": "The title is too long.",
+      "description_too_short": "Description must be at least 20 characters.",
+      "description_too_long": "The description is too long.",
+      "looking_for_required": "Select at least one option.",
+      "forbidden": "You can't edit this project.",
+      "not_found": "Project not found.",
+      "rate_limited": "Too many requests. Try again shortly.",
+      "generic": "Something went wrong. Please try again."
     }
+  },
+  "explore": {
+    "title": "Explore projects",
+    "subtitle": "Discover ideas looking for partners across Italy.",
+    "empty": "No projects found with these filters.",
+    "filters": { "all": "All", "stage": "Stage", "lookingFor": "Looking for" },
+    "by": "by",
+    "bookmark": "Save",
+    "bookmarked": "Saved",
+    "openProject": "Open project"
   },
   "ai": {
     "eyebrow": "The AI operating system",
@@ -327,6 +383,9 @@
     "subtitle": "Here's what's happening in your ecosystem today.",
     "verifyBanner": "Verify your email to unlock all features.",
     "logout": "Log out",
+    "navDashboard": "Dashboard",
+    "navExplore": "Explore",
+    "navProjects": "Projects",
     "cards": {
       "matches": "Recent matches",
       "matchesEmpty": "No matches yet. Complete your profile to get started.",

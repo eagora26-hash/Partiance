@@ -99,6 +99,52 @@
       "tourism": { "title": "Marketplace Turismo Esperienziale", "desc": "Piattaforma per prenotare esperienze di viaggio uniche.", "looking": "Investitore", "budget": "100.000 €", "tags": "MVP, Turismo, Italia" },
       "food": { "title": "Food Delivery Sostenibile", "desc": "Servizio di consegna cibo a km0 e a basso impatto ambientale.", "looking": "Marketing Manager", "budget": "50.000 €", "tags": "Startup, Food, Bologna" },
       "edtech": { "title": "Piattaforma EdTech", "desc": "Corsi online di alta qualità per studenti e professionisti.", "looking": "Co-founder", "budget": "30.000 €", "tags": "Idea, Education, Torino" }
+    },
+    "mine": {
+      "title": "I tuoi progetti",
+      "subtitle": "Gestisci le idee che hai pubblicato.",
+      "empty": "Non hai ancora pubblicato progetti.",
+      "create": "Nuovo progetto",
+      "edit": "Modifica",
+      "delete": "Elimina",
+      "confirmDelete": "Eliminare questo progetto? L'azione è irreversibile.",
+      "status": { "PUBLISHED": "Pubblicato", "DRAFT": "Bozza", "PAUSED": "In pausa", "CLOSED": "Chiuso" }
+    },
+    "form": {
+      "newTitle": "Crea un progetto",
+      "editTitle": "Modifica progetto",
+      "title": "Titolo del progetto",
+      "titlePlaceholder": "Es. Piattaforma Wellness Aziendale",
+      "description": "Descrizione",
+      "descriptionPlaceholder": "Descrivi la tua idea, cosa stai costruendo e chi cerchi...",
+      "stage": "Fase del progetto",
+      "lookingFor": "Cosa cerchi",
+      "budget": "Budget disponibile (€, opzionale)",
+      "city": "Città (opzionale)",
+      "industries": "Settori",
+      "submit": "Pubblica progetto",
+      "submitting": "Pubblicazione...",
+      "save": "Salva modifiche",
+      "saving": "Salvataggio..."
+    },
+    "stage": { "IDEA": "Idea", "MVP": "MVP", "STARTUP": "Startup", "SCALING": "Scaling" },
+    "lookingForOptions": {
+      "COFOUNDER": "Co-founder",
+      "INVESTOR": "Investitore",
+      "COLLABORATOR": "Collaboratore",
+      "MENTOR": "Mentor"
+    },
+    "errors": {
+      "validation_error": "Controlla i dati del progetto.",
+      "title_too_short": "Il titolo è troppo corto.",
+      "title_too_long": "Il titolo è troppo lungo.",
+      "description_too_short": "La descrizione deve avere almeno 20 caratteri.",
+      "description_too_long": "La descrizione è troppo lunga.",
+      "looking_for_required": "Seleziona almeno un'opzione.",
+      "forbidden": "Non puoi modificare questo progetto.",
+      "not_found": "Progetto non trovato.",
+      "rate_limited": "Troppe richieste. Riprova tra poco.",
+      "generic": "Qualcosa è andato storto. Riprova."
     }
   },
   "ai": {
@@ -224,6 +270,16 @@
       "generic": "Qualcosa è andato storto. Riprova."
     }
   },
+  "explore": {
+    "title": "Esplora progetti",
+    "subtitle": "Scopri idee in cerca di partner in tutta Italia.",
+    "empty": "Nessun progetto trovato con questi filtri.",
+    "filters": { "all": "Tutti", "stage": "Fase", "lookingFor": "Cerca" },
+    "by": "di",
+    "bookmark": "Salva",
+    "bookmarked": "Salvato",
+    "openProject": "Apri progetto"
+  },
   "onboarding": {
     "progress": "Passo {current} di {total}",
     "next": "Continua",
@@ -327,6 +383,9 @@
     "subtitle": "Ecco cosa succede oggi nel tuo ecosistema.",
     "verifyBanner": "Conferma la tua email per sbloccare tutte le funzionalità.",
     "logout": "Esci",
+    "navDashboard": "Dashboard",
+    "navExplore": "Esplora",
+    "navProjects": "Progetti",
     "cards": {
       "matches": "Match recenti",
       "matchesEmpty": "Nessun match ancora. Completa il profilo per iniziare.",
