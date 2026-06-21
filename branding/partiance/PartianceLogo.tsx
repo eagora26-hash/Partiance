@@ -1,25 +1,28 @@
+// =============================================================================
+//  <PartianceLogo /> — the Partiance symbol (2D vector form of the 3D hero mark).
+//  Two interlocked links: Partner (graphite, back) + Alliance (cyan, front).
+//  This is the 2D lockup mark used in nav / footer / favicons. The REAL hero is
+//  the animated GLB rendered by <PartianceHero /> — this is its flat companion.
+//
+//  Canonical source lives in /branding/partiance. The app imports the runtime
+//  copy at src/components/brand/PartianceLogo.tsx (kept in sync with this file).
+// =============================================================================
 'use client';
 
 import { motion, useReducedMotion } from 'framer-motion';
-import { cn } from '@/lib/utils';
 
-/**
- * PARTIANCE MARK (2D)
- * Concept: two interlocked links = Partner + Alliance.
- * Partner (graphite) sits behind, Alliance (cyan) passes in front — the flat
- * companion to the 3D hero mark in Partiance.glb. On hover the cyan link pulses,
- * echoing the "alliance completing" idea.
- * Canonical source: /branding/partiance/PartianceLogo.tsx
- */
-export function LogoMark({
-  className,
-  size = 28,
-  animated = true,
-}: {
+export interface PartianceLogoProps {
   className?: string;
   size?: number;
   animated?: boolean;
-}) {
+}
+
+/**
+ * The Partiance symbol — two interlocked links.
+ * Partner (graphite) sits behind, Alliance (cyan) passes in front. On hover the
+ * cyan link pulses brighter, echoing the "alliance completing" idea.
+ */
+export function PartianceLogo({ className, size = 28, animated = true }: PartianceLogoProps) {
   const reduce = useReducedMotion();
   const enable = animated && !reduce;
 
@@ -31,7 +34,8 @@ export function LogoMark({
       fill="none"
       role="img"
       aria-label="Partiance"
-      className={cn('overflow-visible', className)}
+      className={className}
+      style={{ overflow: 'visible' }}
       initial="rest"
       whileHover={enable ? 'hover' : undefined}
     >
@@ -91,24 +95,4 @@ export function LogoMark({
   );
 }
 
-/** Full lockup: mark + wordmark. */
-export function Logo({
-  className,
-  showWordmark = true,
-  size = 28,
-}: {
-  className?: string;
-  showWordmark?: boolean;
-  size?: number;
-}) {
-  return (
-    <span className={cn('inline-flex items-center gap-2.5 select-none', className)}>
-      <LogoMark size={size} />
-      {showWordmark && (
-        <span className="font-display text-[1.18rem] font-bold tracking-tight text-ink">
-          Partiance
-        </span>
-      )}
-    </span>
-  );
-}
+export default PartianceLogo;

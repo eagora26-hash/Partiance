@@ -1,7 +1,7 @@
 # SYSTEM INTEGRATION MAP
 
 ## 1. Overview
-Aceasta este harta de integrare a tuturor sistemelor din platforma Partnerly.
+Aceasta este harta de integrare a tuturor sistemelor din platforma Partiance.
 Scopul: să definească clar cum circulă datele și deciziile între module.
 
 ---

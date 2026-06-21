@@ -8,5 +8,5 @@ node node_modules/prisma/build/index.js migrate deploy || {
   echo "⚠ prisma migrate deploy failed; the app may not have a schema yet." >&2
 }
 
-echo "→ Starting Partnerly..."
+echo "→ Starting Partiance..."
 exec "$@"

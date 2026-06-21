@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="640" viewBox="0 0 600 640" fill="none" role="img" aria-label="Partiance">
+  <defs>
+    <linearGradient id="partner" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3A434B"/><stop offset="1" stop-color="#11151B"/>
+    </linearGradient>
+    <linearGradient id="alliance" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4FF0E6"/><stop offset="0.5" stop-color="#22E3D6"/><stop offset="1" stop-color="#12B5AB"/>
+    </linearGradient>
+  </defs>
+  <!-- Symbol: two interlocked links (2D simplified of the 3D hero). Partner (graphite) + Alliance (cyan). -->
+  <g transform="translate(300,250)">
+    <!-- Partner link (back) -->
+    <rect x="-150" y="-100" width="200" height="220" rx="62"
+          fill="none" stroke="url(#partner)" stroke-width="56"/>
+    <!-- knockout gap where Alliance passes in front -->
+    <line x1="50" y1="-66" x2="50" y2="48" stroke="#06080C" stroke-width="86" stroke-linecap="round"/>
+    <!-- Alliance link (front) -->
+    <rect x="-50" y="-120" width="180" height="200" rx="58"
+          fill="none" stroke="url(#alliance)" stroke-width="56"/>
+  </g>
+  <!-- Wordmark -->
+  <text x="300" y="560" text-anchor="middle"
+        font-family="'Space Grotesk','Geist','Inter',system-ui,sans-serif"
+        font-size="92" font-weight="500" letter-spacing="0.01em" fill="#EAF1F4">Partiance</text>
+</svg>

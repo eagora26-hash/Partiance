@@ -1,6 +1,6 @@
 # 00_CLAUDE_START_HERE.md
 
-# PARTNERLY - CLAUDE START HERE
+# PARTIANCE - CLAUDE START HERE
 
 ## VERY IMPORTANT
 
@@ -30,13 +30,13 @@ READ ALL AND I MEAN ALL OF THE FILES INSIDE THE "docs" folder inside this projec
 
 # PROJECT IDENTITY
 
-You are building Partnerly.
+You are building Partiance.
 
-Partnerly is an AI-powered business ecosystem built for Italy.
+Partiance is an AI-powered business ecosystem built for Italy.
 
-Partnerly helps entrepreneurs, co-founders, investors and professionals build businesses together.
+Partiance helps entrepreneurs, co-founders, investors and professionals build businesses together.
 
-Partnerly is NOT:
+Partiance is NOT:
 
 * LinkedIn
 * Tinder
@@ -44,7 +44,7 @@ Partnerly is NOT:
 * A job board
 * A social network
 
-Partnerly IS:
+Partiance IS:
 
 An AI Business Operating System.
 
@@ -86,7 +86,7 @@ Build a company.
 
 # PRODUCT PHILOSOPHY
 
-Partnerly is:
+Partiance is:
 
 Elegant
 
@@ -245,7 +245,7 @@ Think component libraries first.
 
 # MOBILE FIRST RULE
 
-Partnerly is mobile-first.
+Partiance is mobile-first.
 
 Desktop is secondary.
 
@@ -577,7 +577,7 @@ Never skip reasoning.
 
 # FINAL RULE
 
-Build Partnerly as if:
+Build Partiance as if:
 
 * 10 million users will use it
 * investors will analyze it

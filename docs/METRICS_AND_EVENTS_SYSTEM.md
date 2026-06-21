@@ -1,7 +1,7 @@
 # METRICS & EVENTS SYSTEM
 
 ## 1. Purpose
-Defines all measurable system behaviors, events, and KPIs for Partnerly.
+Defines all measurable system behaviors, events, and KPIs for Partiance.
 
 ---
 

@@ -1,46 +1,46 @@
 # ============================================================
-# PARTNERLY — full stack, single command:  docker compose up -d
+# PARTIANCE — full stack, single command:  docker compose up -d
 # Brings up Postgres, MailHog (dev email capture) and the Next.js app.
 # Production-shaped (healthchecks, named volumes, restart policies).
 # ============================================================
 services:
   db:
     image: postgres:16-alpine
-    container_name: partnerly-db
+    container_name: partiance-db
     restart: unless-stopped
     environment:
-      POSTGRES_USER: partnerly
-      POSTGRES_PASSWORD: partnerly
-      POSTGRES_DB: partnerly
+      POSTGRES_USER: partiance
+      POSTGRES_PASSWORD: partiance
+      POSTGRES_DB: partiance
     ports:
       # Host 5434 → container 5432 (5432/5433 are taken by other local Postgres).
       - '5434:5432'
     volumes:
-      - partnerly-db-data:/var/lib/postgresql/data
+      - partiance-db-data:/var/lib/postgresql/data
     healthcheck:
-      test: ['CMD-SHELL', 'pg_isready -U partnerly -d partnerly']
+      test: ['CMD-SHELL', 'pg_isready -U partiance -d partiance']
       interval: 5s
       timeout: 5s
       retries: 10
     networks:
-      - partnerly
+      - partiance
 
   # Dev email capture — view sent mail at http://localhost:8025
   mailhog:
     image: mailhog/mailhog:latest
-    container_name: partnerly-mailhog
+    container_name: partiance-mailhog
     restart: unless-stopped
     ports:
       - '1025:1025' # SMTP
       - '8025:8025' # Web UI
     networks:
-      - partnerly
+      - partiance
 
   app:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: partnerly-app
+    container_name: partiance-app
     restart: unless-stopped
     depends_on:
       db:
@@ -49,21 +49,21 @@ services:
       NODE_ENV: production
       APP_URL: ${APP_URL:-http://localhost:3000}
       # Inside the compose network the DB host is `db`, not localhost.
-      DATABASE_URL: postgresql://partnerly:partnerly@db:5432/partnerly?schema=public
+      DATABASE_URL: postgresql://partiance:partiance@db:5432/partiance?schema=public
       AUTH_SECRET: ${AUTH_SECRET:-dev-insecure-secret-change-me-in-production}
       AUTH_TRUST_HOST: 'true'
-      EMAIL_FROM: ${EMAIL_FROM:-Partnerly <no-reply@partnerly.it>}
+      EMAIL_FROM: ${EMAIL_FROM:-Partiance <no-reply@partiance.it>}
       SMTP_HOST: mailhog
       SMTP_PORT: '1025'
       NEXT_PUBLIC_POSTHOG_HOST: ${NEXT_PUBLIC_POSTHOG_HOST:-https://eu.posthog.com}
     ports:
       - '3000:3000'
     networks:
-      - partnerly
+      - partiance
 
 volumes:
-  partnerly-db-data:
+  partiance-db-data:
 
 networks:
-  partnerly:
+  partiance:
     driver: bridge

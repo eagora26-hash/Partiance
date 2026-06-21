@@ -28,17 +28,17 @@ export async function generateMetadata({
   const isIt = locale === 'it';
 
   const title = isIt
-    ? 'Partnerly — Trova soci, investitori e collaboratori con l’AI'
-    : 'Partnerly — Find co-founders, investors & collaborators with AI';
+    ? 'Partiance — Trova soci, investitori e collaboratori con l’AI'
+    : 'Partiance — Find co-founders, investors & collaborators with AI';
   const description = isIt
     ? 'La piattaforma AI che unisce imprenditori, investitori e professionisti in Italia per trasformare le idee in grandi business.'
     : 'The AI platform connecting entrepreneurs, investors and professionals in Italy to turn ideas into great businesses.';
 
   return {
-    metadataBase: new URL('https://partnerly.it'),
+    metadataBase: new URL('https://partiance.it'),
     title: { default: title, template: `%s · ${t('brand')}` },
     description,
-    applicationName: 'Partnerly',
+    applicationName: 'Partiance',
     keywords: isIt
       ? ['trova soci', 'co-founder Italia', 'investitori startup', 'business partner AI', 'matching imprenditori']
       : ['find co-founder', 'Italy startup investors', 'business partner AI', 'entrepreneur matching'],
@@ -49,7 +49,7 @@ export async function generateMetadata({
     openGraph: {
       type: 'website',
       locale: isIt ? 'it_IT' : 'en_US',
-      siteName: 'Partnerly',
+      siteName: 'Partiance',
       title,
       description,
     },

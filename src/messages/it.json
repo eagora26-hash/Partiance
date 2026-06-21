@@ -1,6 +1,6 @@
 {
   "common": {
-    "brand": "Partnerly",
+    "brand": "Partiance",
     "tagline": "Build Better Together",
     "getStarted": "Registrati gratis",
     "explore": "Scopri la piattaforma",
@@ -150,7 +150,7 @@
   "ai": {
     "eyebrow": "Il sistema operativo AI",
     "title": "Non solo match. Un copilota per il tuo business.",
-    "subtitle": "Partnerly non si ferma alla connessione. Ti accompagna mentre costruisci.",
+    "subtitle": "Partiance non si ferma alla connessione. Ti accompagna mentre costruisci.",
     "features": {
       "match": { "title": "Co-Founder Match AI", "desc": "Compatibilità calcolata su competenze, obiettivi e valori. Ogni match è spiegato." },
       "validator": { "title": "Validatore di Idee", "desc": "Valuta la tua idea di business e ricevi un punteggio con punti di forza e rischi." },
@@ -192,10 +192,10 @@
     "eyebrow": "Domande frequenti",
     "title": "Tutto quello che vuoi sapere",
     "items": {
-      "what": { "q": "Cos'è esattamente Partnerly?", "a": "Partnerly è un sistema operativo AI per il business: connette imprenditori, co-founder, investitori e professionisti e li aiuta a costruire aziende insieme, più velocemente." },
+      "what": { "q": "Cos'è esattamente Partiance?", "a": "Partiance è un sistema operativo AI per il business: connette imprenditori, co-founder, investitori e professionisti e li aiuta a costruire aziende insieme, più velocemente." },
       "how": { "q": "Come funziona il match AI?", "a": "La nostra AI analizza competenze, obiettivi, settore, disponibilità e valori per calcolare la compatibilità. Ogni match è sempre spiegato, mai un semplice numero." },
       "free": { "q": "È davvero gratis?", "a": "Sì. Il piano Free è gratuito per sempre e include 10 match al mese, un progetto e l'accesso alla community. Nessuna carta richiesta." },
-      "italy": { "q": "È pensata per l'Italia?", "a": "Esatto. Partnerly nasce italiana: copywriting, città, settori e community sono costruiti per il mercato italiano, in italiano e in inglese." },
+      "italy": { "q": "È pensata per l'Italia?", "a": "Esatto. Partiance nasce italiana: copywriting, città, settori e community sono costruiti per il mercato italiano, in italiano e in inglese." },
       "data": { "q": "I miei dati sono al sicuro?", "a": "La sicurezza è una priorità. Usiamo autenticazione di livello enterprise e non condividiamo mai i tuoi dati senza il tuo consenso." }
     }
   },
@@ -290,7 +290,7 @@
     "steps": {
       "persona": { "title": "Chi sei?", "subtitle": "Scegli il ruolo che ti rappresenta meglio." },
       "skills": { "title": "Le tue competenze", "subtitle": "Seleziona ciò in cui eccelli. Scegline almeno una." },
-      "goals": { "title": "I tuoi obiettivi", "subtitle": "Cosa vuoi ottenere con Partnerly?" },
+      "goals": { "title": "I tuoi obiettivi", "subtitle": "Cosa vuoi ottenere con Partiance?" },
       "personality": { "title": "Il tuo stile", "subtitle": "Aiutaci a capire come lavori. Niente risposte giuste o sbagliate." },
       "analysis": { "title": "Il tuo Business DNA", "subtitle": "Ecco cosa abbiamo capito di te." }
     },

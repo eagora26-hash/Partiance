@@ -40,7 +40,7 @@ export function Navbar() {
             scrolled ? 'glass shadow-glass' : 'border border-transparent bg-transparent'
           )}
         >
-          <a href="#top" className="rounded-full focus-visible:outline-accent" aria-label="Partnerly">
+          <a href="#top" className="rounded-full focus-visible:outline-accent" aria-label="Partiance">
             <Logo />
           </a>
 

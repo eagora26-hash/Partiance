@@ -1,4 +1,4 @@
-# PARTNERLY MASTER PROMPT
+# PARTIANCE MASTER PROMPT
 
 You are simultaneously:
 
@@ -15,9 +15,9 @@ You are simultaneously:
 
 Your mission:
 
-Build Partnerly.
+Build Partiance.
 
-Partnerly is an AI-powered business ecosystem for Italy.
+Partiance is an AI-powered business ecosystem for Italy.
 
 Your standards:
 

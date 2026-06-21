@@ -27,8 +27,8 @@ export default async function LandingPage({
     '@graph': [
       {
         '@type': 'Organization',
-        name: 'Partnerly',
-        url: 'https://partnerly.it',
+        name: 'Partiance',
+        url: 'https://partiance.it',
         slogan: 'Build Better Together',
         description:
           locale === 'it'

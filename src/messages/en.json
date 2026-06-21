@@ -1,6 +1,6 @@
 {
   "common": {
-    "brand": "Partnerly",
+    "brand": "Partiance",
     "tagline": "Build Better Together",
     "getStarted": "Sign up free",
     "explore": "Explore the platform",
@@ -160,7 +160,7 @@
   "ai": {
     "eyebrow": "The AI operating system",
     "title": "Not just matches. A copilot for your business.",
-    "subtitle": "Partnerly doesn't stop at the connection. It stays with you while you build.",
+    "subtitle": "Partiance doesn't stop at the connection. It stays with you while you build.",
     "features": {
       "match": { "title": "Co-Founder Match AI", "desc": "Compatibility computed on skills, goals and values. Every match is explained." },
       "validator": { "title": "Idea Validator", "desc": "Score your business idea and get its strengths and risks at a glance." },
@@ -202,10 +202,10 @@
     "eyebrow": "Frequently asked questions",
     "title": "Everything you want to know",
     "items": {
-      "what": { "q": "What exactly is Partnerly?", "a": "Partnerly is an AI business operating system: it connects entrepreneurs, co-founders, investors and professionals and helps them build companies together, faster." },
+      "what": { "q": "What exactly is Partiance?", "a": "Partiance is an AI business operating system: it connects entrepreneurs, co-founders, investors and professionals and helps them build companies together, faster." },
       "how": { "q": "How does the AI match work?", "a": "Our AI analyses skills, goals, industry, availability and values to compute compatibility. Every match is always explained, never just a number." },
       "free": { "q": "Is it really free?", "a": "Yes. The Free plan is free forever and includes 10 matches a month, one project and community access. No card required." },
-      "italy": { "q": "Is it built for Italy?", "a": "Exactly. Partnerly is Italian by design: copy, cities, industries and community are built for the Italian market, in Italian and English." },
+      "italy": { "q": "Is it built for Italy?", "a": "Exactly. Partiance is Italian by design: copy, cities, industries and community are built for the Italian market, in Italian and English." },
       "data": { "q": "Is my data safe?", "a": "Security is a priority. We use enterprise-grade authentication and never share your data without your consent." }
     }
   },
@@ -290,7 +290,7 @@
     "steps": {
       "persona": { "title": "Who are you?", "subtitle": "Pick the role that fits you best." },
       "skills": { "title": "Your skills", "subtitle": "Select what you excel at. Choose at least one." },
-      "goals": { "title": "Your goals", "subtitle": "What do you want to achieve on Partnerly?" },
+      "goals": { "title": "Your goals", "subtitle": "What do you want to achieve on Partiance?" },
       "personality": { "title": "Your style", "subtitle": "Help us understand how you work. No right or wrong answers." },
       "analysis": { "title": "Your Business DNA", "subtitle": "Here's what we learned about you." }
     },

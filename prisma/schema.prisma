@@ -1,5 +1,5 @@
 // ============================================================
-// PARTNERLY — Database schema (PostgreSQL via Prisma)
+// PARTIANCE — Database schema (PostgreSQL via Prisma)
 // Source of truth: docs/DATABASE_ARCHITECTURE.md + MATCHING_ENGINE.md
 //                  + SUBSCRIPTION_SYSTEM.md + AUTH_SYSTEM.md
 // Designed for production: relations, indexes, constraints, cascade rules.
@@ -89,7 +89,7 @@ enum NotificationType {
 }
 
 // ----------------------------------------------------------------
-// AUTH (Auth.js / NextAuth models + Partnerly extensions)
+// AUTH (Auth.js / NextAuth models + Partiance extensions)
 // ----------------------------------------------------------------
 model User {
   id            String    @id @default(cuid())

@@ -1,5 +1,5 @@
 # ============================================================
-# PARTNERLY — production image (multi-stage, standalone output)
+# PARTIANCE — production image (multi-stage, standalone output)
 # ============================================================
 
 # ---- deps: install with frozen lockfile ----

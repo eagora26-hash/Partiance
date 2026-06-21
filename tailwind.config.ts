@@ -1,7 +1,7 @@
 import type { Config } from 'tailwindcss';
 
 /**
- * PARTNERLY DESIGN TOKENS
+ * PARTIANCE DESIGN TOKENS
  * Theme: Luxury Tech Minimalism
  * Source of truth: docs/DESIGN_SYSTEM.md + DESIGN_TOKENS.md + TYPOGRAPHY_SYSTEM.md
  *

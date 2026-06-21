@@ -33,3 +33,8 @@ next-env.d.ts
 .vscode/*
 !.vscode/extensions.json
 .idea
+
+# brand prototype workspace — 210MB, nested git repo, heavy node_modules.
+# The canonical app-facing assets are mirrored into /branding/partiance and /public,
+# so the main repo tracks those (small) instead of this whole prototype workspace.
+/Partiance_Brand/
