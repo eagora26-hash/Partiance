@@ -24,6 +24,7 @@ export function Navbar() {
   const tc = useTranslations('common');
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [hovered, setHovered] = useState<string | null>(null);
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, 'change', (y) => setScrolled(y > 12));
@@ -34,26 +35,42 @@ export function Navbar() {
         <motion.nav
           initial={{ y: -24, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className={cn(
             'flex w-full max-w-content items-center justify-between rounded-full px-3 py-2 pl-4 transition-all duration-500 ease-premium',
-            scrolled ? 'glass shadow-glass' : 'border border-transparent bg-transparent'
+            scrolled ? 'glass shadow-glass ring-grad' : 'border border-transparent bg-transparent'
           )}
         >
-          <a href="#top" className="rounded-full focus-visible:outline-accent" aria-label="Partiance">
+          <a
+            href="#top"
+            className="group/logo relative rounded-full focus-visible:outline-accent"
+            aria-label="Partiance"
+          >
+            <span className="absolute -inset-2 -z-10 rounded-full bg-primary/0 blur-md transition-colors duration-500 group-hover/logo:bg-primary/15" />
             <Logo />
           </a>
 
-          {/* Desktop links */}
-          <ul className="hidden items-center gap-1 lg:flex">
+          {/* Desktop links with a sliding hover pill */}
+          <ul
+            className="relative hidden items-center gap-1 lg:flex"
+            onMouseLeave={() => setHovered(null)}
+          >
             {NAV_KEYS.map((key) => (
-              <li key={key}>
+              <li key={key} className="relative" onMouseEnter={() => setHovered(key)}>
                 <a
                   href={ANCHORS[key]}
-                  className="rounded-full px-3.5 py-2 text-caption font-medium text-muted transition-colors duration-300 hover:text-ink"
+                  className="relative z-10 block rounded-full px-3.5 py-2 text-caption font-medium text-muted transition-colors duration-300 hover:text-ink"
                 >
                   {t(key)}
                 </a>
+                {hovered === key && (
+                  <motion.span
+                    layoutId="nav-pill"
+                    aria-hidden
+                    className="absolute inset-0 rounded-full bg-white/[0.06] ring-1 ring-white/10"
+                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                  />
+                )}
               </li>
             ))}
           </ul>
@@ -75,7 +92,7 @@ export function Navbar() {
               onClick={() => setOpen((v) => !v)}
               aria-label={open ? t('close') : t('menu')}
               aria-expanded={open}
-              className="grid h-11 w-11 place-items-center rounded-full glass text-ink lg:hidden"
+              className="grid h-11 w-11 place-items-center rounded-full glass text-ink transition-colors hover:text-primary-hover lg:hidden"
             >
               {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
@@ -91,9 +108,13 @@ export function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 flex flex-col bg-base/80 backdrop-blur-xl lg:hidden"
+            className="fixed inset-0 z-40 flex flex-col bg-base/85 backdrop-blur-2xl lg:hidden"
           >
-            <nav className="mt-24 flex flex-1 flex-col gap-1 px-6">
+            <div
+              aria-hidden
+              className="pointer-events-none absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-primary/20 blur-[120px]"
+            />
+            <nav className="relative mt-24 flex flex-1 flex-col gap-1 px-6">
               {NAV_KEYS.map((key, i) => (
                 <motion.a
                   key={key}
@@ -102,9 +123,12 @@ export function Navbar() {
                   initial={{ opacity: 0, x: 16 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.06 * i, ease: [0.22, 1, 0.36, 1] }}
-                  className="border-b border-white/5 py-4 text-h4 font-semibold text-ink"
+                  className="group flex items-center justify-between border-b border-white/5 py-4 text-h4 font-semibold text-ink"
                 >
                   {t(key)}
+                  <span className="text-primary opacity-0 transition-opacity group-hover:opacity-100">
+                    →
+                  </span>
                 </motion.a>
               ))}
 

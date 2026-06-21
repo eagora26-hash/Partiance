@@ -4,39 +4,54 @@
 
 /* ============================================================
    PARTIANCE — DESIGN TOKENS (CSS layer / source of truth)
-   Luxury Tech Minimalism. Dark-first.
-   ============================================================ */
+   Graphite + teal-cyan identity, derived from the logo.
+   Dark-first. ============================================================ */
 @layer base {
   :root {
-    /* Surfaces */
-    --c-base: 5 8 22; /* #050816 */
-    --c-surface: 11 17 32; /* #0B1120 */
-    --c-elevated: 17 24 43; /* raised glass */
+    /* ----------------------------------------------------------------
+       PALETTE DERIVED FROM THE LOGO (public/Partiance.glb materials)
+         Alliance link  emissive [0.025, 1, 0.925]  -> brand teal-cyan
+         Partner link   metallic graphite #0D0F11
+         Wordmark       cool white #DBE6ED
+       The whole system is a graphite + teal-cyan identity — not generic
+       SaaS blue. Every glow, gradient and shadow traces back to here.
+       ---------------------------------------------------------------- */
 
-    /* Brand */
-    --c-primary: 56 189 248; /* #38BDF8 */
-    --c-primary-hover: 92 204 253; /* #5CCCFD */
-    --c-accent: 103 232 249; /* #67E8F9 */
-    --c-iris: 124 108 255; /* #7C6CFF */
+    /* Surfaces — deep space, warmed very slightly toward teal */
+    --c-base: 4 8 10; /* #04080A near-black graphite */
+    --c-surface: 9 17 19; /* #091113 panel */
+    --c-elevated: 14 25 28; /* #0E191C raised glass */
+    --c-graphite: 13 15 17; /* #0D0F11 the Partner link */
 
-    /* Text */
-    --c-ink: 249 250 251; /* #F9FAFB */
-    --c-muted: 148 163 184; /* #94A3B8 */
-    --c-faint: 100 116 139; /* #64748B */
+    /* Brand — the Alliance cyan, in three steps */
+    --c-primary: 20 200 188; /* #14C8BC deep teal (Alliance, dimmed) */
+    --c-primary-hover: 46 242 222; /* #2EF2DE the emissive glow */
+    --c-accent: 64 248 224; /* #40F8E0 brightest highlight */
+    --c-iris: 91 216 255; /* #5BD8FF cool cyan support (teal-leaning) */
 
-    /* Semantic */
-    --c-success: 52 211 153; /* emerald */
-    --c-warning: 251 191 36;
-    --c-danger: 248 113 113;
+    /* Text — from the wordmark */
+    --c-ink: 232 241 242; /* #E8F1F2 cool white */
+    --c-muted: 138 160 162; /* #8AA0A2 desaturated teal-grey */
+    --c-faint: 92 110 112; /* #5C6E70 dim */
 
-    /* Lines & glass */
-    --border: 255 255 255;
+    /* Semantic — harmonised to the teal world */
+    --c-success: 45 222 180;
+    --c-warning: 245 197 110;
+    --c-danger: 255 122 122;
+
+    /* Lines & glass — hairlines pick up a faint teal */
+    --border: 198 240 236; /* cool-white with teal cast */
     --border-alpha: 0.08;
-    --glass-alpha: 0.04;
+    --glass-alpha: 0.045;
+
+    /* Mouse-follow spotlight (px / vw), updated on <body> by MouseGlow */
+    --mx: 50vw;
+    --my: 28vh;
 
     /* Motion */
     --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
     --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 
     color-scheme: dark;
   }
@@ -48,15 +63,12 @@
   html {
     -webkit-text-size-adjust: 100%;
     scroll-behavior: smooth;
-    /* Keep gutter stable so opening menus/modals never shifts layout */
     scrollbar-gutter: stable;
   }
 
   body {
     background-color: rgb(var(--c-base));
     color: rgb(var(--c-ink));
-    /* Hard guard against accidental horizontal scroll (mobile-first rule).
-       overflow-x: clip keeps position: sticky working, unlike hidden. */
     overflow-x: clip;
     font-feature-settings: 'ss01', 'cv01', 'cv11';
     -webkit-font-smoothing: antialiased;
@@ -64,7 +76,6 @@
     text-rendering: optimizeLegibility;
   }
 
-  /* Headings inherit the display face by default */
   h1, h2, h3, h4, h5 {
     font-family: var(--font-display), var(--font-sans), sans-serif;
     text-wrap: balance;
@@ -74,18 +85,17 @@
   }
 
   ::selection {
-    background: rgb(var(--c-primary) / 0.3);
-    color: rgb(var(--c-ink));
+    background: rgb(var(--c-accent) / 0.28);
+    color: #fff;
   }
 
-  /* Focus: visible, premium, never ugly */
   :focus-visible {
     outline: 2px solid rgb(var(--c-accent));
     outline-offset: 2px;
     border-radius: 4px;
   }
 
-  /* Slim, dark scrollbar */
+  /* Slim, teal-tinted scrollbar */
   ::-webkit-scrollbar {
     width: 10px;
     height: 10px;
@@ -94,17 +104,16 @@
     background: transparent;
   }
   ::-webkit-scrollbar-thumb {
-    background: rgb(var(--border) / 0.12);
+    background: rgb(var(--c-primary) / 0.22);
     border-radius: 999px;
     border: 2px solid transparent;
     background-clip: content-box;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: rgb(var(--border) / 0.2);
+    background: rgb(var(--c-primary) / 0.4);
     background-clip: content-box;
   }
 
-  /* Respect users who prefer reduced motion (ACCESSIBILITY_SYSTEM) */
   @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -121,25 +130,64 @@
    COMPONENT-LEVEL PRIMITIVES
    ============================================================ */
 @layer components {
-  /* Glass surface — the signature material */
+  /* Glass surface — the signature material, teal-tinted hairline */
   .glass {
     background:
       linear-gradient(
         180deg,
-        rgb(var(--border) / 0.06),
-        rgb(var(--border) / 0.02)
+        rgb(var(--border) / 0.07),
+        rgb(var(--border) / 0.018)
       );
-    backdrop-filter: blur(18px) saturate(140%);
-    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    backdrop-filter: blur(20px) saturate(150%);
+    -webkit-backdrop-filter: blur(20px) saturate(150%);
     border: 1px solid rgb(var(--border) / var(--border-alpha));
   }
 
-  /* Brand text gradient (use on emphasis words) */
+  /* Heavier, darker glass for elevated panels (pricing, modals) */
+  .glass-deep {
+    background:
+      linear-gradient(180deg, rgb(var(--c-elevated) / 0.85), rgb(var(--c-surface) / 0.7));
+    backdrop-filter: blur(28px) saturate(150%);
+    -webkit-backdrop-filter: blur(28px) saturate(150%);
+    border: 1px solid rgb(var(--border) / 0.1);
+  }
+
+  /* Brand text gradient — Alliance cyan, animated shimmer */
   .text-gradient {
-    background: linear-gradient(120deg, #5ccffd 0%, #67e8f9 40%, #9d8cff 100%);
+    background: linear-gradient(
+      100deg,
+      rgb(var(--c-iris)) 0%,
+      rgb(var(--c-accent)) 38%,
+      rgb(var(--c-primary-hover)) 70%,
+      rgb(var(--c-iris)) 100%
+    );
+    background-size: 200% 100%;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+    animation: gradient-pan 9s var(--ease-premium) infinite;
+  }
+
+  /* Gradient hairline ring used on cards / chips */
+  .ring-grad {
+    position: relative;
+  }
+  .ring-grad::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      140deg,
+      rgb(var(--c-accent) / 0.5),
+      rgb(var(--border) / 0.08) 35%,
+      transparent 60%
+    );
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
   }
 
   /* Hairline divider that fades at the edges */
@@ -148,8 +196,8 @@
     background: linear-gradient(
       90deg,
       transparent,
-      rgb(var(--border) / 0.14) 18%,
-      rgb(var(--border) / 0.14) 82%,
+      rgb(var(--c-primary) / 0.25) 18%,
+      rgb(var(--c-primary) / 0.25) 82%,
       transparent
     );
   }
@@ -159,29 +207,100 @@
    UTILITIES
    ============================================================ */
 @layer utilities {
-  /* Subtle film grain to kill banding on dark gradients */
+  /* Film grain to kill banding on dark gradients */
   .grain::after {
     content: '';
     position: absolute;
     inset: 0;
     pointer-events: none;
-    opacity: 0.025;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    mix-blend-mode: overlay;
   }
 
   .mask-fade-b {
     -webkit-mask-image: linear-gradient(180deg, #000 60%, transparent);
     mask-image: linear-gradient(180deg, #000 60%, transparent);
   }
+  .mask-fade-y {
+    -webkit-mask-image: linear-gradient(180deg, transparent, #000 12%, #000 88%, transparent);
+    mask-image: linear-gradient(180deg, transparent, #000 12%, #000 88%, transparent);
+  }
+  .mask-fade-edges {
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  }
 
   .perspective {
     perspective: 1200px;
   }
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
 
-  /* Tabular, slashed-zero numerics for stats & scores */
+  /* Tabular numerics for stats & scores */
   .tnum {
     font-family: var(--font-numeric), var(--font-sans), sans-serif;
     font-variant-numeric: tabular-nums slashed-zero;
     font-feature-settings: 'tnum', 'zero';
+  }
+
+  /* Conic spinning border (used on the loading state / live chips) */
+  .conic-border::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: conic-gradient(
+      from 0deg,
+      transparent 0deg,
+      rgb(var(--c-accent) / 0.9) 40deg,
+      transparent 120deg
+    );
+    animation: spin-slow 5s linear infinite;
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    padding: 1px;
+    pointer-events: none;
+  }
+}
+
+/* ============================================================
+   KEYFRAMES that the Tailwind config references via class names
+   but which need raw CSS (the rest live in tailwind.config.ts).
+   ============================================================ */
+@keyframes gradient-pan {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes ripple {
+  to {
+    transform: translate(-50%, -50%) scale(34);
+    opacity: 0;
+  }
+}
+@keyframes aurora-drift {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+  }
+  33% {
+    transform: translate3d(4%, -3%, 0) rotate(8deg) scale(1.08);
+  }
+  66% {
+    transform: translate3d(-3%, 4%, 0) rotate(-6deg) scale(0.96);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
   }
 }

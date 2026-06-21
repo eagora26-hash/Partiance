@@ -15,12 +15,22 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative mt-12 border-t border-white/5">
-      <div className="container py-16">
+    <footer className="relative mt-12 overflow-hidden">
+      {/* top gradient edge + ambient pool */}
+      <div aria-hidden className="hairline absolute inset-x-0 top-0" />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -bottom-40 left-1/2 h-80 w-[60rem] max-w-full -translate-x-1/2 rounded-full bg-primary/10 blur-[140px]"
+      />
+
+      <div className="container relative py-16">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
           {/* Brand */}
           <div className="max-w-xs">
-            <Logo />
+            <span className="group/logo relative inline-flex">
+              <span className="absolute -inset-3 -z-10 rounded-full bg-primary/0 blur-md transition-colors duration-500 group-hover/logo:bg-primary/15" />
+              <Logo />
+            </span>
             <p className="mt-4 text-body-sm leading-relaxed text-muted">{t('tagline')}</p>
             <div className="mt-6">
               <LocaleSwitch />
@@ -30,15 +40,21 @@ export function Footer() {
           {/* Link columns */}
           {(Object.keys(COLUMNS) as (keyof typeof COLUMNS)[]).map((col) => (
             <nav key={col} aria-label={t(col)}>
-              <h2 className="text-caption font-semibold uppercase tracking-wide text-faint">{t(col)}</h2>
+              <h2 className="text-caption font-semibold uppercase tracking-wide text-faint">
+                {t(col)}
+              </h2>
               <ul className="mt-4 space-y-3">
                 {COLUMNS[col].map((link) => (
                   <li key={link}>
                     <Link
                       href="#"
-                      className="text-body-sm text-muted transition-colors duration-300 hover:text-ink"
+                      className="group/link relative inline-flex text-body-sm text-muted transition-colors duration-300 hover:text-ink"
                     >
                       {t(`links.${link}`)}
+                      <span
+                        aria-hidden
+                        className="absolute -bottom-0.5 left-0 h-px w-full origin-left scale-x-0 bg-brand-gradient transition-transform duration-300 ease-premium group-hover/link:scale-x-100"
+                      />
                     </Link>
                   </li>
                 ))}

@@ -11,7 +11,7 @@
 
 import { Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { useGLTF, Environment, ContactShadows } from '@react-three/drei';
+import { useGLTF, Environment } from '@react-three/drei';
 import { EffectComposer, Bloom } from '@react-three/postprocessing';
 import * as THREE from 'three';
 
@@ -42,11 +42,14 @@ function HeroObject({ state }: { state: HeroState }) {
 
   // Spin speed + cyan emissive intensity per state. Applied continuously (lerped),
   // not just via clips, so IDLE<->LOADING transitions stay smooth.
-  const target = useRef({ speed: 0.35, emissive: 3.4 });
+  // Emissive kept deliberately restrained: the ring should read as luminous metal,
+  // never a blown-out blob — its geometry must stay legible. The (light) bloom pass
+  // adds the halo, so the material itself doesn't need to clip to white.
+  const target = useRef({ speed: 0.35, emissive: 1.5 });
   useEffect(() => {
-    if (state === 'LOADING') target.current = { speed: 1.6, emissive: 5.5 };
-    else if (state === 'HOVER') target.current = { speed: 0.35, emissive: 4.4 };
-    else target.current = { speed: 0.35, emissive: 3.4 };
+    if (state === 'LOADING') target.current = { speed: 1.6, emissive: 2.3 };
+    else if (state === 'HOVER') target.current = { speed: 0.35, emissive: 1.9 };
+    else target.current = { speed: 0.35, emissive: 1.5 };
 
     // Play the hover micro-tilt clip once when entering HOVER.
     if (state === 'HOVER' && actions['hover']) {
@@ -96,22 +99,27 @@ function HeroObject({ state }: { state: HeroState }) {
 function Scene({ state }: { state: HeroState }) {
   return (
     <>
-      <ambientLight intensity={0.22} />
-      <directionalLight position={[3, 4, 3]} intensity={2.4} />
-      <directionalLight position={[-3, 1, 2]} intensity={0.5} color="#9FD8E8" />
-      <pointLight position={[-2, 2.6, -3]} intensity={6} color="#22E3D6" />
+      {/* Lighting tuned to sculpt the graphite Partner link without flooding the
+          frame — no ground plane / contact shadows, so nothing paints a visible
+          rectangle. The only bright element is the cyan ring itself. */}
+      <ambientLight intensity={0.35} />
+      <directionalLight position={[3, 4, 3]} intensity={1.8} />
+      <directionalLight position={[-3, 1, 2]} intensity={0.45} color="#9FD8E8" />
+      <pointLight position={[-2, 2.4, -3]} intensity={3} color="#22E3D6" distance={9} decay={2} />
       <Suspense fallback={null}>
         <HeroObject state={state} />
-        <Environment preset="night" environmentIntensity={0.3} />
-        <ContactShadows position={[0, -1.4, 0]} opacity={0.35} blur={2.8} scale={7} />
+        {/* Image-based lighting only — never rendered as a background. */}
+        <Environment preset="night" environmentIntensity={0.35} />
       </Suspense>
+      {/* Refined bloom: a high luminance threshold means only the cyan ring's hot
+          core blooms, so the halo stays tight and the geometry reads clearly. */}
       <EffectComposer>
         <Bloom
-          intensity={0.7}
-          luminanceThreshold={0.65}
-          luminanceSmoothing={0.3}
+          intensity={0.42}
+          luminanceThreshold={0.9}
+          luminanceSmoothing={0.25}
           mipmapBlur
-          radius={0.5}
+          radius={0.35}
         />
       </EffectComposer>
     </>
@@ -145,10 +153,23 @@ export function PartianceHero({ loading = false, height = '100%', className }: P
     );
   }
 
+  // Feather the canvas region into the page on every edge. The canvas is
+  // transparent (alpha), but the *lit* object still has a soft footprint; this
+  // elliptical mask dissolves that footprint toward the edges so there is no
+  // rectangular boundary — while keeping a wide, fully-opaque core so the logo
+  // and wordmark are never clipped. Taller than wide to match the lockup.
+  const featherMask =
+    'radial-gradient(78% 92% at 50% 46%, #000 70%, rgba(0,0,0,0.55) 84%, transparent 100%)';
+
   return (
     <div
       className={className}
-      style={{ width: '100%', height }}
+      style={{
+        width: '100%',
+        height,
+        WebkitMaskImage: featherMask,
+        maskImage: featherMask,
+      }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       onFocus={() => setHovered(true)}
@@ -159,7 +180,10 @@ export function PartianceHero({ loading = false, height = '100%', className }: P
       <Canvas
         dpr={[1, 2]}
         camera={{ position: [0, 0.1, 4.2], fov: 42 }}
-        gl={{ alpha: true, antialias: true }}
+        gl={{ alpha: true, antialias: true, toneMapping: THREE.ACESFilmicToneMapping }}
+        onCreated={({ gl }) => {
+          gl.toneMappingExposure = 0.92;
+        }}
       >
         <Scene state={state} />
       </Canvas>

@@ -39,7 +39,7 @@ export function GlassCard({
     my.set(e.clientY - r.top);
   };
 
-  const glow = useMotionTemplate`radial-gradient(420px circle at ${mx}px ${my}px, rgba(103,232,249,0.12), transparent 60%)`;
+  const glow = useMotionTemplate`radial-gradient(420px circle at ${mx}px ${my}px, rgba(46,242,222,0.14), transparent 60%)`;
 
   return (
     <Comp
