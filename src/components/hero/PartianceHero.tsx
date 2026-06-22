@@ -314,16 +314,29 @@ export interface PartianceHeroProps {
   /** Hero canvas height. */
   height?: number | string;
   className?: string;
+  /**
+   * Watermark mode — when the mark is used as a subtle background identity
+   * element rather than a focal centerpiece. Skips the one-time intro burst
+   * and all hover interaction; just the calm idle rotation. The parent layer
+   * supplies the low opacity / blur / masking.
+   */
+  watermark?: boolean;
 }
 
-export function PartianceHero({ loading = false, height = '100%', className }: PartianceHeroProps) {
+export function PartianceHero({
+  loading = false,
+  height = '100%',
+  className,
+  watermark = false,
+}: PartianceHeroProps) {
   const [ok, setOk] = useState(false);
   const [hovered, setHovered] = useState(false);
-  // Intro plays once per session and never for reduced-motion users.
+  // Intro plays once per session and never for reduced-motion / watermark uses.
   const [phase, setPhase] = useState<Phase>('LIVE');
 
   useEffect(() => {
     setOk(webglOK());
+    if (watermark) return; // background watermark never plays the intro
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     let played = true;
     try {
@@ -339,16 +352,21 @@ export function PartianceHero({ loading = false, height = '100%', className }: P
         /* ignore */
       }
     }
-  }, []);
+  }, [watermark]);
 
-  const state: HeroState = loading ? 'LOADING' : hovered ? 'HOVER' : 'IDLE';
+  const state: HeroState = loading ? 'LOADING' : hovered && !watermark ? 'HOVER' : 'IDLE';
 
   if (!ok) {
-    // SVG fallback — same identity, no WebGL.
+    // SVG fallback — same identity, no WebGL. The watermark layer dims it itself.
     return (
       <div className={className} style={{ width: '100%', height, display: 'grid', placeItems: 'center' }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/Partiance-fallback.svg" alt="Partiance" style={{ width: 320, maxWidth: '70%' }} />
+        <img
+          src="/Partiance-fallback.svg"
+          alt={watermark ? '' : 'Partiance'}
+          aria-hidden={watermark || undefined}
+          style={{ width: 320, maxWidth: '70%' }}
+        />
       </div>
     );
   }
@@ -358,8 +376,10 @@ export function PartianceHero({ loading = false, height = '100%', className }: P
   // elliptical mask dissolves that footprint toward the edges so there is no
   // rectangular boundary — while keeping a wide, fully-opaque core so the logo
   // and wordmark are never clipped. Taller than wide to match the lockup.
-  const featherMask =
-    'radial-gradient(78% 92% at 50% 46%, #000 70%, rgba(0,0,0,0.55) 84%, transparent 100%)';
+  // Watermark mode skips this (the parent layer supplies its own mask + opacity).
+  const featherMask = watermark
+    ? undefined
+    : 'radial-gradient(78% 92% at 50% 46%, #000 70%, rgba(0,0,0,0.55) 84%, transparent 100%)';
 
   return (
     <div
@@ -370,12 +390,13 @@ export function PartianceHero({ loading = false, height = '100%', className }: P
         WebkitMaskImage: featherMask,
         maskImage: featherMask,
       }}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      onFocus={() => setHovered(true)}
-      onBlur={() => setHovered(false)}
-      aria-label="Partiance"
-      role="img"
+      onMouseEnter={watermark ? undefined : () => setHovered(true)}
+      onMouseLeave={watermark ? undefined : () => setHovered(false)}
+      onFocus={watermark ? undefined : () => setHovered(true)}
+      onBlur={watermark ? undefined : () => setHovered(false)}
+      aria-hidden={watermark || undefined}
+      aria-label={watermark ? undefined : 'Partiance'}
+      role={watermark ? undefined : 'img'}
     >
       <Canvas
         dpr={[1, 2]}

@@ -40,11 +40,11 @@ export function Hero() {
   const reduce = useReducedMotion();
   const ref = useRef<HTMLDivElement>(null);
 
-  // Parallax: the 3D stage drifts up + fades slightly as you scroll past it.
+  // Parallax: the watermark logo drifts slowly + fades as you scroll past it.
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });
-  const stageY = useTransform(scrollYProgress, [0, 1], [0, reduce ? 0 : -80]);
-  const stageOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0.35]);
-  const ringsRotate = useTransform(scrollYProgress, [0, 1], [0, reduce ? 0 : 40]);
+  const markY = useTransform(scrollYProgress, [0, 1], [0, reduce ? 0 : -60]);
+  const markOpacity = useTransform(scrollYProgress, [0, 0.85], [1, reduce ? 1 : 0.2]);
+  const ringsRotate = useTransform(scrollYProgress, [0, 1], [0, reduce ? 0 : 30]);
 
   const valueProps = [
     { icon: Users, key: 'soci', tone: 'text-primary bg-primary/12 ring-primary/25' },
@@ -53,46 +53,37 @@ export function Hero() {
   ] as const;
 
   return (
-    <section id="top" className="relative overflow-hidden pt-24 sm:pt-28 lg:pt-32">
-      {/* === CENTERPIECE: the REAL 3D Partiance hero logo, on a depth stage ===
-          Sized to read as a refined emblem above the headline — present and
-          luminous, but no longer the whole viewport. The lockup (mark → badge →
-          title → CTA) is tuned to feel like one composed unit. */}
+    <section id="top" className="relative overflow-hidden pt-32 sm:pt-36 lg:pt-44">
+      {/* === TEXT-FIRST HERO ===
+          The message and primary CTA lead. The 3D Partiance mark is demoted to a
+          subtle background watermark behind the copy — present as a secondary
+          identity cue (low opacity, soft blur, slow rotation), never competing
+          for attention. */}
       <div ref={ref} className="relative flex flex-col items-center text-center">
+        {/* --- background brand watermark (decorative, behind the text) --- */}
         <motion.div
-          style={{ y: stageY, opacity: stageOpacity }}
-          className="relative h-[34vh] min-h-[260px] w-full max-w-2xl sm:h-[38vh] lg:h-[42vh]"
+          aria-hidden
+          style={{ y: markY, opacity: markOpacity }}
+          className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[40rem] w-[40rem] max-w-[120vw] -translate-x-1/2 -translate-y-[58%] select-none"
         >
-          {/* layered glow pool behind the object */}
-          <div
-            aria-hidden
-            className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[34rem] w-[34rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/12 blur-[120px] animate-breathe"
-          />
-          {/* orbiting decorative rings (parallax-rotated) */}
+          {/* soft glow pool that anchors the watermark */}
+          <div className="absolute left-1/2 top-1/2 h-[30rem] w-[30rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/10 blur-[130px] animate-breathe" />
+          {/* faint orbiting rings, slowly parallax-rotated */}
           <motion.div
-            aria-hidden
             style={{ rotate: ringsRotate }}
-            className="pointer-events-none absolute left-1/2 top-1/2 -z-[5] hidden -translate-x-1/2 -translate-y-1/2 sm:block"
+            className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 sm:block"
           >
-            <div className="h-[26rem] w-[26rem] rounded-full border border-primary/10" />
-            <div className="absolute inset-7 rounded-full border border-iris/10" />
-            <div className="absolute inset-16 rounded-full border border-accent/10" />
-            {/* a couple of nodes riding the ring */}
-            <span className="absolute left-1/2 top-0 h-2 w-2 -translate-x-1/2 rounded-full bg-accent shadow-[0_0_16px_rgba(46,242,222,0.9)]" />
-            <span className="absolute bottom-8 right-10 h-1.5 w-1.5 rounded-full bg-iris shadow-[0_0_12px_rgba(91,216,255,0.9)]" />
+            <div className="h-[28rem] w-[28rem] rounded-full border border-primary/[0.06]" />
+            <div className="absolute inset-8 rounded-full border border-iris/[0.05]" />
+            <div className="absolute inset-20 rounded-full border border-accent/[0.05]" />
           </motion.div>
-
-          <PartianceHero height="100%" />
-
-          {/* grounding reflection — a soft luminous floor pool that settles the
-              mark into the page instead of letting it float, sold subtly. */}
-          <div
-            aria-hidden
-            className="pointer-events-none absolute bottom-2 left-1/2 h-10 w-[18rem] max-w-[70%] -translate-x-1/2 rounded-[100%] bg-primary/20 blur-2xl"
-          />
+          {/* the real 3D mark, dimmed + blurred + masked into the page */}
+          <div className="absolute inset-0 opacity-[0.12] blur-[2px] [mask-image:radial-gradient(60%_60%_at_50%_45%,#000_30%,transparent_78%)] [-webkit-mask-image:radial-gradient(60%_60%_at_50%_45%,#000_30%,transparent_78%)]">
+            <PartianceHero height="100%" watermark />
+          </div>
         </motion.div>
 
-        <motion.div custom={0} variants={fadeUp} initial="hidden" animate="show" className="-mt-3">
+        <motion.div custom={0} variants={fadeUp} initial="hidden" animate="show">
           <Badge tone="glass" dot>
             {t('badge')}
           </Badge>
@@ -124,7 +115,7 @@ export function Hero() {
           variants={fadeUp}
           initial="hidden"
           animate="show"
-          className="mt-8 flex flex-col gap-3 sm:flex-row"
+          className="mt-9 flex flex-col gap-3 sm:flex-row"
         >
           <Button href="/register" size="lg" iconRight={<ArrowRight className="h-4 w-4" />}>
             {t('ctaPrimary')}
