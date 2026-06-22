@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { GlassCard } from '@/components/ui/GlassCard';
+import { TiltCard } from '@/components/ui/TiltCard';
 import { Avatar } from '@/components/ui/Avatar';
 import { cn } from '@/lib/utils';
 
@@ -26,20 +26,20 @@ export function PersonCard({
 }) {
   return (
     <motion.div
-      className={cn('w-[15.5rem]', className)}
+      className={cn('w-full', className)}
       animate={{ y: [0, -8, 0] }}
       transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: floatDelay }}
     >
-      <GlassCard className="p-4" interactive={false}>
+      <TiltCard intensity={6} className="p-4">
         <div className="flex items-start justify-between gap-2">
-          <div className="flex items-center gap-3">
+          <div className="flex min-w-0 items-center gap-3">
             <Avatar name={name} size={44} />
-            <div>
-              <p className="text-body-sm font-semibold leading-tight text-ink">{name}</p>
-              <p className="text-micro text-muted">{role}</p>
+            <div className="min-w-0">
+              <p className="truncate text-body-sm font-semibold leading-tight text-ink">{name}</p>
+              <p className="truncate text-micro text-muted">{role}</p>
             </div>
           </div>
-          <span className="inline-flex items-center gap-1 rounded-full border border-success/30 bg-success/10 px-2 py-0.5 text-[0.65rem] font-semibold text-success">
+          <span className="inline-flex shrink-0 items-center gap-1 whitespace-nowrap rounded-full border border-success/30 bg-success/10 px-2 py-0.5 text-[0.65rem] font-semibold text-success">
             {matchLabel} {matchValue}%
           </span>
         </div>
@@ -51,7 +51,7 @@ export function PersonCard({
           ))}
         </div>
         <p className="mt-3 text-[0.7rem] text-faint">{location}</p>
-      </GlassCard>
+      </TiltCard>
     </motion.div>
   );
 }

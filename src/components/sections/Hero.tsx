@@ -167,7 +167,7 @@ export function Hero() {
             ))}
           </motion.ul>
 
-          <div className="relative -mx-5 overflow-x-clip px-5 sm:mx-0 sm:px-0">
+          <div className="relative min-w-0">
             <HeroVisual />
           </div>
         </div>

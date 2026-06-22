@@ -15,9 +15,11 @@ type GlassCardProps = {
 };
 
 /**
- * The signature surface: glass material + a cursor-following spotlight
- * (a hairline of light that traces the pointer over the border).
- * Spotlight is GPU-cheap (one radial-gradient bound to motion values).
+ * The signature surface: premium glass material + a cursor-following teal
+ * spotlight + a gradient hairline ring that lights up on hover. GPU-cheap
+ * (one radial-gradient bound to motion values). For display cards that should
+ * also tilt in 3D, use <TiltCard> instead — this is the non-tilting variant
+ * used for large panels and form containers where tilt would hurt usability.
  */
 export function GlassCard({
   children,
@@ -48,11 +50,16 @@ export function GlassCard({
       className={cn(
         'group relative overflow-hidden rounded-card glass shadow-glass',
         'transition-[transform,box-shadow] duration-500 ease-premium',
-        interactive && !reduce && 'hover:-translate-y-1 hover:shadow-lift',
+        interactive && !reduce && 'hover:-translate-y-1 hover:shadow-glow-lg',
         className
       )}
       style={{ willChange: interactive ? 'transform' : undefined }}
     >
+      {/* gradient hairline ring — lights up on hover */}
+      <span
+        aria-hidden
+        className="pointer-events-none absolute inset-0 rounded-card opacity-0 transition-opacity duration-500 group-hover:opacity-100 ring-grad"
+      />
       {spotlight && !reduce && (
         <motion.span
           aria-hidden
@@ -60,10 +67,10 @@ export function GlassCard({
           style={{ background: glow }}
         />
       )}
-      {/* top sheen */}
+      {/* top sheen — teal-tinted */}
       <span
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/25 to-transparent"
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent"
       />
       <div className="relative">{children}</div>
     </Comp>

@@ -14,8 +14,13 @@ export function CompatibilityRing({ value = 93, label }: { value?: number; label
 
   return (
     <div className="relative grid h-[116px] w-[116px] shrink-0 place-items-center">
+      {/* soft teal halo behind the gauge */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-2 rounded-full bg-primary/15 blur-xl"
+      />
       <svg viewBox="0 0 110 110" className="h-full w-full -rotate-90">
-        <circle cx="55" cy="55" r={r} fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="8" />
+        <circle cx="55" cy="55" r={r} fill="none" stroke="rgba(198,240,236,0.08)" strokeWidth="8" />
         <motion.circle
           cx="55"
           cy="55"
@@ -25,6 +30,7 @@ export function CompatibilityRing({ value = 93, label }: { value?: number; label
           strokeWidth="8"
           strokeLinecap="round"
           strokeDasharray={c}
+          filter="url(#ring-glow)"
           initial={{ strokeDashoffset: reduce ? target : c }}
           whileInView={{ strokeDashoffset: target }}
           viewport={{ once: true }}
@@ -32,9 +38,17 @@ export function CompatibilityRing({ value = 93, label }: { value?: number; label
         />
         <defs>
           <linearGradient id="ring-grad" x1="0" y1="0" x2="110" y2="110">
-            <stop stopColor="#38BDF8" />
-            <stop offset="1" stopColor="#9D8CFF" />
+            <stop stopColor="#14C8BC" />
+            <stop offset="0.5" stopColor="#2EF2DE" />
+            <stop offset="1" stopColor="#5BD8FF" />
           </linearGradient>
+          <filter id="ring-glow" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur stdDeviation="1.6" result="b" />
+            <feMerge>
+              <feMergeNode in="b" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
         </defs>
       </svg>
       <div className="absolute inset-0 grid place-content-center text-center">
