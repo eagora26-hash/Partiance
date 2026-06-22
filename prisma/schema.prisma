@@ -7,6 +7,10 @@
 
 generator client {
   provider = "prisma-client-js"
+  // Build the query engine for the local dev host AND the Debian-based
+  // production runtime image (node:22-slim → debian-openssl-3.0.x), so the
+  // Prisma client/migrations run correctly in the Render container.
+  binaryTargets = ["native", "debian-openssl-3.0.x"]
 }
 
 datasource db {

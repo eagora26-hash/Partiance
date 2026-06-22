@@ -2,6 +2,7 @@
   "name": "partiance",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@9.15.9",
   "description": "Partiance — Italy's AI Business Operating System. Build Better Together.",
   "scripts": {
     "dev": "next dev",
@@ -56,5 +57,15 @@
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@prisma/client",
+      "@prisma/engines",
+      "prisma",
+      "esbuild",
+      "sharp",
+      "unrs-resolver"
+    ]
   }
 }
