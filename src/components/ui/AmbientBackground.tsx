@@ -27,6 +27,20 @@ export function AmbientBackground({ className }: { className?: string }) {
         {/* 2 — mesh-gradient wash */}
         <div className="absolute inset-0 bg-mesh-hero opacity-80" />
 
+        {/* 2b — volumetric light beams (god-rays) raking down from top.
+            Two soft, blurred shafts on independent slow sways → atmospheric depth,
+            never distracting. Pure CSS transforms (GPU). */}
+        <div className="absolute inset-x-0 top-[-12%] h-[85vh] overflow-hidden [mask-image:radial-gradient(75%_70%_at_50%_0%,#000_30%,transparent_78%)]">
+          <div
+            className="absolute left-[34%] top-[-30%] h-[150%] w-[18rem] origin-top animate-beam-sway bg-[linear-gradient(180deg,rgba(46,242,222,0.16),rgba(20,200,188,0.05)_45%,transparent_75%)] blur-[60px]"
+            style={{ ['--beam-rot' as string]: '13deg' }}
+          />
+          <div
+            className="absolute left-[64%] top-[-30%] h-[150%] w-[14rem] origin-top animate-beam-sway bg-[linear-gradient(180deg,rgba(91,216,255,0.14),rgba(91,216,255,0.04)_45%,transparent_75%)] blur-[70px]"
+            style={{ ['--beam-rot' as string]: '-10deg', animationDelay: '-6s', animationDuration: '20s' }}
+          />
+        </div>
+
         {/* 3 — drifting aurora blobs */}
         <div className="absolute -left-[12%] top-[-14%] h-[46rem] w-[46rem] rounded-full bg-primary/25 blur-[150px] animate-aurora" />
         <div

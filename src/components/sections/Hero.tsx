@@ -54,16 +54,19 @@ export function Hero() {
 
   return (
     <section id="top" className="relative overflow-hidden pt-24 sm:pt-28 lg:pt-32">
-      {/* === CENTERPIECE: the REAL 3D Partiance hero logo, on a depth stage === */}
+      {/* === CENTERPIECE: the REAL 3D Partiance hero logo, on a depth stage ===
+          Sized to read as a refined emblem above the headline — present and
+          luminous, but no longer the whole viewport. The lockup (mark → badge →
+          title → CTA) is tuned to feel like one composed unit. */}
       <div ref={ref} className="relative flex flex-col items-center text-center">
         <motion.div
           style={{ y: stageY, opacity: stageOpacity }}
-          className="relative h-[46vh] min-h-[340px] w-full max-w-3xl sm:h-[54vh] lg:h-[60vh]"
+          className="relative h-[34vh] min-h-[260px] w-full max-w-2xl sm:h-[38vh] lg:h-[42vh]"
         >
           {/* layered glow pool behind the object */}
           <div
             aria-hidden
-            className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[40rem] w-[40rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/12 blur-[130px] animate-breathe"
+            className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[34rem] w-[34rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/12 blur-[120px] animate-breathe"
           />
           {/* orbiting decorative rings (parallax-rotated) */}
           <motion.div
@@ -71,18 +74,25 @@ export function Hero() {
             style={{ rotate: ringsRotate }}
             className="pointer-events-none absolute left-1/2 top-1/2 -z-[5] hidden -translate-x-1/2 -translate-y-1/2 sm:block"
           >
-            <div className="h-[30rem] w-[30rem] rounded-full border border-primary/10" />
-            <div className="absolute inset-8 rounded-full border border-iris/10" />
-            <div className="absolute inset-20 rounded-full border border-accent/10" />
+            <div className="h-[26rem] w-[26rem] rounded-full border border-primary/10" />
+            <div className="absolute inset-7 rounded-full border border-iris/10" />
+            <div className="absolute inset-16 rounded-full border border-accent/10" />
             {/* a couple of nodes riding the ring */}
             <span className="absolute left-1/2 top-0 h-2 w-2 -translate-x-1/2 rounded-full bg-accent shadow-[0_0_16px_rgba(46,242,222,0.9)]" />
             <span className="absolute bottom-8 right-10 h-1.5 w-1.5 rounded-full bg-iris shadow-[0_0_12px_rgba(91,216,255,0.9)]" />
           </motion.div>
 
           <PartianceHero height="100%" />
+
+          {/* grounding reflection — a soft luminous floor pool that settles the
+              mark into the page instead of letting it float, sold subtly. */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute bottom-2 left-1/2 h-10 w-[18rem] max-w-[70%] -translate-x-1/2 rounded-[100%] bg-primary/20 blur-2xl"
+          />
         </motion.div>
 
-        <motion.div custom={0} variants={fadeUp} initial="hidden" animate="show" className="-mt-2">
+        <motion.div custom={0} variants={fadeUp} initial="hidden" animate="show" className="-mt-3">
           <Badge tone="glass" dot>
             {t('badge')}
           </Badge>

@@ -48,7 +48,7 @@ export function GlassCard({
       ref={ref as never}
       onMouseMove={spotlight && !reduce ? onMove : undefined}
       className={cn(
-        'group relative overflow-hidden rounded-card glass shadow-glass',
+        'group relative overflow-hidden rounded-card glass shadow-glass card-edge',
         'transition-[transform,box-shadow] duration-500 ease-premium',
         interactive && !reduce && 'hover:-translate-y-1 hover:shadow-glow-lg',
         className
@@ -60,6 +60,10 @@ export function GlassCard({
         aria-hidden
         className="pointer-events-none absolute inset-0 rounded-card opacity-0 transition-opacity duration-500 group-hover:opacity-100 ring-grad"
       />
+      {/* reflective gloss sweep on hover */}
+      {!reduce && (
+        <span aria-hidden className="card-sheen pointer-events-none absolute inset-0 overflow-hidden rounded-card" />
+      )}
       {spotlight && !reduce && (
         <motion.span
           aria-hidden

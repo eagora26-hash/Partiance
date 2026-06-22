@@ -165,6 +165,11 @@ const config: Config = {
           '0%, 100%': { opacity: '1' },
           '50%': { opacity: '0' },
         },
+        // Volumetric light beam: a slow sway + breathe, sold as a god-ray shaft.
+        'beam-sway': {
+          '0%, 100%': { transform: 'translateX(-50%) rotate(var(--beam-rot,14deg)) scaleY(1)', opacity: '0.5' },
+          '50%': { transform: 'translateX(-50%) rotate(calc(var(--beam-rot,14deg) + 4deg)) scaleY(1.08)', opacity: '0.85' },
+        },
       },
       animation: {
         'fade-up': 'fade-up 0.7s var(--ease-premium) both',
@@ -178,6 +183,7 @@ const config: Config = {
         breathe: 'breathe 7s ease-in-out infinite',
         'shine-sweep': 'shine-sweep 5s var(--ease-premium) infinite',
         marquee: 'marquee 38s linear infinite',
+        'beam-sway': 'beam-sway 16s ease-in-out infinite',
       },
     },
   },

@@ -102,7 +102,7 @@ export function TiltCard({
       className={cn(
         'group relative overflow-hidden rounded-card [transform-style:preserve-3d]',
         'transition-shadow duration-500 ease-premium',
-        surface && 'glass shadow-glass hover:shadow-glow-lg',
+        surface && 'glass shadow-glass card-edge hover:shadow-glow-lg',
         className
       )}
     >
@@ -111,6 +111,8 @@ export function TiltCard({
         aria-hidden
         className="pointer-events-none absolute inset-0 rounded-card opacity-0 transition-opacity duration-500 group-hover:opacity-100 ring-grad"
       />
+      {/* reflective gloss sweep on hover */}
+      <span aria-hidden className="card-sheen pointer-events-none absolute inset-0 overflow-hidden rounded-card" />
       {/* cursor spotlight */}
       {spotlight && (
         <motion.span

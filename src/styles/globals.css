@@ -201,6 +201,41 @@
       transparent
     );
   }
+
+  /* Reflective gloss bar that sweeps diagonally across a card on hover.
+     One transform animation (GPU), revealed only on the parent's hover. The
+     bar lives behind the content but above the glass surface, blended to read
+     as a real specular reflection sliding off polished glass. */
+  .card-sheen::after {
+    content: '';
+    position: absolute;
+    top: -60%;
+    bottom: -60%;
+    left: -40%;
+    width: 36%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgb(var(--border) / 0.14) 45%,
+      rgb(255 255 255 / 0.1) 50%,
+      transparent
+    );
+    transform: translateX(-160%) rotate(18deg);
+    transition: transform 0.9s var(--ease-premium);
+    pointer-events: none;
+    mix-blend-mode: screen;
+  }
+  .group:hover .card-sheen::after {
+    transform: translateX(520%) rotate(18deg);
+  }
+
+  /* Layered inner light: a crisp top highlight + a faint bottom lift, giving the
+     glass real thickness without a heavy border. Pairs with shadow-glass. */
+  .card-edge {
+    box-shadow:
+      inset 0 1px 0 0 rgb(var(--border) / 0.12),
+      inset 0 -1px 0 0 rgb(0 0 0 / 0.35);
+  }
 }
 
 /* ============================================================
