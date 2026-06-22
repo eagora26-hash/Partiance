@@ -87,9 +87,13 @@ export async function requestPasswordReset(email: string, locale: 'it' | 'en'): 
   const user = await db.user.findUnique({ where: { email } });
   if (user) {
     const token = newToken();
-    await db.passwordResetToken.create({
-      data: { userId: user.id, token, expires: new Date(Date.now() + RESET_TTL_MS) },
-    });
+    // Invalidate any earlier unused tokens so only the latest link works.
+    await db.$transaction([
+      db.passwordResetToken.deleteMany({ where: { userId: user.id, usedAt: null } }),
+      db.passwordResetToken.create({
+        data: { userId: user.id, token, expires: new Date(Date.now() + RESET_TTL_MS) },
+      }),
+    ]);
     const resetUrl = `${env.APP_URL}/reset-password?token=${token}`;
     try {
       await sendEmail(passwordResetEmail(user.email, locale, user.name ?? '', resetUrl));

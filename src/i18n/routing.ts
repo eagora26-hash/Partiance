@@ -10,6 +10,10 @@ export const routing = defineRouting({
   locales: ['it', 'en'],
   defaultLocale: 'it',
   localePrefix: 'as-needed',
+  // Italy-first: the root always serves Italian. We do NOT auto-redirect based
+  // on the browser's Accept-Language — English is an explicit opt-in via `/en`.
+  // This keeps the default region consistent for the primary (Italian) market.
+  localeDetection: false,
 });
 
 export type Locale = (typeof routing.locales)[number];

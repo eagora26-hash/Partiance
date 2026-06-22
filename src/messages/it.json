@@ -30,9 +30,18 @@
     "ctaSecondary": "Scopri i progetti",
     "trustedBy": "Già scelta da builder in tutta Italia",
     "props": {
-      "soci": { "title": "Trova soci e co-founder", "desc": "Match AI su competenze e obiettivi comuni" },
-      "investitori": { "title": "Trova investitori", "desc": "Presenta il tuo progetto a investitori qualificati" },
-      "collaboratori": { "title": "Trova collaboratori", "desc": "Professionisti pronti a costruire con te" }
+      "soci": {
+        "title": "Trova soci e co-founder",
+        "desc": "Match AI su competenze e obiettivi comuni"
+      },
+      "investitori": {
+        "title": "Trova investitori",
+        "desc": "Presenta il tuo progetto a investitori qualificati"
+      },
+      "collaboratori": {
+        "title": "Trova collaboratori",
+        "desc": "Professionisti pronti a costruire con te"
+      }
     },
     "matchCard": {
       "match": "Match",
@@ -47,8 +56,16 @@
       }
     },
     "people": {
-      "marco": { "name": "Marco Rossi", "role": "CTO & Developer", "location": "Milano, Italia" },
-      "giulia": { "name": "Giulia Bianchi", "role": "Marketing Strategist", "location": "Roma, Italia" }
+      "marco": {
+        "name": "Marco Rossi",
+        "role": "CTO & Developer",
+        "location": "Milano, Italia"
+      },
+      "giulia": {
+        "name": "Giulia Bianchi",
+        "role": "Marketing Strategist",
+        "location": "Roma, Italia"
+      }
     },
     "project": {
       "title": "Piattaforma Wellness Aziendale",
@@ -63,10 +80,22 @@
     "title": "Numeri che parlano",
     "subtitle": "Un ecosistema in crescita, costruito sulla fiducia.",
     "items": {
-      "builders": { "value": "12.000+", "label": "Builder attivi" },
-      "matches": { "value": "48.000+", "label": "Match generati" },
-      "accuracy": { "value": "93%", "label": "Precisione del match AI" },
-      "cities": { "value": "60+", "label": "Città italiane" }
+      "builders": {
+        "value": "12.000+",
+        "label": "Builder attivi"
+      },
+      "matches": {
+        "value": "48.000+",
+        "label": "Match generati"
+      },
+      "accuracy": {
+        "value": "93%",
+        "label": "Precisione del match AI"
+      },
+      "cities": {
+        "value": "60+",
+        "label": "Città italiane"
+      }
     }
   },
   "how": {
@@ -95,10 +124,34 @@
     "looking": "Cercasi",
     "budget": "Budget",
     "items": {
-      "wellness": { "title": "App Wellness Aziendale", "desc": "App per migliorare il benessere dei dipendenti in azienda.", "looking": "CTO", "budget": "20.000 €", "tags": "Idea, Wellness, Milano" },
-      "tourism": { "title": "Marketplace Turismo Esperienziale", "desc": "Piattaforma per prenotare esperienze di viaggio uniche.", "looking": "Investitore", "budget": "100.000 €", "tags": "MVP, Turismo, Italia" },
-      "food": { "title": "Food Delivery Sostenibile", "desc": "Servizio di consegna cibo a km0 e a basso impatto ambientale.", "looking": "Marketing Manager", "budget": "50.000 €", "tags": "Startup, Food, Bologna" },
-      "edtech": { "title": "Piattaforma EdTech", "desc": "Corsi online di alta qualità per studenti e professionisti.", "looking": "Co-founder", "budget": "30.000 €", "tags": "Idea, Education, Torino" }
+      "wellness": {
+        "title": "App Wellness Aziendale",
+        "desc": "App per migliorare il benessere dei dipendenti in azienda.",
+        "looking": "CTO",
+        "budget": "20.000 €",
+        "tags": "Idea, Wellness, Milano"
+      },
+      "tourism": {
+        "title": "Marketplace Turismo Esperienziale",
+        "desc": "Piattaforma per prenotare esperienze di viaggio uniche.",
+        "looking": "Investitore",
+        "budget": "100.000 €",
+        "tags": "MVP, Turismo, Italia"
+      },
+      "food": {
+        "title": "Food Delivery Sostenibile",
+        "desc": "Servizio di consegna cibo a km0 e a basso impatto ambientale.",
+        "looking": "Marketing Manager",
+        "budget": "50.000 €",
+        "tags": "Startup, Food, Bologna"
+      },
+      "edtech": {
+        "title": "Piattaforma EdTech",
+        "desc": "Corsi online di alta qualità per studenti e professionisti.",
+        "looking": "Co-founder",
+        "budget": "30.000 €",
+        "tags": "Idea, Education, Torino"
+      }
     },
     "mine": {
       "title": "I tuoi progetti",
@@ -108,7 +161,12 @@
       "edit": "Modifica",
       "delete": "Elimina",
       "confirmDelete": "Eliminare questo progetto? L'azione è irreversibile.",
-      "status": { "PUBLISHED": "Pubblicato", "DRAFT": "Bozza", "PAUSED": "In pausa", "CLOSED": "Chiuso" }
+      "status": {
+        "PUBLISHED": "Pubblicato",
+        "DRAFT": "Bozza",
+        "PAUSED": "In pausa",
+        "CLOSED": "Chiuso"
+      }
     },
     "form": {
       "newTitle": "Crea un progetto",
@@ -127,7 +185,12 @@
       "save": "Salva modifiche",
       "saving": "Salvataggio..."
     },
-    "stage": { "IDEA": "Idea", "MVP": "MVP", "STARTUP": "Startup", "SCALING": "Scaling" },
+    "stage": {
+      "IDEA": "Idea",
+      "MVP": "MVP",
+      "STARTUP": "Startup",
+      "SCALING": "Scaling"
+    },
     "lookingForOptions": {
       "COFOUNDER": "Co-founder",
       "INVESTOR": "Investitore",
@@ -152,10 +215,22 @@
     "title": "Non solo match. Un copilota per il tuo business.",
     "subtitle": "Partiance non si ferma alla connessione. Ti accompagna mentre costruisci.",
     "features": {
-      "match": { "title": "Co-Founder Match AI", "desc": "Compatibilità calcolata su competenze, obiettivi e valori. Ogni match è spiegato." },
-      "validator": { "title": "Validatore di Idee", "desc": "Valuta la tua idea di business e ricevi un punteggio con punti di forza e rischi." },
-      "plan": { "title": "Business Plan AI", "desc": "Genera un piano strutturato, pronto per investitori, partendo dalla tua idea." },
-      "investor": { "title": "Investor Readiness", "desc": "Scopri quanto sei pronto per raccogliere capitali e cosa migliorare." }
+      "match": {
+        "title": "Co-Founder Match AI",
+        "desc": "Compatibilità calcolata su competenze, obiettivi e valori. Ogni match è spiegato."
+      },
+      "validator": {
+        "title": "Validatore di Idee",
+        "desc": "Valuta la tua idea di business e ricevi un punteggio con punti di forza e rischi."
+      },
+      "plan": {
+        "title": "Business Plan AI",
+        "desc": "Genera un piano strutturato, pronto per investitori, partendo dalla tua idea."
+      },
+      "investor": {
+        "title": "Investor Readiness",
+        "desc": "Scopri quanto sei pronto per raccogliere capitali e cosa migliorare."
+      }
     }
   },
   "pricing": {
@@ -192,11 +267,26 @@
     "eyebrow": "Domande frequenti",
     "title": "Tutto quello che vuoi sapere",
     "items": {
-      "what": { "q": "Cos'è esattamente Partiance?", "a": "Partiance è un sistema operativo AI per il business: connette imprenditori, co-founder, investitori e professionisti e li aiuta a costruire aziende insieme, più velocemente." },
-      "how": { "q": "Come funziona il match AI?", "a": "La nostra AI analizza competenze, obiettivi, settore, disponibilità e valori per calcolare la compatibilità. Ogni match è sempre spiegato, mai un semplice numero." },
-      "free": { "q": "È davvero gratis?", "a": "Sì. Il piano Free è gratuito per sempre e include 10 match al mese, un progetto e l'accesso alla community. Nessuna carta richiesta." },
-      "italy": { "q": "È pensata per l'Italia?", "a": "Esatto. Partiance nasce italiana: copywriting, città, settori e community sono costruiti per il mercato italiano, in italiano e in inglese." },
-      "data": { "q": "I miei dati sono al sicuro?", "a": "La sicurezza è una priorità. Usiamo autenticazione di livello enterprise e non condividiamo mai i tuoi dati senza il tuo consenso." }
+      "what": {
+        "q": "Cos'è esattamente Partiance?",
+        "a": "Partiance è un sistema operativo AI per il business: connette imprenditori, co-founder, investitori e professionisti e li aiuta a costruire aziende insieme, più velocemente."
+      },
+      "how": {
+        "q": "Come funziona il match AI?",
+        "a": "La nostra AI analizza competenze, obiettivi, settore, disponibilità e valori per calcolare la compatibilità. Ogni match è sempre spiegato, mai un semplice numero."
+      },
+      "free": {
+        "q": "È davvero gratis?",
+        "a": "Sì. Il piano Free è gratuito per sempre e include 10 match al mese, un progetto e l'accesso alla community. Nessuna carta richiesta."
+      },
+      "italy": {
+        "q": "È pensata per l'Italia?",
+        "a": "Esatto. Partiance nasce italiana: copywriting, città, settori e community sono costruiti per il mercato italiano, in italiano e in inglese."
+      },
+      "data": {
+        "q": "I miei dati sono al sicuro?",
+        "a": "La sicurezza è una priorità. Usiamo autenticazione di livello enterprise e non condividiamo mai i tuoi dati senza il tuo consenso."
+      }
     }
   },
   "cta": {
@@ -274,7 +364,11 @@
     "title": "Esplora progetti",
     "subtitle": "Scopri idee in cerca di partner in tutta Italia.",
     "empty": "Nessun progetto trovato con questi filtri.",
-    "filters": { "all": "Tutti", "stage": "Fase", "lookingFor": "Cerca" },
+    "filters": {
+      "all": "Tutti",
+      "stage": "Fase",
+      "lookingFor": "Cerca"
+    },
     "by": "di",
     "bookmark": "Salva",
     "bookmarked": "Salvato",
@@ -288,11 +382,26 @@
     "finishing": "Analisi in corso...",
     "skip": "Salta per ora",
     "steps": {
-      "persona": { "title": "Chi sei?", "subtitle": "Scegli il ruolo che ti rappresenta meglio." },
-      "skills": { "title": "Le tue competenze", "subtitle": "Seleziona ciò in cui eccelli. Scegline almeno una." },
-      "goals": { "title": "I tuoi obiettivi", "subtitle": "Cosa vuoi ottenere con Partiance?" },
-      "personality": { "title": "Il tuo stile", "subtitle": "Aiutaci a capire come lavori. Niente risposte giuste o sbagliate." },
-      "analysis": { "title": "Il tuo Business DNA", "subtitle": "Ecco cosa abbiamo capito di te." }
+      "persona": {
+        "title": "Chi sei?",
+        "subtitle": "Scegli il ruolo che ti rappresenta meglio."
+      },
+      "skills": {
+        "title": "Le tue competenze",
+        "subtitle": "Seleziona ciò in cui eccelli. Scegline almeno una."
+      },
+      "goals": {
+        "title": "I tuoi obiettivi",
+        "subtitle": "Cosa vuoi ottenere con Partiance?"
+      },
+      "personality": {
+        "title": "Il tuo stile",
+        "subtitle": "Aiutaci a capire come lavori. Niente risposte giuste o sbagliate."
+      },
+      "analysis": {
+        "title": "Il tuo Business DNA",
+        "subtitle": "Ecco cosa abbiamo capito di te."
+      }
     },
     "persona": {
       "FOUNDER": "Founder",
@@ -417,5 +526,134 @@
     },
     "rights": "Tutti i diritti riservati.",
     "madeIn": "Costruito con cura in Italia."
+  },
+  "pages": {
+    "about": {
+      "eyebrow": "Chi siamo",
+      "title": "Costruiamo l’ecosistema dei builder italiani",
+      "intro": "Partiance nasce per risolvere il problema più sottovalutato di chi avvia un’impresa in Italia: trovare le persone giuste. Soci, investitori e collaboratori, connessi dall’AI per affinità reale, non per caso.",
+      "sections": [
+        {
+          "heading": "La nostra missione",
+          "body": [
+            "Vogliamo che ogni idea valida in Italia trovi le persone capaci di trasformarla in impresa. La compatibilità tra fondatori è il fattore numero uno di successo o fallimento — e finora è stata lasciata al caso.",
+            "Partiance usa un motore di matching che analizza visione, competenze, valori e modalità di lavoro per proporre connessioni che hanno davvero senso."
+          ]
+        },
+        {
+          "heading": "Come lavoriamo",
+          "body": [
+            "Prodotto-first, privacy-first, italiano-first. I tuoi dati restano tuoi e non vengono mai venduti. L’AI è uno strumento al servizio delle persone, non il contrario."
+          ]
+        }
+      ],
+      "cta": "Inizia gratis"
+    },
+    "contact": {
+      "eyebrow": "Contatti",
+      "title": "Parliamo",
+      "intro": "Hai una domanda, una proposta di collaborazione o vuoi semplicemente saperne di più? Scrivici: rispondiamo entro un giorno lavorativo.",
+      "sections": [
+        {
+          "heading": "Supporto",
+          "body": [
+            "Per assistenza sull’account o sul prodotto: support@partiance.it"
+          ]
+        },
+        {
+          "heading": "Stampa & partnership",
+          "body": [
+            "Per media, eventi e collaborazioni: hello@partiance.it"
+          ]
+        }
+      ],
+      "cta": "Scrivici un’email"
+    },
+    "privacy": {
+      "eyebrow": "Legale",
+      "title": "Informativa sulla privacy",
+      "meta": "Ultimo aggiornamento: giugno 2026",
+      "intro": "La tua privacy è una priorità. Questa informativa spiega quali dati raccogliamo, perché e come li proteggiamo, in conformità al GDPR e alla normativa italiana.",
+      "sections": [
+        {
+          "heading": "1. Dati che raccogliamo",
+          "body": [
+            "Raccogliamo i dati che ci fornisci al momento della registrazione (nome, email) e quelli necessari al funzionamento del matching (profilo, preferenze, progetti)."
+          ]
+        },
+        {
+          "heading": "2. Come usiamo i dati",
+          "body": [
+            "Usiamo i tuoi dati esclusivamente per fornirti il servizio: autenticazione, matching, comunicazioni transazionali. Non vendiamo i tuoi dati a terzi."
+          ]
+        },
+        {
+          "heading": "3. I tuoi diritti",
+          "body": [
+            "Puoi accedere, correggere o cancellare i tuoi dati in qualsiasi momento dal tuo account, oppure scrivendo a privacy@partiance.it."
+          ]
+        }
+      ]
+    },
+    "terms": {
+      "eyebrow": "Legale",
+      "title": "Termini di servizio",
+      "meta": "Ultimo aggiornamento: giugno 2026",
+      "intro": "Utilizzando Partiance accetti questi termini. Ti invitiamo a leggerli con attenzione.",
+      "sections": [
+        {
+          "heading": "1. Il servizio",
+          "body": [
+            "Partiance è una piattaforma che connette builder, investitori e collaboratori tramite un motore di matching basato su AI. Il servizio è fornito “così com’è”."
+          ]
+        },
+        {
+          "heading": "2. Account e responsabilità",
+          "body": [
+            "Sei responsabile della sicurezza del tuo account e della veridicità delle informazioni fornite. È vietato ogni uso illecito o abusivo della piattaforma."
+          ]
+        },
+        {
+          "heading": "3. Modifiche",
+          "body": [
+            "Possiamo aggiornare questi termini; le modifiche sostanziali saranno comunicate via email o in-app."
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "eyebrow": "Legale",
+      "title": "Politica sui cookie",
+      "meta": "Ultimo aggiornamento: giugno 2026",
+      "intro": "Usiamo i cookie in modo essenziale e trasparente, per far funzionare l’applicazione e capire come migliorarla.",
+      "sections": [
+        {
+          "heading": "Cookie tecnici",
+          "body": [
+            "Necessari per l’autenticazione e il funzionamento del sito. Non possono essere disattivati."
+          ]
+        },
+        {
+          "heading": "Cookie analitici",
+          "body": [
+            "Ci aiutano a capire come viene usato il prodotto, in forma aggregata e anonima. Puoi disattivarli senza compromettere il servizio."
+          ]
+        }
+      ]
+    },
+    "blog": {
+      "eyebrow": "Blog",
+      "title": "Idee, storie e dati dal mondo dei builder",
+      "intro": "Stiamo preparando articoli su come si costruisce un team vincente, sul matching tra fondatori e sullo stato dell’imprenditoria in Italia. Il blog arriva presto.",
+      "sections": [],
+      "cta": "Avvisami al lancio"
+    },
+    "careers": {
+      "eyebrow": "Lavora con noi",
+      "title": "Costruisci Partiance con noi",
+      "intro": "Stiamo costruendo l’ecosistema dei builder italiani e cerchiamo persone curiose, rigorose e ambiziose. Non abbiamo posizioni aperte in questo momento, ma le candidature spontanee sono sempre benvenute.",
+      "sections": [],
+      "cta": "Invia una candidatura"
+    }
   }
 }

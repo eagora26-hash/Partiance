@@ -83,7 +83,12 @@ export default async function LocaleLayout({
         >
           {locale === 'it' ? 'Vai al contenuto' : 'Skip to content'}
         </a>
-        <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
+        {/* Italy-first: lock date/number/currency formatting to the Italian
+            timezone so server and client render identically (no hydration drift)
+            and all locale-specific formatting defaults to the Italian context. */}
+        <NextIntlClientProvider messages={messages} timeZone="Europe/Rome">
+          {children}
+        </NextIntlClientProvider>
       </body>
     </html>
   );

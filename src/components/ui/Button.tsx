@@ -108,6 +108,25 @@ export function Button(props: ButtonProps) {
   const style = wantMagnetic ? { x, y } : undefined;
 
   if ('href' in props && props.href) {
+    // External / protocol links (mailto:, tel:, https://) must NOT go through the
+    // locale-aware <Link>, which would prefix them and break the destination.
+    const external = /^(mailto:|tel:|https?:\/\/)/.test(props.href);
+    if (external) {
+      const isHttp = props.href.startsWith('http');
+      return (
+        <motion.div style={style} className="inline-flex" onMouseMove={onMove} onMouseLeave={onLeave}>
+          <a
+            href={props.href}
+            ref={ref}
+            className={classes}
+            onClick={spawnRipple}
+            {...(isHttp ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+          >
+            {content}
+          </a>
+        </motion.div>
+      );
+    }
     return (
       <motion.div style={style} className="inline-flex" onMouseMove={onMove} onMouseLeave={onLeave}>
         <Link href={props.href} ref={ref} className={classes} onClick={spawnRipple}>

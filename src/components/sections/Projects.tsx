@@ -28,7 +28,7 @@ export function Projects() {
           />
           <Reveal from="left">
             <Link
-              href="#"
+              href="/explore"
               className="group inline-flex items-center gap-1.5 whitespace-nowrap rounded-full glass px-4 py-2 text-body-sm font-semibold text-primary-hover transition-colors hover:bg-white/[0.06]"
             >
               {t('viewAll')}

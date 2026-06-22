@@ -9,6 +9,25 @@ const COLUMNS = {
   legal: ['privacy', 'terms', 'cookies'],
 } as const;
 
+/**
+ * Every footer link resolves to a real destination — homepage anchors for the
+ * product column, real localized pages for company/legal. No placeholder "#".
+ * Anchor links use the homepage path so they work from any page (e.g. /privacy).
+ */
+const LINK_HREFS: Record<string, string> = {
+  how: '/#how',
+  features: '/#features',
+  pricing: '/#pricing',
+  projects: '/#projects',
+  about: '/about',
+  blog: '/blog',
+  careers: '/careers',
+  contact: '/contact',
+  privacy: '/privacy',
+  terms: '/terms',
+  cookies: '/cookies',
+};
+
 export function Footer() {
   const t = useTranslations('footer');
   const tc = useTranslations('common');
@@ -47,7 +66,7 @@ export function Footer() {
                 {COLUMNS[col].map((link) => (
                   <li key={link}>
                     <Link
-                      href="#"
+                      href={LINK_HREFS[link] ?? '/'}
                       className="group/link relative inline-flex text-body-sm text-muted transition-colors duration-300 hover:text-ink"
                     >
                       {t(`links.${link}`)}
