@@ -1,6 +1,5 @@
 'use client';
 
-import dynamic from 'next/dynamic';
 import { useTranslations } from 'next-intl';
 import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
@@ -8,21 +7,6 @@ import { ArrowRight, Briefcase, LineChart, Users } from 'lucide-react';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
 import { HeroVisual } from '@/components/hero/HeroVisual';
-
-// The 3D hero is REAL WebGL (React Three Fiber) — it can't be server-rendered.
-// Client-only; the brand SVG holds the same identity while it boots (no CLS).
-const PartianceHero = dynamic(
-  () => import('@/components/hero/PartianceHero').then((m) => m.PartianceHero),
-  {
-    ssr: false,
-    loading: () => (
-      <div className="grid h-full w-full place-items-center">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/Partiance-fallback.svg" alt="Partiance" className="w-[260px] max-w-[65%] opacity-90" />
-      </div>
-    ),
-  }
-);
 
 const fadeUp = {
   hidden: { opacity: 0, y: 26, filter: 'blur(10px)' },
@@ -60,13 +44,16 @@ export function Hero() {
           identity cue (low opacity, soft blur, slow rotation), never competing
           for attention. */}
       <div ref={ref} className="relative flex flex-col items-center text-center">
-        {/* --- background brand watermark (decorative, behind the text) --- */}
+        {/* --- depth behind the headline (decorative) ---
+            The brand logo identity now lives in the page-wide background
+            (AmbientBackground), so the hero keeps only a soft glow pool + faint
+            orbiting rings for depth — no per-section WebGL canvas. */}
         <motion.div
           aria-hidden
           style={{ y: markY, opacity: markOpacity }}
-          className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[40rem] w-[40rem] max-w-[120vw] -translate-x-1/2 -translate-y-[58%] select-none"
+          className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[40rem] w-[40rem] max-w-[120vw] -translate-x-1/2 -translate-y-[52%] select-none"
         >
-          {/* soft glow pool that anchors the watermark */}
+          {/* soft glow pool */}
           <div className="absolute left-1/2 top-1/2 h-[30rem] w-[30rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/10 blur-[130px] animate-breathe" />
           {/* faint orbiting rings, slowly parallax-rotated */}
           <motion.div
@@ -77,10 +64,6 @@ export function Hero() {
             <div className="absolute inset-8 rounded-full border border-iris/[0.05]" />
             <div className="absolute inset-20 rounded-full border border-accent/[0.05]" />
           </motion.div>
-          {/* the real 3D mark, dimmed + blurred + masked into the page */}
-          <div className="absolute inset-0 opacity-[0.12] blur-[2px] [mask-image:radial-gradient(60%_60%_at_50%_45%,#000_30%,transparent_78%)] [-webkit-mask-image:radial-gradient(60%_60%_at_50%_45%,#000_30%,transparent_78%)]">
-            <PartianceHero height="100%" watermark />
-          </div>
         </motion.div>
 
         <motion.div custom={0} variants={fadeUp} initial="hidden" animate="show">

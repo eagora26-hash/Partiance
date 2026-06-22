@@ -29,7 +29,11 @@ export function Pricing() {
             const inner = (
               <>
                 {featured && (
-                  <span className="absolute right-5 top-5 rounded-full bg-brand-gradient px-3 py-1 text-micro font-semibold text-base shadow-glow-soft">
+                  // Centered pill near the top, fully INSIDE the card (the card
+                  // clips overflow). The featured card's extra top padding
+                  // reserves its space, so it never overlaps the name/tagline at
+                  // any breakpoint.
+                  <span className="absolute left-1/2 top-3.5 -translate-x-1/2 whitespace-nowrap rounded-full bg-brand-gradient px-3.5 py-1 text-micro font-semibold text-base shadow-glow-soft">
                     {t('mostPopular')}
                   </span>
                 )}
@@ -85,7 +89,7 @@ export function Pricing() {
                     // Featured plan: an elevated, glowing card with a spinning conic edge.
                     <div className="conic-border relative h-full rounded-card">
                       <GlassCard
-                        className="flex h-full flex-col p-7 ring-1 ring-primary/40 shadow-glow-lg"
+                        className="flex h-full flex-col p-7 pt-10 ring-1 ring-primary/40 shadow-glow-lg"
                         spotlight
                         interactive={false}
                       >

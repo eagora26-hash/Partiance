@@ -71,11 +71,6 @@ export function GlassCard({
           style={{ background: glow }}
         />
       )}
-      {/* top sheen — teal-tinted */}
-      <span
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent"
-      />
       <div className="relative">{children}</div>
     </Comp>
   );

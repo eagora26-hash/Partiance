@@ -121,11 +121,6 @@ export function TiltCard({
           style={{ background: glow }}
         />
       )}
-      {/* top sheen */}
-      <span
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent"
-      />
       <div className="relative [transform:translateZ(40px)]">{children}</div>
     </Comp>
   );
