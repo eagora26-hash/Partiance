@@ -20,7 +20,16 @@ export default async function VerifyEmailPage({
   setRequestLocale(locale);
   const t = await getTranslations('auth.verify');
 
-  const result = token ? await verifyEmail(token) : { ok: false as const, error: 'invalid' };
+  // Wrap so a DB/connection failure renders the "invalid" panel instead of
+  // throwing a server-side exception that white-screens the route.
+  let result: { ok: boolean; error?: string } = { ok: false, error: 'invalid' };
+  if (token) {
+    try {
+      result = await verifyEmail(token);
+    } catch {
+      result = { ok: false, error: 'invalid' };
+    }
+  }
 
   return (
     <GlassCard className="p-7 text-center sm:p-8" spotlight={false} interactive={false}>

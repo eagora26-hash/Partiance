@@ -371,7 +371,8 @@
       "password_needs_lowercase": "Add a lowercase letter.",
       "password_needs_uppercase": "Add an uppercase letter.",
       "password_needs_number": "Add a number.",
-      "generic": "Something went wrong. Please try again."
+      "generic": "Something went wrong. Please try again.",
+      "server_error": "Server error. Please try again shortly."
     }
   },
   "onboarding": {

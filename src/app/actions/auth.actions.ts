@@ -61,7 +61,14 @@ export async function registerAction(_prev: ActionState, formData: FormData): Pr
     return { ok: false, error: 'validation_error', fieldErrors: zodToFieldErrors(parsed.error.issues) };
   }
 
-  const result = await registerUser(parsed.data);
+  let result;
+  try {
+    result = await registerUser(parsed.data);
+  } catch (err) {
+    // e.g. database unreachable — fail gracefully instead of crashing the page.
+    logger.error('auth.register.failed', { error: (err as Error).message });
+    return { ok: false, error: 'server_error' };
+  }
   if (!result.ok) return { ok: false, error: result.error };
 
   // Auto-login after successful registration.
@@ -112,7 +119,13 @@ export async function requestResetAction(_prev: ActionState, formData: FormData)
   if (!parsed.success) return { ok: false, error: 'validation_error' };
 
   const locale = (formData.get('locale') as 'it' | 'en') || 'it';
-  await requestPasswordReset(parsed.data.email, locale);
+  try {
+    await requestPasswordReset(parsed.data.email, locale);
+  } catch (err) {
+    // DB/email failure — don't crash the page; surface a recoverable error.
+    logger.error('auth.reset_request.failed', { error: (err as Error).message });
+    return { ok: false, error: 'server_error' };
+  }
   return { ok: true }; // always ok (no account enumeration)
 }
 
@@ -124,11 +137,21 @@ export async function resetPasswordAction(_prev: ActionState, formData: FormData
   if (!parsed.success) {
     return { ok: false, error: 'validation_error', fieldErrors: zodToFieldErrors(parsed.error.issues) };
   }
-  const result = await resetPassword(parsed.data.token, parsed.data.password);
-  return result.ok ? { ok: true } : { ok: false, error: result.error };
+  try {
+    const result = await resetPassword(parsed.data.token, parsed.data.password);
+    return result.ok ? { ok: true } : { ok: false, error: result.error };
+  } catch (err) {
+    logger.error('auth.reset.failed', { error: (err as Error).message });
+    return { ok: false, error: 'server_error' };
+  }
 }
 
 export async function verifyEmailAction(token: string): Promise<ActionState> {
-  const result = await verifyEmail(token);
-  return result.ok ? { ok: true } : { ok: false, error: result.error };
+  try {
+    const result = await verifyEmail(token);
+    return result.ok ? { ok: true } : { ok: false, error: result.error };
+  } catch (err) {
+    logger.error('auth.verify.failed', { error: (err as Error).message });
+    return { ok: false, error: 'server_error' };
+  }
 }

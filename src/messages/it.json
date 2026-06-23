@@ -357,7 +357,8 @@
       "password_needs_lowercase": "Aggiungi una lettera minuscola.",
       "password_needs_uppercase": "Aggiungi una lettera maiuscola.",
       "password_needs_number": "Aggiungi un numero.",
-      "generic": "Qualcosa è andato storto. Riprova."
+      "generic": "Qualcosa è andato storto. Riprova.",
+      "server_error": "Errore del server. Riprova tra poco."
     }
   },
   "explore": {
