@@ -1,5 +1,6 @@
 import { cn } from '@/lib/utils';
 import { MouseGlow } from './MouseGlow';
+import { BrandBackdrop } from './BrandBackdrop';
 
 /**
  * Site-wide atmosphere — layered, original, "alive".
@@ -27,32 +28,36 @@ export function AmbientBackground({ className }: { className?: string }) {
         {/* 2 — mesh-gradient wash */}
         <div className="absolute inset-0 bg-mesh-hero opacity-80" />
 
-        {/* 2a — BRAND WATERMARKS: the Partiance mark repeated across the
-            backdrop (center + left + right) as a faint identity layer. Static
-            SVG (the same mark as the 3D hero) → GPU-cheap, no extra WebGL. Low
-            opacity + blur + soft radial masks so they read as embossed texture,
-            never competing with content. eslint-disable: decorative, fixed bg. */}
-        {/* center — the faint primary identity */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/Partiance-fallback.svg"
-          alt=""
-          className="absolute left-1/2 top-1/2 h-[120vmin] w-[120vmin] max-w-none -translate-x-1/2 -translate-y-1/2 opacity-[0.04] blur-[3px] [mask-image:radial-gradient(closest-side,#000_35%,transparent_72%)] [-webkit-mask-image:radial-gradient(closest-side,#000_35%,transparent_72%)]"
-        />
-        {/* left — anchored off the left edge */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/Partiance-fallback.svg"
-          alt=""
-          className="absolute left-[-22vmin] top-[18%] hidden h-[68vmin] w-[68vmin] max-w-none -rotate-12 opacity-[0.05] blur-[2px] [mask-image:radial-gradient(closest-side,#000_30%,transparent_72%)] [-webkit-mask-image:radial-gradient(closest-side,#000_30%,transparent_72%)] md:block"
-        />
-        {/* right — anchored off the right edge, lower */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/Partiance-fallback.svg"
-          alt=""
-          className="absolute right-[-24vmin] bottom-[8%] hidden h-[72vmin] w-[72vmin] max-w-none rotate-12 opacity-[0.05] blur-[2px] [mask-image:radial-gradient(closest-side,#000_30%,transparent_72%)] [-webkit-mask-image:radial-gradient(closest-side,#000_30%,transparent_72%)] md:block"
-        />
+        {/* 2a — BRAND SCULPTURE: the Partiance mark as a premium 3D object set
+            (center + left + right) floating behind the page — beveled geometry,
+            polished metallic teal-cyan material, real reflections, soft contact
+            shadows and a gentle volumetric bloom. Heavily dimmed + masked so it
+            reads as luxury background depth, never competing with content.
+            On no-WebGL / reduced-motion / phones it degrades to the flat SVG
+            watermarks below (same identity, GPU-cheap). */}
+        <BrandBackdrop>
+          {/* center — the faint primary identity */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/Partiance-fallback.svg"
+            alt=""
+            className="absolute left-1/2 top-1/2 h-[120vmin] w-[120vmin] max-w-none -translate-x-1/2 -translate-y-1/2 opacity-[0.04] blur-[3px] [mask-image:radial-gradient(closest-side,#000_35%,transparent_72%)] [-webkit-mask-image:radial-gradient(closest-side,#000_35%,transparent_72%)]"
+          />
+          {/* left — anchored off the left edge */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/Partiance-fallback.svg"
+            alt=""
+            className="absolute left-[-22vmin] top-[18%] hidden h-[68vmin] w-[68vmin] max-w-none -rotate-12 opacity-[0.05] blur-[2px] [mask-image:radial-gradient(closest-side,#000_30%,transparent_72%)] [-webkit-mask-image:radial-gradient(closest-side,#000_30%,transparent_72%)] md:block"
+          />
+          {/* right — anchored off the right edge, lower */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/Partiance-fallback.svg"
+            alt=""
+            className="absolute right-[-24vmin] bottom-[8%] hidden h-[72vmin] w-[72vmin] max-w-none rotate-12 opacity-[0.05] blur-[2px] [mask-image:radial-gradient(closest-side,#000_30%,transparent_72%)] [-webkit-mask-image:radial-gradient(closest-side,#000_30%,transparent_72%)] md:block"
+          />
+        </BrandBackdrop>
 
         {/* 2b — volumetric light beams (god-rays) raking down from top.
             Two soft, blurred shafts on independent slow sways → atmospheric depth,
