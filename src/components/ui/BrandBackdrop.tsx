@@ -47,7 +47,7 @@ export function BrandBackdrop({ children }: { children: React.ReactNode }) {
     // visible enough to read its form, quiet enough to stay behind the content.
     <div
       aria-hidden
-      className="absolute inset-0 opacity-[0.16] [mask-image:radial-gradient(120%_100%_at_50%_45%,#000_45%,transparent_85%)] [-webkit-mask-image:radial-gradient(120%_100%_at_50%_45%,#000_45%,transparent_85%)]"
+      className="absolute inset-0 opacity-[0.24] [mask-image:radial-gradient(120%_100%_at_50%_45%,#000_50%,transparent_88%)] [-webkit-mask-image:radial-gradient(120%_100%_at_50%_45%,#000_50%,transparent_88%)]"
     >
       <LogoBackdrop className="h-full w-full" />
     </div>

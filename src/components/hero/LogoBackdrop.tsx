@@ -52,15 +52,19 @@ function Sculpture({ inst }: { inst: Instance }) {
       const mesh = o as THREE.Mesh;
       if (!mesh.isMesh) return;
       const src = mesh.material as THREE.MeshStandardMaterial | undefined;
-      // Detect the luminous "Alliance" link (cyan emissive) vs the graphite body.
+      // Detect the luminous "Alliance" link (cyan emissive) vs the graphite body
+      // (which includes the "Partiance" wordmark mesh).
       const isCyan = src?.name?.includes('Cyan') || (src?.emissive && src.emissive.g > 0.4);
       mesh.material = new THREE.MeshStandardMaterial({
-        color: isCyan ? new THREE.Color('#1FB9AE') : new THREE.Color('#0C2A2E'),
-        metalness: 1,
-        roughness: isCyan ? 0.18 : 0.32,
-        emissive: isCyan ? new THREE.Color('#16C8BC') : new THREE.Color('#06201F'),
-        emissiveIntensity: isCyan ? 0.55 : 0.12,
-        envMapIntensity: 1.6,
+        // Graphite/wordmark lightened to a brushed steel-teal so the wordmark
+        // and link bodies stay legible at low backdrop opacity (was near-black,
+        // which made the "Partiance" text disappear). Cyan link stays luminous.
+        color: isCyan ? new THREE.Color('#2BD4C6') : new THREE.Color('#5E8B8F'),
+        metalness: 0.9,
+        roughness: isCyan ? 0.16 : 0.34,
+        emissive: isCyan ? new THREE.Color('#1FD8C8') : new THREE.Color('#2C6E6A'),
+        emissiveIntensity: isCyan ? 0.7 : 0.4,
+        envMapIntensity: 1.8,
       });
       mesh.castShadow = true;
       mesh.receiveShadow = false;
