@@ -20,11 +20,24 @@ export function HowItWorks() {
         <SectionHeading eyebrow={t('eyebrow')} title={t('title')} subtitle={t('subtitle')} />
 
         <div className="relative mt-16">
-          {/* connecting line (desktop), now teal + animated dash */}
+          {/* Premium step connector (desktop) — a soft, glowing "journey" line
+              tucked BEHIND the cards (negative z, blurred, low opacity) with a
+              station node per step. Reads as depth, never a hard rule slicing
+              across the card tops. A column grid keeps it aligned to the cards. */}
           <div
             aria-hidden
-            className="absolute left-0 right-0 top-7 hidden h-px bg-gradient-to-r from-transparent via-primary/25 to-transparent lg:block"
-          />
+            className="pointer-events-none absolute inset-x-0 top-[3.25rem] -z-10 hidden grid-cols-3 gap-6 lg:grid"
+          >
+            {/* the connecting beam, spanning the inner two-thirds */}
+            <span className="absolute left-[16%] right-[16%] top-1/2 h-px -translate-y-1/2 bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+            <span className="absolute left-[16%] right-[16%] top-1/2 h-[3px] -translate-y-1/2 bg-gradient-to-r from-transparent via-primary/20 to-transparent blur-[3px]" />
+            {/* one station node per step column */}
+            {STEPS.map(({ key }) => (
+              <span key={key} className="flex items-center justify-center">
+                <span className="h-2 w-2 rounded-full bg-accent shadow-[0_0_12px_3px_rgba(46,242,222,0.55)] ring-2 ring-base" />
+              </span>
+            ))}
+          </div>
           <ol className="grid gap-6 lg:grid-cols-3">
             {STEPS.map(({ key, icon: Icon, tone }, i) => (
               <li key={key}>
