@@ -23,14 +23,16 @@ export function AIFeatures() {
         <ul className="mt-16 grid gap-6 lg:grid-cols-3">
           {FEATURES.map(({ key, icon: Icon, tone, span }, i) => (
             <li key={key} className={span}>
-              <Reveal delay={i * 0.08} className="h-full">
+              <Reveal delay={i * 0.09} className="h-full">
                 <TiltCard intensity={5} className="flex h-full flex-col p-7">
+                  {/* Icon tile: lifts + brightens its ring and casts a soft tinted
+                      glow on hover — the icon reads as a small lit object. */}
                   <span
-                    className={`grid h-12 w-12 place-items-center rounded-2xl ring-1 transition-transform duration-500 group-hover:scale-110 ${tone}`}
+                    className={`grid h-12 w-12 place-items-center rounded-2xl ring-1 transition-all duration-500 ease-premium group-hover:-translate-y-0.5 group-hover:shadow-[0_8px_24px_-8px_currentColor] ${tone}`}
                   >
-                    <Icon className="h-6 w-6" />
+                    <Icon className="h-6 w-6 transition-transform duration-500 ease-premium group-hover:scale-110" />
                   </span>
-                  <h3 className="mt-5 text-h5 font-semibold text-ink">
+                  <h3 className="mt-5 text-h5 font-semibold tracking-[-0.01em] text-ink">
                     {t(`features.${key}.title`)}
                   </h3>
                   <p className="mt-2 max-w-md text-body-sm leading-relaxed text-muted">

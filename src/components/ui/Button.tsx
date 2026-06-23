@@ -85,6 +85,14 @@ export function Button(props: ButtonProps) {
           className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-700 ease-premium group-hover/btn:translate-x-full"
         />
       )}
+      {/* primary pill: a hairline top highlight + soft inner floor so the
+          gradient reads as a lit, dimensional pill rather than a flat fill. */}
+      {variant === 'primary' && (
+        <span
+          aria-hidden
+          className="pointer-events-none absolute inset-0 rounded-button shadow-[inset_0_1px_0_0_rgba(255,255,255,0.35),inset_0_-2px_6px_-2px_rgba(0,0,0,0.3)]"
+        />
+      )}
       {/* ripples */}
       {ripples.map((rp) => (
         <span
@@ -97,7 +105,7 @@ export function Button(props: ButtonProps) {
       {iconLeft}
       <span className="relative">{children}</span>
       {iconRight && (
-        <span className="relative transition-transform duration-300 ease-premium group-hover/btn:translate-x-0.5">
+        <span className="relative transition-transform duration-300 ease-spring group-hover/btn:translate-x-1">
           {iconRight}
         </span>
       )}

@@ -58,10 +58,14 @@ export function Pricing() {
                 <ul className="mt-6 flex-1 space-y-3">
                   {features.map((f) => (
                     <li key={f} className="flex items-start gap-2.5 text-body-sm text-muted">
+                      {/* Checkmark: a ringed, top-lit token (inner highlight) — a
+                          small minted coin rather than a flat dot. */}
                       <span
                         className={cn(
-                          'mt-0.5 grid h-4 w-4 shrink-0 place-items-center rounded-full',
-                          featured ? 'bg-primary/25 text-primary-hover' : 'bg-success/15 text-success'
+                          'mt-0.5 grid h-4 w-4 shrink-0 place-items-center rounded-full ring-1 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.25)]',
+                          featured
+                            ? 'bg-primary/25 text-primary-hover ring-primary/30'
+                            : 'bg-success/15 text-success ring-success/25'
                         )}
                       >
                         <Check className="h-2.5 w-2.5" strokeWidth={3} />

@@ -45,13 +45,15 @@ export function HowItWorks() {
                   <TiltCard intensity={6} className="h-full p-6">
                     <div className="flex items-center gap-4">
                       <span
-                        className={`relative grid h-14 w-14 place-items-center rounded-2xl ring-1 transition-transform duration-500 group-hover:scale-105 ${tone}`}
+                        className={`relative grid h-14 w-14 place-items-center rounded-2xl ring-1 transition-all duration-500 ease-premium group-hover:-translate-y-0.5 group-hover:shadow-[0_8px_24px_-8px_currentColor] ${tone}`}
                       >
-                        <Icon className="h-6 w-6" />
+                        <Icon className="h-6 w-6 transition-transform duration-500 ease-premium group-hover:scale-110" />
                       </span>
-                      <span className="tnum text-h3 font-bold text-white/[0.08]">{`0${i + 1}`}</span>
+                      {/* Step numeral: a ghosted index that warms toward the brand
+                          tint on hover — a quiet cue that the step is "active". */}
+                      <span className="tnum text-h3 font-bold text-white/[0.07] transition-colors duration-500 ease-premium group-hover:text-primary/25">{`0${i + 1}`}</span>
                     </div>
-                    <h3 className="mt-5 text-h5 font-semibold text-ink">
+                    <h3 className="mt-5 text-h5 font-semibold tracking-[-0.01em] text-ink">
                       {t(`steps.${key}.title`)}
                     </h3>
                     <p className="mt-2 text-body-sm leading-relaxed text-muted">

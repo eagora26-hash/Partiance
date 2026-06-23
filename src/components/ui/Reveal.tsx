@@ -66,9 +66,29 @@ export function Reveal({
     <motion.div
       ref={ref}
       className={cn(className)}
-      initial={{ opacity: 0, x: o.x, y: o.y, filter: 'blur(8px)' }}
-      animate={show ? { opacity: 1, x: 0, y: 0, filter: 'blur(0px)' } : undefined}
-      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay }}
+      // Elements "arrive": rise from a hair further with a touch of scale and a
+      // crisp de-blur, on a longer, more confident ease (custom curve — not the
+      // default fade). Opacity resolves faster than motion so text stays legible
+      // the instant it appears, while the position settles a beat behind.
+      initial={{ opacity: 0, x: o.x, y: o.y, scale: 0.985, filter: 'blur(10px)' }}
+      animate={
+        show
+          ? {
+              opacity: 1,
+              x: 0,
+              y: 0,
+              scale: 1,
+              filter: 'blur(0px)',
+              transition: {
+                duration: 0.85,
+                delay,
+                ease: [0.16, 0.84, 0.3, 1],
+                opacity: { duration: 0.5, delay, ease: 'easeOut' },
+                filter: { duration: 0.6, delay, ease: 'easeOut' },
+              },
+            }
+          : undefined
+      }
       {...rest}
     >
       {children}

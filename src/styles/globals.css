@@ -70,7 +70,10 @@
     background-color: rgb(var(--c-base));
     color: rgb(var(--c-ink));
     overflow-x: clip;
-    font-feature-settings: 'ss01', 'cv01', 'cv11';
+    /* Kerning + common/contextual ligatures + stylistic sets → crisper, more
+       intentional body text (the small details a typesetter would tune). */
+    font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'ss01', 'cv01', 'cv11';
+    font-kerning: normal;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
@@ -79,9 +82,19 @@
   h1, h2, h3, h4, h5 {
     font-family: var(--font-display), var(--font-sans), sans-serif;
     text-wrap: balance;
+    /* Optical sizing + discretionary ligatures on display type for a more
+       crafted, less mechanical headline. */
+    font-optical-sizing: auto;
+    font-feature-settings: 'kern', 'liga', 'calt', 'ss01';
   }
+  /* Display headlines get a touch tighter tracking the larger they are —
+     mirrors how a designer optically tightens big type. */
+  h1 { letter-spacing: -0.032em; }
+  h2 { letter-spacing: -0.026em; }
+  h3 { letter-spacing: -0.02em; }
   p {
     text-wrap: pretty;
+    font-feature-settings: 'kern', 'liga', 'clig', 'calt';
   }
 
   ::selection {
@@ -203,38 +216,66 @@
   }
 
   /* Reflective gloss bar that sweeps diagonally across a card on hover.
-     One transform animation (GPU), revealed only on the parent's hover. The
-     bar lives behind the content but above the glass surface, blended to read
-     as a real specular reflection sliding off polished glass. */
+     One transform animation (GPU), revealed only on the parent's hover. A
+     soft, wide specular glide (not a hard streak) reading as light sliding off
+     polished glass. */
   .card-sheen::after {
     content: '';
     position: absolute;
     top: -60%;
     bottom: -60%;
-    left: -40%;
-    width: 36%;
+    left: -45%;
+    width: 42%;
     background: linear-gradient(
       90deg,
       transparent,
-      rgb(var(--border) / 0.14) 45%,
-      rgb(255 255 255 / 0.1) 50%,
+      rgb(var(--border) / 0.1) 38%,
+      rgb(255 255 255 / 0.12) 50%,
+      rgb(var(--border) / 0.1) 62%,
       transparent
     );
-    transform: translateX(-160%) rotate(18deg);
-    transition: transform 0.9s var(--ease-premium);
+    transform: translateX(-160%) rotate(16deg);
+    transition: transform 1.1s var(--ease-out-expo);
     pointer-events: none;
     mix-blend-mode: screen;
+    will-change: transform;
   }
   .group:hover .card-sheen::after {
-    transform: translateX(520%) rotate(18deg);
+    transform: translateX(540%) rotate(16deg);
   }
 
-  /* Layered inner light: a crisp top highlight + a faint bottom lift, giving the
-     glass real thickness without a heavy border. Pairs with shadow-glass. */
+  /* Multi-layer machined edge: crisp top highlight, faint side definition, and
+     a soft bottom shadow — the card reads as a milled panel with real thickness
+     rather than a flat rectangle. Pairs with shadow-glass. */
   .card-edge {
     box-shadow:
-      inset 0 1px 0 0 rgb(var(--border) / 0.12),
-      inset 0 -1px 0 0 rgb(0 0 0 / 0.35);
+      inset 0 1px 0 0 rgb(var(--border) / 0.14),
+      inset 1px 0 0 0 rgb(var(--border) / 0.05),
+      inset -1px 0 0 0 rgb(var(--border) / 0.05),
+      inset 0 -1px 0 0 rgb(0 0 0 / 0.4);
+  }
+
+  /* Signature detail: a faint light catching the TOP-LEFT corner of a card, as
+     if a soft key light grazes its bevel. Brightens on hover. Decorative. */
+  .card-corner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 45%;
+    height: 45%;
+    border-radius: inherit;
+    background: radial-gradient(
+      120% 120% at 0% 0%,
+      rgb(var(--c-accent) / 0.12),
+      transparent 60%
+    );
+    opacity: 0.6;
+    transition: opacity 0.5s var(--ease-premium);
+    pointer-events: none;
+  }
+  .group:hover .card-corner::before {
+    opacity: 1;
   }
 }
 

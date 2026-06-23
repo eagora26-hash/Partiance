@@ -27,7 +27,10 @@ export function Badge({ children, className, tone = 'glass', dot = false }: Badg
   return (
     <span
       className={cn(
-        'relative inline-flex items-center gap-1.5 overflow-hidden rounded-full px-3 py-1 text-micro font-medium tracking-tight',
+        // Slightly looser, more deliberate tracking + a hairline top highlight
+        // so the chip reads as a small piece of embossed glass, not flat.
+        'relative inline-flex items-center gap-1.5 overflow-hidden rounded-full px-3 py-1 text-micro font-medium tracking-[0.03em]',
+        'shadow-[inset_0_1px_0_0_rgb(var(--border)/0.12)]',
         tones[tone],
         className
       )}
@@ -40,7 +43,10 @@ export function Badge({ children, className, tone = 'glass', dot = false }: Badg
               dotTones[tone]
             )}
           />
-          <span className={cn('relative inline-flex h-1.5 w-1.5 rounded-full', dotTones[tone])} />
+          <span className={cn('relative inline-flex h-1.5 w-1.5 rounded-full', dotTones[tone])}>
+            {/* tiny specular dot on the live indicator — a detail you feel, not notice */}
+            <span className="absolute left-[1px] top-[1px] h-[3px] w-[3px] rounded-full bg-white/70" />
+          </span>
         </span>
       )}
       <span className="relative">{children}</span>

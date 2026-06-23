@@ -99,10 +99,13 @@ export function TiltCard({
       onMouseMove={onMove}
       onMouseLeave={onLeave}
       style={{ rotateX, rotateY, transformPerspective: 900 }}
+      // Spring-driven lift: rises and settles with a soft overshoot on hover —
+      // more alive than a linear transition, the way a physical card would.
+      whileHover={{ y: -6, transition: { type: 'spring', stiffness: 320, damping: 22, mass: 0.6 } }}
       className={cn(
         'group relative overflow-hidden rounded-card [transform-style:preserve-3d]',
         'transition-shadow duration-500 ease-premium',
-        surface && 'glass shadow-glass card-edge hover:shadow-glow-lg',
+        surface && 'glass shadow-glass card-edge card-corner hover:shadow-glow-lg',
         className
       )}
     >
