@@ -41,14 +41,14 @@ export function Navbar() {
             scrolled ? 'glass shadow-glass ring-grad' : 'border border-transparent bg-transparent'
           )}
         >
-          <a
-            href="#top"
+          <Link
+            href="/"
             className="group/logo relative rounded-full focus-visible:outline-accent"
-            aria-label="Partiance"
+            aria-label="Partiance — home"
           >
             <span className="absolute -inset-2 -z-10 rounded-full bg-primary/0 blur-md transition-colors duration-500 group-hover/logo:bg-primary/15" />
             <Logo />
-          </a>
+          </Link>
 
           {/* Desktop links with a sliding hover pill */}
           <ul

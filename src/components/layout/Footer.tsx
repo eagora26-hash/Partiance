@@ -46,10 +46,14 @@ export function Footer() {
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
           {/* Brand */}
           <div className="max-w-xs">
-            <span className="group/logo relative inline-flex">
+            <Link
+              href="/"
+              aria-label="Partiance — home"
+              className="group/logo relative inline-flex rounded-full focus-visible:outline-accent"
+            >
               <span className="absolute -inset-3 -z-10 rounded-full bg-primary/0 blur-md transition-colors duration-500 group-hover/logo:bg-primary/15" />
               <Logo />
-            </span>
+            </Link>
             <p className="mt-4 text-body-sm leading-relaxed text-muted">{t('tagline')}</p>
             <div className="mt-6">
               <LocaleSwitch />
