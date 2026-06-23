@@ -28,16 +28,17 @@ export function Pricing() {
 
             const inner = (
               <>
-                {featured && (
-                  // Centered pill near the top, fully INSIDE the card (the card
-                  // clips overflow). The featured card's extra top padding
-                  // reserves its space, so it never overlaps the name/tagline at
-                  // any breakpoint.
-                  <span className="absolute left-1/2 top-3.5 -translate-x-1/2 whitespace-nowrap rounded-full bg-brand-gradient px-3.5 py-1 text-micro font-semibold text-base shadow-glow-soft">
-                    {t('mostPopular')}
-                  </span>
-                )}
-                <h3 className="text-body font-semibold text-ink">{t(`plans.${key}.name`)}</h3>
+                {/* Header row: plan name + (for the featured plan) the badge,
+                    both in NORMAL FLOW — the badge occupies real layout space, so
+                    it can never overlap the name/tagline at any breakpoint. */}
+                <div className="flex items-start justify-between gap-3">
+                  <h3 className="text-body font-semibold text-ink">{t(`plans.${key}.name`)}</h3>
+                  {featured && (
+                    <span className="shrink-0 whitespace-nowrap rounded-full bg-brand-gradient px-3 py-1 text-micro font-semibold text-base shadow-glow-soft">
+                      {t('mostPopular')}
+                    </span>
+                  )}
+                </div>
                 <p className="mt-1 text-caption text-muted">{t(`plans.${key}.tagline`)}</p>
 
                 <div className="mt-5 flex items-end gap-1">
@@ -89,7 +90,7 @@ export function Pricing() {
                     // Featured plan: an elevated, glowing card with a spinning conic edge.
                     <div className="conic-border relative h-full rounded-card">
                       <GlassCard
-                        className="flex h-full flex-col p-7 pt-10 ring-1 ring-primary/40 shadow-glow-lg"
+                        className="flex h-full flex-col p-7 ring-1 ring-primary/40 shadow-glow-lg"
                         spotlight
                         interactive={false}
                       >
