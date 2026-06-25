@@ -7,7 +7,7 @@ export function CallToAction() {
   const t = useTranslations('cta');
 
   return (
-    <section aria-labelledby="cta-title" className="relative py-section">
+    <section aria-labelledby="cta-title" className="relative py-section [overflow-x:clip]">
       <div className="container">
         <Reveal>
           <div className="conic-border relative rounded-card">

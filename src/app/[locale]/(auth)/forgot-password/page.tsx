@@ -20,7 +20,7 @@ export default async function ForgotPasswordPage({
         <ForgotPasswordForm />
       </div>
       <p className="mt-6 text-center text-caption">
-        <Link href="/login" className="font-semibold text-primary transition-colors hover:text-primary-hover">
+        <Link href="/login" className="inline-block rounded-md py-1 font-semibold text-primary transition-colors hover:text-primary-hover active:text-primary-hover">
           {t('back')}
         </Link>
       </p>

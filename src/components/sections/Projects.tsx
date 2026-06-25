@@ -55,7 +55,9 @@ export function Projects() {
                       <button
                         type="button"
                         aria-label="Salva progetto"
-                        className="grid h-8 w-8 place-items-center rounded-lg text-faint transition-all duration-300 hover:scale-110 hover:bg-white/5 hover:text-primary-hover"
+                        // 44px tap target (touch-friendly); negative margin keeps
+                        // the icon visually flush to the card's top-right corner.
+                        className="-mr-1.5 -mt-1.5 grid h-11 w-11 place-items-center rounded-lg text-faint transition-all duration-300 hover:scale-110 hover:bg-white/5 hover:text-primary-hover active:text-primary-hover"
                       >
                         <Bookmark className="h-4 w-4" />
                       </button>

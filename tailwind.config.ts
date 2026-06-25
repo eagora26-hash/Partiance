@@ -54,10 +54,12 @@ const config: Config = {
         'body-lg': ['1.25rem', { lineHeight: '1.55' }],
         h5: ['1.5rem', { lineHeight: '1.3', letterSpacing: '-0.01em' }],
         h4: ['1.75rem', { lineHeight: '1.25', letterSpacing: '-0.015em' }],
-        h3: ['clamp(1.75rem, 1.2rem + 2.4vw, 2.25rem)', { lineHeight: '1.2', letterSpacing: '-0.02em' }],
-        h2: ['clamp(2rem, 1.3rem + 3vw, 3rem)', { lineHeight: '1.12', letterSpacing: '-0.025em' }],
-        h1: ['clamp(2.5rem, 1.4rem + 4.5vw, 3.5rem)', { lineHeight: '1.05', letterSpacing: '-0.03em' }],
-        hero: ['clamp(2.75rem, 1.2rem + 6.6vw, 4.5rem)', { lineHeight: '1.02', letterSpacing: '-0.035em' }],
+        // Lower clamp floors so small phones (320–360px) scale headings DOWN
+        // gracefully (no oversized text), while desktop maxima are preserved.
+        h3: ['clamp(1.55rem, 1.15rem + 1.9vw, 2.25rem)', { lineHeight: '1.2', letterSpacing: '-0.02em' }],
+        h2: ['clamp(1.7rem, 1.15rem + 2.6vw, 3rem)', { lineHeight: '1.14', letterSpacing: '-0.025em' }],
+        h1: ['clamp(2rem, 1.2rem + 4vw, 3.5rem)', { lineHeight: '1.07', letterSpacing: '-0.03em' }],
+        hero: ['clamp(2.1rem, 1.1rem + 5.4vw, 4.5rem)', { lineHeight: '1.04', letterSpacing: '-0.03em' }],
       },
       spacing: {
         // 8-pt system extension

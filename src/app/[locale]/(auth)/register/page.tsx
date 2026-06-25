@@ -28,7 +28,7 @@ export default async function RegisterPage({ params }: { params: Promise<{ local
       </div>
       <p className="mt-6 text-center text-caption text-muted">
         {t('haveAccount')}{' '}
-        <Link href="/login" className="font-semibold text-primary transition-colors hover:text-primary-hover">
+        <Link href="/login" className="inline-block rounded-md py-1 font-semibold text-primary transition-colors hover:text-primary-hover active:text-primary-hover">
           {t('login')}
         </Link>
       </p>

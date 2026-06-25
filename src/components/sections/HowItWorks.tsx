@@ -26,7 +26,7 @@ export function HowItWorks() {
               across the card tops. A column grid keeps it aligned to the cards. */}
           <div
             aria-hidden
-            className="pointer-events-none absolute inset-x-0 top-[3.25rem] -z-10 hidden grid-cols-3 gap-6 lg:grid"
+            className="pointer-events-none absolute inset-x-0 top-[3.25rem] -z-10 hidden grid-cols-3 gap-6 md:grid"
           >
             {/* the connecting beam, spanning the inner two-thirds */}
             <span className="absolute left-[16%] right-[16%] top-1/2 h-px -translate-y-1/2 bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
@@ -38,7 +38,7 @@ export function HowItWorks() {
               </span>
             ))}
           </div>
-          <ol className="grid gap-6 lg:grid-cols-3">
+          <ol className="grid gap-6 md:grid-cols-3">
             {STEPS.map(({ key, icon: Icon, tone }, i) => (
               <li key={key}>
                 <Reveal delay={i * 0.1}>

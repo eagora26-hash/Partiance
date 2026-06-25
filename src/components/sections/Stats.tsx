@@ -8,7 +8,7 @@ export function Stats() {
   const t = useTranslations('stats');
 
   return (
-    <section aria-labelledby="stats-title" className="relative py-section">
+    <section aria-labelledby="stats-title" className="relative py-section [overflow-x:clip]">
       <div className="container">
         <div className="glass-deep relative overflow-hidden rounded-card px-6 py-10 shadow-glass ring-grad sm:px-10 sm:py-12">
           <h2 id="stats-title" className="sr-only">

@@ -27,7 +27,10 @@ export function LoginForm({ callbackUrl }: { callbackUrl?: string }) {
       <Input label={t('email')} name="email" type="email" autoComplete="email" required />
       <div className="flex flex-col gap-1.5">
         <Input label={t('password')} name="password" type="password" autoComplete="current-password" required />
-        <Link href="/forgot-password" className="self-end text-micro text-primary transition-colors hover:text-primary-hover">
+        <Link
+          href="/forgot-password"
+          className="-mr-1 inline-flex min-h-[40px] items-center self-end rounded-md px-1 text-micro text-primary transition-colors hover:text-primary-hover active:text-primary-hover"
+        >
           {t('forgot')}
         </Link>
       </div>

@@ -20,7 +20,7 @@ export function AIFeatures() {
       <div className="container">
         <SectionHeading eyebrow={t('eyebrow')} title={t('title')} subtitle={t('subtitle')} />
 
-        <ul className="mt-16 grid gap-6 lg:grid-cols-3">
+        <ul className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {FEATURES.map(({ key, icon: Icon, tone, span }, i) => (
             <li key={key} className={span}>
               <Reveal delay={i * 0.09} className="h-full">

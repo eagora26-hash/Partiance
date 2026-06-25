@@ -25,7 +25,7 @@ export default async function ResetPasswordPage({
       ) : (
         <div className="mt-4">
           <p className="text-body-sm text-danger">{t('invalid')}</p>
-          <Link href="/forgot-password" className="mt-4 inline-block font-semibold text-primary hover:text-primary-hover">
+          <Link href="/forgot-password" className="mt-4 inline-block rounded-md py-1 font-semibold text-primary hover:text-primary-hover active:text-primary-hover">
             ←
           </Link>
         </div>

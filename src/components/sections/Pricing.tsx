@@ -22,7 +22,7 @@ export function Pricing() {
       <div className="container">
         <SectionHeading eyebrow={t('eyebrow')} title={t('title')} subtitle={t('subtitle')} />
 
-        <ul className="mx-auto mt-16 grid max-w-5xl items-stretch gap-6 lg:grid-cols-3">
+        <ul className="mx-auto mt-16 grid max-w-md items-stretch gap-6 sm:max-w-5xl md:grid-cols-3 md:gap-4 lg:gap-6">
           {PLANS.map(({ key, featured }, i) => {
             const features = t(`plans.${key}.features`).split('|');
 
@@ -94,7 +94,7 @@ export function Pricing() {
                     // Featured plan: an elevated, glowing card with a spinning conic edge.
                     <div className="conic-border relative h-full rounded-card">
                       <GlassCard
-                        className="flex h-full flex-col p-7 ring-1 ring-primary/40 shadow-glow-lg"
+                        className="flex h-full flex-col p-6 ring-1 ring-primary/40 shadow-glow-lg lg:p-7"
                         spotlight
                         interactive={false}
                       >
@@ -102,7 +102,7 @@ export function Pricing() {
                       </GlassCard>
                     </div>
                   ) : (
-                    <TiltCard intensity={5} className="flex h-full flex-col p-7">
+                    <TiltCard intensity={5} className="flex h-full flex-col p-6 lg:p-7">
                       {inner}
                     </TiltCard>
                   )}

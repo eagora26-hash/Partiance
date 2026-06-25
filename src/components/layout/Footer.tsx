@@ -66,17 +66,19 @@ export function Footer() {
               <h2 className="text-caption font-semibold uppercase tracking-wide text-faint">
                 {t(col)}
               </h2>
-              <ul className="mt-4 space-y-3">
+              {/* Tighter list gap but each link gets vertical padding → a
+                  comfortable ≈36px tap height on touch without a sparse look. */}
+              <ul className="mt-3 space-y-1">
                 {COLUMNS[col].map((link) => (
                   <li key={link}>
                     <Link
                       href={LINK_HREFS[link] ?? '/'}
-                      className="group/link relative inline-flex text-body-sm text-muted transition-colors duration-300 hover:text-ink"
+                      className="group/link relative inline-flex items-center py-1.5 text-body-sm text-muted transition-colors duration-300 hover:text-ink active:text-ink"
                     >
                       {t(`links.${link}`)}
                       <span
                         aria-hidden
-                        className="absolute -bottom-0.5 left-0 h-px w-full origin-left scale-x-0 bg-brand-gradient transition-transform duration-300 ease-premium group-hover/link:scale-x-100"
+                        className="absolute bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-brand-gradient transition-transform duration-300 ease-premium group-hover/link:scale-x-100"
                       />
                     </Link>
                   </li>

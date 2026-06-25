@@ -39,7 +39,12 @@ export function Section({
     <section
       id={id}
       {...aria}
-      className={cn('relative scroll-mt-24 py-section', id && 'scroll-mt-28', className)}
+      // overflow-x: clip contains the decorative side-glows horizontally (so
+      // they can't extend the page's scroll width and cause horizontal scroll
+      // on wide/tablet viewports) while still letting them bleed vertically
+      // into neighbouring sections — the intended "sections fade into one
+      // another" effect. Does NOT create a scroll container.
+      className={cn('relative scroll-mt-24 py-section [overflow-x:clip]', id && 'scroll-mt-28', className)}
     >
       {/* positioned accent glow that bleeds past the section bounds */}
       <div

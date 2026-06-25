@@ -61,8 +61,10 @@ export function AmbientBackground({ className }: { className?: string }) {
 
         {/* 2b — volumetric light beams (god-rays) raking down from top.
             Two soft, blurred shafts on independent slow sways → atmospheric depth,
-            never distracting. Pure CSS transforms (GPU). */}
-        <div className="absolute inset-x-0 top-[-12%] h-[85vh] overflow-hidden [mask-image:radial-gradient(75%_70%_at_50%_0%,#000_30%,transparent_78%)]">
+            never distracting. Pure CSS transforms (GPU). Hidden on phones — barely
+            visible there and the largest animated blur layer, so we drop it to keep
+            mobile compositing light. */}
+        <div className="absolute inset-x-0 top-[-12%] hidden h-[85vh] overflow-hidden [mask-image:radial-gradient(75%_70%_at_50%_0%,#000_30%,transparent_78%)] md:block">
           <div
             className="absolute left-[34%] top-[-30%] h-[150%] w-[18rem] origin-top animate-beam-sway bg-[linear-gradient(180deg,rgba(46,242,222,0.16),rgba(20,200,188,0.05)_45%,transparent_75%)] blur-[60px]"
             style={{ ['--beam-rot' as string]: '13deg' }}
