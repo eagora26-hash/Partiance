@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { Plus } from 'lucide-react';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Reveal } from '@/components/ui/Reveal';
+import { Section } from '@/components/ui/Section';
 import { cn } from '@/lib/utils';
 
 const ITEMS = ['what', 'how', 'free', 'italy', 'data'] as const;
@@ -15,12 +16,12 @@ export function FAQ() {
   const [open, setOpen] = useState<string | null>('what');
 
   return (
-    <section id="faq" aria-labelledby="faq-title" className="relative scroll-mt-24 py-section">
+    <Section id="faq" aria-labelledby="faq-title" glow="left">
       <div className="container">
         <SectionHeading eyebrow={t('eyebrow')} title={t('title')} />
 
         <div className="mx-auto mt-14 max-w-3xl">
-          <ul className="glass divide-y divide-white/5 overflow-hidden rounded-card shadow-glass">
+          <ul className="glass-deep divide-y divide-white/5 overflow-hidden rounded-card shadow-glass ring-grad">
             {ITEMS.map((key, i) => {
               const isOpen = open === key;
               return (
@@ -31,13 +32,23 @@ export function FAQ() {
                         type="button"
                         onClick={() => setOpen(isOpen ? null : key)}
                         aria-expanded={isOpen}
-                        className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition-colors hover:bg-white/[0.02]"
+                        className={cn(
+                          'flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition-colors hover:bg-white/[0.02]',
+                          isOpen && 'bg-white/[0.015]'
+                        )}
                       >
-                        <span className="text-body font-medium text-ink">{t(`items.${key}.q`)}</span>
                         <span
                           className={cn(
-                            'grid h-8 w-8 shrink-0 place-items-center rounded-full glass text-primary transition-transform duration-300 ease-premium',
-                            isOpen && 'rotate-45'
+                            'text-body font-medium transition-colors',
+                            isOpen ? 'text-ink' : 'text-muted'
+                          )}
+                        >
+                          {t(`items.${key}.q`)}
+                        </span>
+                        <span
+                          className={cn(
+                            'grid h-8 w-8 shrink-0 place-items-center rounded-full glass text-primary-hover transition-all duration-300 ease-premium',
+                            isOpen && 'rotate-45 bg-primary/15 shadow-glow-soft'
                           )}
                         >
                           <Plus className="h-4 w-4" />
@@ -66,6 +77,6 @@ export function FAQ() {
           </ul>
         </div>
       </div>
-    </section>
+    </Section>
   );
 }

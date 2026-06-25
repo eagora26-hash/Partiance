@@ -1,0 +1,48 @@
+# ============================================================
+#  PARTIANCE — Render Blueprint (Infrastructure as Code)
+#  One Docker web service backed by an EXTERNAL Neon Postgres (shared DB).
+#  Migrations run automatically on every boot via docker-entrypoint.sh
+#  (`prisma migrate deploy`), so the schema is applied on first deploy.
+#
+#  Set these SECRET env vars in the Render dashboard after creating the
+#  service (they are intentionally NOT committed):
+#    • DATABASE_URL     — the Neon pooled connection string (sslmode=require)
+#    • APP_URL          — the service URL, e.g. https://partiance.onrender.com
+#    • RESEND_API_KEY   — required for verification & password-reset emails
+#  AUTH_SECRET is generated automatically on first deploy.
+# ============================================================
+services:
+  - type: web
+    name: partiance
+    runtime: docker
+    plan: free
+    region: frankfurt # EU region — Italy-first, GDPR-friendly
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NEXT_TELEMETRY_DISABLED
+        value: "1"
+      # Render sets PORT; the standalone server reads it. HOSTNAME binds 0.0.0.0.
+      - key: HOSTNAME
+        value: 0.0.0.0
+      # Database — external Neon Postgres. Paste the pooled connection string in
+      # the dashboard (kept out of git as a secret).
+      - key: DATABASE_URL
+        sync: false
+      # Auth.js — secret auto-generated once; trust the Render proxy host.
+      - key: AUTH_SECRET
+        generateValue: true
+      - key: AUTH_TRUST_HOST
+        value: "true"
+      # Public URL — used for verification/reset links, sitemap, canonical.
+      - key: APP_URL
+        sync: false
+      # Email — Resend (required in production for auth emails). Fill in the key.
+      - key: RESEND_API_KEY
+        sync: false
+      - key: EMAIL_FROM
+        value: Partiance <no-reply@partiance.it>

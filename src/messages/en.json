@@ -1,6 +1,6 @@
 {
   "common": {
-    "brand": "Partnerly",
+    "brand": "Partiance",
     "tagline": "Build Better Together",
     "getStarted": "Sign up free",
     "explore": "Explore the platform",
@@ -30,9 +30,18 @@
     "ctaSecondary": "Explore projects",
     "trustedBy": "Already chosen by builders across Italy",
     "props": {
-      "soci": { "title": "Find co-founders", "desc": "AI matches on shared skills and goals" },
-      "investitori": { "title": "Find investors", "desc": "Pitch your project to qualified investors" },
-      "collaboratori": { "title": "Find collaborators", "desc": "Professionals ready to build with you" }
+      "soci": {
+        "title": "Find co-founders",
+        "desc": "AI matches on shared skills and goals"
+      },
+      "investitori": {
+        "title": "Find investors",
+        "desc": "Pitch your project to qualified investors"
+      },
+      "collaboratori": {
+        "title": "Find collaborators",
+        "desc": "Professionals ready to build with you"
+      }
     },
     "matchCard": {
       "match": "Match",
@@ -47,8 +56,16 @@
       }
     },
     "people": {
-      "marco": { "name": "Marco Rossi", "role": "CTO & Developer", "location": "Milan, Italy" },
-      "giulia": { "name": "Giulia Bianchi", "role": "Marketing Strategist", "location": "Rome, Italy" }
+      "marco": {
+        "name": "Marco Rossi",
+        "role": "CTO & Developer",
+        "location": "Milan, Italy"
+      },
+      "giulia": {
+        "name": "Giulia Bianchi",
+        "role": "Marketing Strategist",
+        "location": "Rome, Italy"
+      }
     },
     "project": {
       "title": "Corporate Wellness Platform",
@@ -63,10 +80,22 @@
     "title": "Numbers that speak",
     "subtitle": "A growing ecosystem, built on trust.",
     "items": {
-      "builders": { "value": "12,000+", "label": "Active builders" },
-      "matches": { "value": "48,000+", "label": "Matches generated" },
-      "accuracy": { "value": "93%", "label": "AI match accuracy" },
-      "cities": { "value": "60+", "label": "Italian cities" }
+      "builders": {
+        "value": "12,000+",
+        "label": "Active builders"
+      },
+      "matches": {
+        "value": "48,000+",
+        "label": "Matches generated"
+      },
+      "accuracy": {
+        "value": "93%",
+        "label": "AI match accuracy"
+      },
+      "cities": {
+        "value": "60+",
+        "label": "Italian cities"
+      }
     }
   },
   "how": {
@@ -95,10 +124,34 @@
     "looking": "Looking for",
     "budget": "Budget",
     "items": {
-      "wellness": { "title": "Corporate Wellness App", "desc": "An app to improve employee wellbeing in companies.", "looking": "CTO", "budget": "€20,000", "tags": "Idea, Wellness, Milan" },
-      "tourism": { "title": "Experiential Travel Marketplace", "desc": "A platform to book unique travel experiences.", "looking": "Investor", "budget": "€100,000", "tags": "MVP, Travel, Italy" },
-      "food": { "title": "Sustainable Food Delivery", "desc": "Zero-kilometre, low-impact food delivery service.", "looking": "Marketing Manager", "budget": "€50,000", "tags": "Startup, Food, Bologna" },
-      "edtech": { "title": "EdTech Platform", "desc": "High-quality online courses for students and professionals.", "looking": "Co-founder", "budget": "€30,000", "tags": "Idea, Education, Turin" }
+      "wellness": {
+        "title": "Corporate Wellness App",
+        "desc": "An app to improve employee wellbeing in companies.",
+        "looking": "CTO",
+        "budget": "€20,000",
+        "tags": "Idea, Wellness, Milan"
+      },
+      "tourism": {
+        "title": "Experiential Travel Marketplace",
+        "desc": "A platform to book unique travel experiences.",
+        "looking": "Investor",
+        "budget": "€100,000",
+        "tags": "MVP, Travel, Italy"
+      },
+      "food": {
+        "title": "Sustainable Food Delivery",
+        "desc": "Zero-kilometre, low-impact food delivery service.",
+        "looking": "Marketing Manager",
+        "budget": "€50,000",
+        "tags": "Startup, Food, Bologna"
+      },
+      "edtech": {
+        "title": "EdTech Platform",
+        "desc": "High-quality online courses for students and professionals.",
+        "looking": "Co-founder",
+        "budget": "€30,000",
+        "tags": "Idea, Education, Turin"
+      }
     },
     "mine": {
       "title": "Your projects",
@@ -108,7 +161,12 @@
       "edit": "Edit",
       "delete": "Delete",
       "confirmDelete": "Delete this project? This cannot be undone.",
-      "status": { "PUBLISHED": "Published", "DRAFT": "Draft", "PAUSED": "Paused", "CLOSED": "Closed" }
+      "status": {
+        "PUBLISHED": "Published",
+        "DRAFT": "Draft",
+        "PAUSED": "Paused",
+        "CLOSED": "Closed"
+      }
     },
     "form": {
       "newTitle": "Create a project",
@@ -127,7 +185,12 @@
       "save": "Save changes",
       "saving": "Saving..."
     },
-    "stage": { "IDEA": "Idea", "MVP": "MVP", "STARTUP": "Startup", "SCALING": "Scaling" },
+    "stage": {
+      "IDEA": "Idea",
+      "MVP": "MVP",
+      "STARTUP": "Startup",
+      "SCALING": "Scaling"
+    },
     "lookingForOptions": {
       "COFOUNDER": "Co-founder",
       "INVESTOR": "Investor",
@@ -151,7 +214,11 @@
     "title": "Explore projects",
     "subtitle": "Discover ideas looking for partners across Italy.",
     "empty": "No projects found with these filters.",
-    "filters": { "all": "All", "stage": "Stage", "lookingFor": "Looking for" },
+    "filters": {
+      "all": "All",
+      "stage": "Stage",
+      "lookingFor": "Looking for"
+    },
     "by": "by",
     "bookmark": "Save",
     "bookmarked": "Saved",
@@ -160,12 +227,24 @@
   "ai": {
     "eyebrow": "The AI operating system",
     "title": "Not just matches. A copilot for your business.",
-    "subtitle": "Partnerly doesn't stop at the connection. It stays with you while you build.",
+    "subtitle": "Partiance doesn't stop at the connection. It stays with you while you build.",
     "features": {
-      "match": { "title": "Co-Founder Match AI", "desc": "Compatibility computed on skills, goals and values. Every match is explained." },
-      "validator": { "title": "Idea Validator", "desc": "Score your business idea and get its strengths and risks at a glance." },
-      "plan": { "title": "AI Business Plan", "desc": "Generate a structured, investor-ready plan straight from your idea." },
-      "investor": { "title": "Investor Readiness", "desc": "See how ready you are to raise capital and exactly what to improve." }
+      "match": {
+        "title": "Co-Founder Match AI",
+        "desc": "Compatibility computed on skills, goals and values. Every match is explained."
+      },
+      "validator": {
+        "title": "Idea Validator",
+        "desc": "Score your business idea and get its strengths and risks at a glance."
+      },
+      "plan": {
+        "title": "AI Business Plan",
+        "desc": "Generate a structured, investor-ready plan straight from your idea."
+      },
+      "investor": {
+        "title": "Investor Readiness",
+        "desc": "See how ready you are to raise capital and exactly what to improve."
+      }
     }
   },
   "pricing": {
@@ -202,11 +281,26 @@
     "eyebrow": "Frequently asked questions",
     "title": "Everything you want to know",
     "items": {
-      "what": { "q": "What exactly is Partnerly?", "a": "Partnerly is an AI business operating system: it connects entrepreneurs, co-founders, investors and professionals and helps them build companies together, faster." },
-      "how": { "q": "How does the AI match work?", "a": "Our AI analyses skills, goals, industry, availability and values to compute compatibility. Every match is always explained, never just a number." },
-      "free": { "q": "Is it really free?", "a": "Yes. The Free plan is free forever and includes 10 matches a month, one project and community access. No card required." },
-      "italy": { "q": "Is it built for Italy?", "a": "Exactly. Partnerly is Italian by design: copy, cities, industries and community are built for the Italian market, in Italian and English." },
-      "data": { "q": "Is my data safe?", "a": "Security is a priority. We use enterprise-grade authentication and never share your data without your consent." }
+      "what": {
+        "q": "What exactly is Partiance?",
+        "a": "Partiance is an AI business operating system: it connects entrepreneurs, co-founders, investors and professionals and helps them build companies together, faster."
+      },
+      "how": {
+        "q": "How does the AI match work?",
+        "a": "Our AI analyses skills, goals, industry, availability and values to compute compatibility. Every match is always explained, never just a number."
+      },
+      "free": {
+        "q": "Is it really free?",
+        "a": "Yes. The Free plan is free forever and includes 10 matches a month, one project and community access. No card required."
+      },
+      "italy": {
+        "q": "Is it built for Italy?",
+        "a": "Exactly. Partiance is Italian by design: copy, cities, industries and community are built for the Italian market, in Italian and English."
+      },
+      "data": {
+        "q": "Is my data safe?",
+        "a": "Security is a priority. We use enterprise-grade authentication and never share your data without your consent."
+      }
     }
   },
   "cta": {
@@ -277,7 +371,8 @@
       "password_needs_lowercase": "Add a lowercase letter.",
       "password_needs_uppercase": "Add an uppercase letter.",
       "password_needs_number": "Add a number.",
-      "generic": "Something went wrong. Please try again."
+      "generic": "Something went wrong. Please try again.",
+      "server_error": "Server error. Please try again shortly."
     }
   },
   "onboarding": {
@@ -288,11 +383,26 @@
     "finishing": "Analyzing...",
     "skip": "Skip for now",
     "steps": {
-      "persona": { "title": "Who are you?", "subtitle": "Pick the role that fits you best." },
-      "skills": { "title": "Your skills", "subtitle": "Select what you excel at. Choose at least one." },
-      "goals": { "title": "Your goals", "subtitle": "What do you want to achieve on Partnerly?" },
-      "personality": { "title": "Your style", "subtitle": "Help us understand how you work. No right or wrong answers." },
-      "analysis": { "title": "Your Business DNA", "subtitle": "Here's what we learned about you." }
+      "persona": {
+        "title": "Who are you?",
+        "subtitle": "Pick the role that fits you best."
+      },
+      "skills": {
+        "title": "Your skills",
+        "subtitle": "Select what you excel at. Choose at least one."
+      },
+      "goals": {
+        "title": "Your goals",
+        "subtitle": "What do you want to achieve on Partiance?"
+      },
+      "personality": {
+        "title": "Your style",
+        "subtitle": "Help us understand how you work. No right or wrong answers."
+      },
+      "analysis": {
+        "title": "Your Business DNA",
+        "subtitle": "Here's what we learned about you."
+      }
     },
     "persona": {
       "FOUNDER": "Founder",
@@ -417,5 +527,134 @@
     },
     "rights": "All rights reserved.",
     "madeIn": "Crafted with care in Italy."
+  },
+  "pages": {
+    "about": {
+      "eyebrow": "About",
+      "title": "We’re building the ecosystem for Italian builders",
+      "intro": "Partiance exists to solve the most underrated problem in starting a company in Italy: finding the right people. Co-founders, investors and collaborators, matched by AI on real fit — not by chance.",
+      "sections": [
+        {
+          "heading": "Our mission",
+          "body": [
+            "We want every solid idea in Italy to find the people who can turn it into a real business. Founder compatibility is the number-one driver of success or failure — and until now it’s been left to luck.",
+            "Partiance uses a matching engine that weighs vision, skills, values and working style to suggest connections that actually make sense."
+          ]
+        },
+        {
+          "heading": "How we work",
+          "body": [
+            "Product-first, privacy-first, Italy-first. Your data stays yours and is never sold. AI is a tool in service of people, not the other way around."
+          ]
+        }
+      ],
+      "cta": "Start for free"
+    },
+    "contact": {
+      "eyebrow": "Contact",
+      "title": "Let’s talk",
+      "intro": "Have a question, a partnership idea, or just want to learn more? Write to us — we reply within one business day.",
+      "sections": [
+        {
+          "heading": "Support",
+          "body": [
+            "For account or product help: support@partiance.it"
+          ]
+        },
+        {
+          "heading": "Press & partnerships",
+          "body": [
+            "For media, events and collaborations: hello@partiance.it"
+          ]
+        }
+      ],
+      "cta": "Send us an email"
+    },
+    "privacy": {
+      "eyebrow": "Legal",
+      "title": "Privacy policy",
+      "meta": "Last updated: June 2026",
+      "intro": "Your privacy is a priority. This policy explains what data we collect, why, and how we protect it, in line with the GDPR and Italian law.",
+      "sections": [
+        {
+          "heading": "1. Data we collect",
+          "body": [
+            "We collect the data you provide when registering (name, email) and what’s needed for matching to work (profile, preferences, projects)."
+          ]
+        },
+        {
+          "heading": "2. How we use data",
+          "body": [
+            "We use your data solely to provide the service: authentication, matching, transactional communications. We do not sell your data to third parties."
+          ]
+        },
+        {
+          "heading": "3. Your rights",
+          "body": [
+            "You can access, correct or delete your data at any time from your account, or by writing to privacy@partiance.it."
+          ]
+        }
+      ]
+    },
+    "terms": {
+      "eyebrow": "Legal",
+      "title": "Terms of service",
+      "meta": "Last updated: June 2026",
+      "intro": "By using Partiance you agree to these terms. Please read them carefully.",
+      "sections": [
+        {
+          "heading": "1. The service",
+          "body": [
+            "Partiance is a platform that connects builders, investors and collaborators through an AI-based matching engine. The service is provided “as is”."
+          ]
+        },
+        {
+          "heading": "2. Account and responsibility",
+          "body": [
+            "You are responsible for your account’s security and for the accuracy of the information you provide. Any unlawful or abusive use of the platform is prohibited."
+          ]
+        },
+        {
+          "heading": "3. Changes",
+          "body": [
+            "We may update these terms; material changes will be communicated by email or in-app."
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "eyebrow": "Legal",
+      "title": "Cookie policy",
+      "meta": "Last updated: June 2026",
+      "intro": "We use cookies in an essential and transparent way, to run the app and understand how to improve it.",
+      "sections": [
+        {
+          "heading": "Essential cookies",
+          "body": [
+            "Required for authentication and core functionality. These cannot be disabled."
+          ]
+        },
+        {
+          "heading": "Analytics cookies",
+          "body": [
+            "These help us understand how the product is used, in aggregate and anonymous form. You can disable them without breaking the service."
+          ]
+        }
+      ]
+    },
+    "blog": {
+      "eyebrow": "Blog",
+      "title": "Ideas, stories and data from the builder world",
+      "intro": "We’re preparing articles on building a winning team, founder matching, and the state of entrepreneurship in Italy. The blog is coming soon.",
+      "sections": [],
+      "cta": "Notify me at launch"
+    },
+    "careers": {
+      "eyebrow": "Careers",
+      "title": "Build Partiance with us",
+      "intro": "We’re building the ecosystem for Italian builders and we’re looking for curious, rigorous, ambitious people. We have no open roles right now, but spontaneous applications are always welcome.",
+      "sections": [],
+      "cta": "Send an application"
+    }
   }
 }

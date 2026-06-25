@@ -1,5 +1,5 @@
 /**
- * PARTNERLY MATCHING ALGORITHM (MATCHING_ENGINE.md)
+ * PARTIANCE MATCHING ALGORITHM (MATCHING_ENGINE.md)
  *
  * Deterministic, explainable compatibility scoring. Pure functions — no DB, no IO —
  * so it is fully unit-testable and reproducible. The matching engine is

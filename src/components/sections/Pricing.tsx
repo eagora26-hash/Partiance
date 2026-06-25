@@ -3,7 +3,9 @@ import { Check } from 'lucide-react';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Reveal } from '@/components/ui/Reveal';
 import { GlassCard } from '@/components/ui/GlassCard';
+import { TiltCard } from '@/components/ui/TiltCard';
 import { Button } from '@/components/ui/Button';
+import { Section } from '@/components/ui/Section';
 import { cn } from '@/lib/utils';
 
 const PLANS = [
@@ -16,71 +18,100 @@ export function Pricing() {
   const t = useTranslations('pricing');
 
   return (
-    <section id="pricing" aria-labelledby="pricing-title" className="relative scroll-mt-24 py-section">
+    <Section id="pricing" aria-labelledby="pricing-title" glow="center">
       <div className="container">
         <SectionHeading eyebrow={t('eyebrow')} title={t('title')} subtitle={t('subtitle')} />
 
-        <ul className="mx-auto mt-16 grid max-w-5xl items-stretch gap-6 lg:grid-cols-3">
+        <ul className="mx-auto mt-16 grid max-w-md items-stretch gap-6 sm:max-w-5xl md:grid-cols-3 md:gap-4 lg:gap-6">
           {PLANS.map(({ key, featured }, i) => {
             const features = t(`plans.${key}.features`).split('|');
-            return (
-              <li key={key} className={cn('flex', featured && 'lg:-my-2')}>
-                <Reveal delay={i * 0.08} className="w-full">
-                  <GlassCard
+
+            const inner = (
+              <>
+                {/* Header row: plan name + (for the featured plan) the badge,
+                    both in NORMAL FLOW — the badge occupies real layout space, so
+                    it can never overlap the name/tagline at any breakpoint. */}
+                <div className="flex items-start justify-between gap-3">
+                  <h3 className="text-body font-semibold text-ink">{t(`plans.${key}.name`)}</h3>
+                  {featured && (
+                    <span className="shrink-0 whitespace-nowrap rounded-full bg-brand-gradient px-3 py-1 text-micro font-semibold text-base shadow-glow-soft">
+                      {t('mostPopular')}
+                    </span>
+                  )}
+                </div>
+                <p className="mt-1 text-caption text-muted">{t(`plans.${key}.tagline`)}</p>
+
+                <div className="mt-5 flex items-end gap-1">
+                  <span
                     className={cn(
-                      'flex h-full flex-col p-7',
-                      featured && 'ring-1 ring-primary/40 shadow-glow'
+                      'tnum text-h2 font-bold leading-none',
+                      featured
+                        ? 'bg-brand-gradient bg-clip-text text-transparent'
+                        : 'text-ink'
                     )}
-                    spotlight
-                    interactive={!featured}
                   >
-                    {featured && (
-                      <span className="absolute right-5 top-5 rounded-full bg-brand-gradient px-3 py-1 text-micro font-semibold text-base">
-                        {t('mostPopular')}
-                      </span>
-                    )}
-                    <h3 className="text-body font-semibold text-ink">{t(`plans.${key}.name`)}</h3>
-                    <p className="mt-1 text-caption text-muted">{t(`plans.${key}.tagline`)}</p>
+                    {t(`plans.${key}.price`)}
+                  </span>
+                  <span className="mb-1 text-caption text-faint">{t('perMonth')}</span>
+                </div>
 
-                    <div className="mt-5 flex items-end gap-1">
-                      <span className="tnum text-h2 font-bold leading-none text-ink">
-                        {t(`plans.${key}.price`)}
+                <ul className="mt-6 flex-1 space-y-3">
+                  {features.map((f) => (
+                    <li key={f} className="flex items-start gap-2.5 text-body-sm text-muted">
+                      {/* Checkmark: a ringed, top-lit token (inner highlight) — a
+                          small minted coin rather than a flat dot. */}
+                      <span
+                        className={cn(
+                          'mt-0.5 grid h-4 w-4 shrink-0 place-items-center rounded-full ring-1 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.25)]',
+                          featured
+                            ? 'bg-primary/25 text-primary-hover ring-primary/30'
+                            : 'bg-success/15 text-success ring-success/25'
+                        )}
+                      >
+                        <Check className="h-2.5 w-2.5" strokeWidth={3} />
                       </span>
-                      <span className="mb-1 text-caption text-faint">{t('perMonth')}</span>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+
+                <Button
+                  href="/register"
+                  variant={featured ? 'primary' : 'secondary'}
+                  size="lg"
+                  magnetic={false}
+                  className="mt-7 w-full"
+                >
+                  {t(`plans.${key}.cta`)}
+                </Button>
+              </>
+            );
+
+            return (
+              <li key={key} className={cn('flex', featured && 'lg:-my-3')}>
+                <Reveal delay={i * 0.08} className="w-full">
+                  {featured ? (
+                    // Featured plan: an elevated, glowing card with a spinning conic edge.
+                    <div className="conic-border relative h-full rounded-card">
+                      <GlassCard
+                        className="flex h-full flex-col p-6 ring-1 ring-primary/40 shadow-glow-lg lg:p-7"
+                        spotlight
+                        interactive={false}
+                      >
+                        {inner}
+                      </GlassCard>
                     </div>
-
-                    <ul className="mt-6 flex-1 space-y-3">
-                      {features.map((f) => (
-                        <li key={f} className="flex items-start gap-2.5 text-body-sm text-muted">
-                          <span
-                            className={cn(
-                              'mt-0.5 grid h-4 w-4 shrink-0 place-items-center rounded-full',
-                              featured ? 'bg-primary/20 text-primary' : 'bg-success/15 text-success'
-                            )}
-                          >
-                            <Check className="h-2.5 w-2.5" strokeWidth={3} />
-                          </span>
-                          {f}
-                        </li>
-                      ))}
-                    </ul>
-
-                    <Button
-                      href="/register"
-                      variant={featured ? 'primary' : 'secondary'}
-                      size="lg"
-                      magnetic={false}
-                      className="mt-7 w-full"
-                    >
-                      {t(`plans.${key}.cta`)}
-                    </Button>
-                  </GlassCard>
+                  ) : (
+                    <TiltCard intensity={5} className="flex h-full flex-col p-6 lg:p-7">
+                      {inner}
+                    </TiltCard>
+                  )}
                 </Reveal>
               </li>
             );
           })}
         </ul>
       </div>
-    </section>
+    </Section>
   );
 }

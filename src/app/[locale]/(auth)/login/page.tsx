@@ -35,7 +35,7 @@ export default async function LoginPage({
       </div>
       <p className="mt-6 text-center text-caption text-muted">
         {t('noAccount')}{' '}
-        <Link href="/register" className="font-semibold text-primary transition-colors hover:text-primary-hover">
+        <Link href="/register" className="inline-block rounded-md py-1 font-semibold text-primary transition-colors hover:text-primary-hover active:text-primary-hover">
           {t('register')}
         </Link>
       </p>

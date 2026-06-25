@@ -13,6 +13,13 @@ const { auth } = NextAuth(authConfig);
 // before matching so both `/dashboard` and `/en/dashboard` are covered.
 const PROTECTED = ['/dashboard', '/onboarding', '/projects', '/messages', '/settings', '/billing'];
 
+// Auth / account routes that depend on the database. On a landing-only host
+// (Vercel) the DB lives elsewhere, so these are redirected to the canonical
+// app. Active only when AUTH_REDIRECT_URL is set (it is unset on the real app
+// host, so there is never a redirect loop).
+const AUTH_ROUTES = ['/login', '/register', '/forgot-password', '/reset-password', '/verify-email'];
+const AUTH_REDIRECT_URL = process.env.AUTH_REDIRECT_URL?.replace(/\/$/, '');
+
 function stripLocale(pathname: string): string {
   const seg = pathname.split('/');
   if (routing.locales.includes(seg[1] as never)) {
@@ -22,8 +29,15 @@ function stripLocale(pathname: string): string {
 }
 
 export default auth((req) => {
-  const { pathname } = req.nextUrl;
+  const { pathname, search } = req.nextUrl;
   const path = stripLocale(pathname);
+
+  // Landing-only host → send DB-backed auth routes to the canonical app,
+  // preserving the original path + query (so reset/verify tokens carry over).
+  if (AUTH_REDIRECT_URL && AUTH_ROUTES.some((p) => path === p || path.startsWith(`${p}/`))) {
+    return NextResponse.redirect(`${AUTH_REDIRECT_URL}${pathname}${search}`);
+  }
+
   const isProtected = PROTECTED.some((p) => path === p || path.startsWith(`${p}/`));
 
   if (isProtected && !req.auth) {

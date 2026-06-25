@@ -1,10 +1,10 @@
-# PARTNERLY BIBLE
+# PARTIANCE BIBLE
 
-Partnerly is an AI-powered business ecosystem built for Italy.
+Partiance is an AI-powered business ecosystem built for Italy.
 
-Partnerly helps entrepreneurs, founders, investors and professionals build businesses together.
+Partiance helps entrepreneurs, founders, investors and professionals build businesses together.
 
-Partnerly is NOT:
+Partiance is NOT:
 
 - LinkedIn
 - Tinder
@@ -12,7 +12,7 @@ Partnerly is NOT:
 - A job board
 - A social network
 
-Partnerly IS:
+Partiance IS:
 
 An AI Business Operating System.
 

@@ -19,7 +19,7 @@ export default async function AuthLayout({
     <>
       <AmbientBackground />
       <div className="flex min-h-dvh flex-col items-center justify-center px-5 py-12">
-        <Link href="/" className="mb-8 rounded-full focus-visible:outline-accent" aria-label="Partnerly">
+        <Link href="/" className="mb-8 rounded-full focus-visible:outline-accent" aria-label="Partiance">
           <Logo size={32} />
         </Link>
         <main className="w-full max-w-md">{children}</main>

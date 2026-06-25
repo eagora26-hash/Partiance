@@ -25,7 +25,13 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
       <label htmlFor={inputId} className="text-caption font-medium text-muted">
         {label}
       </label>
-      <div className="relative">
+      <div className="group/field relative">
+        {/* focus glow ring */}
+        <span
+          aria-hidden
+          className="pointer-events-none absolute -inset-px rounded-button opacity-0 transition-opacity duration-300 group-focus-within/field:opacity-100"
+          style={{ boxShadow: '0 0 0 1px rgb(var(--c-primary)/0.5), 0 8px 30px -8px rgb(var(--c-primary)/0.4)' }}
+        />
         <input
           ref={ref}
           id={inputId}
@@ -33,9 +39,9 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
           aria-invalid={Boolean(error)}
           aria-describedby={error ? `${inputId}-error` : undefined}
           className={cn(
-            'h-12 w-full rounded-button border bg-white/[0.03] px-4 text-body-sm text-ink',
-            'placeholder:text-faint transition-colors duration-300',
-            'focus:border-primary/50 focus:bg-white/[0.05] focus:outline-none',
+            'relative h-12 w-full rounded-button border bg-white/[0.025] px-4 text-body-sm text-ink',
+            'placeholder:text-faint transition-[background,border-color] duration-300',
+            'focus:border-primary/50 focus:bg-white/[0.04] focus:outline-none',
             error ? 'border-danger/60' : 'border-white/10',
             isPassword && 'pr-12',
             className
@@ -47,7 +53,9 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
             type="button"
             onClick={() => setShow((v) => !v)}
             aria-label={show ? 'Hide password' : 'Show password'}
-            className="absolute right-3 top-1/2 grid h-8 w-8 -translate-y-1/2 place-items-center rounded-lg text-faint transition-colors hover:text-muted"
+            // 44px tap target (comfortable on touch) holding a small icon; sits
+            // inside the input's reserved right padding.
+            className="absolute right-1.5 top-1/2 grid h-11 w-11 -translate-y-1/2 place-items-center rounded-lg text-faint transition-colors hover:text-muted active:text-primary-hover"
             tabIndex={-1}
           >
             {show ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}

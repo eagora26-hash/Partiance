@@ -1,6 +1,6 @@
 # 99_RUNTIME_RULES.md
 
-# PARTNERLY - RUNTIME EXECUTION RULES
+# PARTIANCE - RUNTIME EXECUTION RULES
 
 These are execution rules.
 
@@ -28,7 +28,7 @@ Always understand the current state first.
 
 # PROJECT MEMORY
 
-Partnerly is a long-term project.
+Partiance is a long-term project.
 
 Act as if you have persistent memory.
 
@@ -121,13 +121,13 @@ Always use it before creating custom UI components.
 Workflow:
 
 1. Search for existing premium components.
-2. Adapt them to Partnerly.
+2. Adapt them to Partiance.
 3. Customize them.
 4. Never copy them directly.
 
 Use 21st.dev only as inspiration.
 
-Maintain Partnerly's unique identity.
+Maintain Partiance's unique identity.
 
 ---
 
@@ -233,17 +233,17 @@ Do not behave like an AI assistant.
 Behave like a senior autonomous product team maintaining a production-grade startup.
 # PRODUCTION GRADE PRODUCT RULE
 
-Partnerly is NOT a concept.
+Partiance is NOT a concept.
 
-Partnerly is NOT a prototype.
+Partiance is NOT a prototype.
 
-Partnerly is NOT a UI showcase.
+Partiance is NOT a UI showcase.
 
-Partnerly is NOT a portfolio project.
+Partiance is NOT a portfolio project.
 
-Partnerly is NOT a design exercise.
+Partiance is NOT a design exercise.
 
-Partnerly MUST be a real production-grade platform.
+Partiance MUST be a real production-grade platform.
 
 Everything built must be functional.
 
@@ -297,7 +297,7 @@ Always think in production.
 
 # FULL STACK MANDATORY ARCHITECTURE
 
-Partnerly must always include:
+Partiance must always include:
 
 Frontend
 
@@ -512,7 +512,7 @@ Never expose keys.
 ---
 # DEPLOYMENT & PRODUCTION OPERATING RULES
 
-Partnerly must always remain deployable.
+Partiance must always remain deployable.
 
 Never build a codebase that only works locally.
 
@@ -687,7 +687,7 @@ If architecture will break, redesign before implementing.
 
 # FINAL RULE
 
-Partnerly must always be in a deployable state.
+Partiance must always be in a deployable state.
 
 At any moment, the entire application should be able to be cloned, configured and deployed by another engineer without additional explanations.
 
@@ -695,4 +695,4 @@ Do not build an application.
 
 Build a real company infrastructure.
 
-Build Partnerly as if it will launch publicly in Italy tomorrow.
+Build Partiance as if it will launch publicly in Italy tomorrow.

@@ -1,6 +1,6 @@
 # 00_CLAUDE_START_HERE.md
 
-# PARTNERLY - CLAUDE START HERE
+# PARTIANCE - CLAUDE START HERE
 
 ## VERY IMPORTANT
 
@@ -31,7 +31,7 @@ Take an eye to make an idea of what i m talking about in examples folder but jus
 Then:
 # 00_SYSTEM_GOVERNOR.md
 
-# PARTNERLY SYSTEM GOVERNOR
+# PARTIANCE SYSTEM GOVERNOR
 
 This file is the ONLY source of truth.
 
@@ -45,7 +45,7 @@ Use these documents in this exact order.
 
 ### TIER 1 (MANDATORY)
 
-PARTNERLY_BIBLE.md
+PARTIANCE_BIBLE.md
 
 CLAUDE_START.md
 
@@ -254,13 +254,13 @@ Do not build features.
 Build a company.
 # PROJECT IDENTITY
 
-You are building Partnerly.
+You are building Partiance.
 
-Partnerly is an AI-powered business ecosystem built for Italy.
+Partiance is an AI-powered business ecosystem built for Italy.
 
-Partnerly helps entrepreneurs, co-founders, investors and professionals build businesses together.
+Partiance helps entrepreneurs, co-founders, investors and professionals build businesses together.
 
-Partnerly is NOT:
+Partiance is NOT:
 
 * LinkedIn
 * Tinder
@@ -268,7 +268,7 @@ Partnerly is NOT:
 * A job board
 * A social network
 
-Partnerly IS:
+Partiance IS:
 
 An AI Business Operating System.
 
@@ -374,7 +374,7 @@ Think component libraries first.
 
 # MOBILE FIRST RULE
 
-Partnerly is mobile-first.
+Partiance is mobile-first.
 
 Desktop is secondary.
 
@@ -567,7 +567,7 @@ Semantic HTML.
 ARIA labels.
 # AUTONOMOUS PROJECT EVOLUTION
 
-You are allowed and encouraged to create new files, folders, systems and internal documentation whenever they are necessary to improve Partnerly.
+You are allowed and encouraged to create new files, folders, systems and internal documentation whenever they are necessary to improve Partiance.
 
 Do not ask for permission for obvious architectural improvements.
 

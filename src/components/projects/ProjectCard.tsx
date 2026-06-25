@@ -3,7 +3,7 @@
 import { useLocale, useTranslations } from 'next-intl';
 import { Bookmark } from 'lucide-react';
 import { useState, useTransition } from 'react';
-import { GlassCard } from '@/components/ui/GlassCard';
+import { TiltCard } from '@/components/ui/TiltCard';
 import { Badge } from '@/components/ui/Badge';
 import { Link } from '@/i18n/routing';
 import { toggleBookmarkAction } from '@/app/actions/project.actions';
@@ -52,7 +52,7 @@ export function ProjectCard({ project, showBookmark = false }: { project: Projec
   };
 
   return (
-    <GlassCard as="article" className="flex h-full flex-col p-5">
+    <TiltCard as="article" intensity={6} className="flex h-full flex-col p-5">
       <div className="flex items-start justify-between gap-2">
         <Badge tone="muted">{t(`stage.${project.stage}`)}</Badge>
         {showBookmark && (
@@ -101,6 +101,6 @@ export function ProjectCard({ project, showBookmark = false }: { project: Projec
         ))}
         {project.city && <span className="rounded-md bg-white/[0.05] px-2 py-0.5 text-micro text-muted">{project.city}</span>}
       </div>
-    </GlassCard>
+    </TiltCard>
   );
 }

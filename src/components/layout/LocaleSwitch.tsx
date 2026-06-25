@@ -42,8 +42,9 @@ export function LocaleSwitch({ className }: { className?: string }) {
           onClick={() => change(l)}
           aria-pressed={l === locale}
           className={cn(
-            'rounded-full px-2.5 py-1 uppercase tracking-wide transition-colors duration-300',
-            l === locale ? 'bg-white/10 text-ink' : 'text-faint hover:text-muted'
+            // Roomier tap target on touch (≈40px tall) while staying a compact pill.
+            'inline-flex min-h-[36px] items-center rounded-full px-3 py-1.5 uppercase tracking-wide transition-colors duration-300',
+            l === locale ? 'bg-white/10 text-ink' : 'text-faint hover:text-muted active:text-ink'
           )}
         >
           {l}

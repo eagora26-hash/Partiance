@@ -1,7 +1,7 @@
 import { Inter, Manrope, Instrument_Sans } from 'next/font/google';
 
 /**
- * PARTNERLY TYPEFACES (TYPOGRAPHY_SYSTEM.md)
+ * PARTIANCE TYPEFACES (TYPOGRAPHY_SYSTEM.md)
  *
  * The brand spec calls for Satoshi (display) + Inter (body) + General Sans (numbers).
  * Satoshi & General Sans ship from Fontshare, not Google Fonts. To keep the build

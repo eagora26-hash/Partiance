@@ -2,7 +2,7 @@
 
 Brand:
 
-Partnerly
+Partiance
 
 Tagline:
 

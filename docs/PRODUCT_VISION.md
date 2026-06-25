@@ -28,5 +28,5 @@ People have:
 
 But cannot find the right partners.
 
-Partnerly solves this using AI.
+Partiance solves this using AI.
 

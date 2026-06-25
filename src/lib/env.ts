@@ -15,7 +15,7 @@ const EnvSchema = z.object({
   DATABASE_URL: z
     .string()
     .url()
-    .default('postgresql://partnerly:partnerly@localhost:5434/partnerly?schema=public'),
+    .default('postgresql://partiance:partiance@localhost:5434/partiance?schema=public'),
   APP_URL: z.string().url().default('http://localhost:3000'),
 
   // Auth.js
@@ -38,7 +38,7 @@ const EnvSchema = z.object({
 
   // Email — Resend (optional; falls back to SMTP/MailHog in dev)
   RESEND_API_KEY: z.string().optional(),
-  EMAIL_FROM: z.string().default('Partnerly <no-reply@partnerly.it>'),
+  EMAIL_FROM: z.string().default('Partiance <no-reply@partiance.it>'),
   SMTP_HOST: z.string().default('localhost'),
   SMTP_PORT: z.coerce.number().default(1025),
   SMTP_USER: z.string().optional(),

@@ -1,5 +1,6 @@
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { AmbientBackground } from '@/components/ui/AmbientBackground';
+import { ScrollProgress } from '@/components/ui/ScrollProgress';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { Hero } from '@/components/sections/Hero';
@@ -27,8 +28,8 @@ export default async function LandingPage({
     '@graph': [
       {
         '@type': 'Organization',
-        name: 'Partnerly',
-        url: 'https://partnerly.it',
+        name: 'Partiance',
+        url: 'https://partiance.it',
         slogan: 'Build Better Together',
         description:
           locale === 'it'
@@ -54,6 +55,7 @@ export default async function LandingPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <AmbientBackground />
+      <ScrollProgress />
       <Navbar />
       <main id="main">
         <Hero />

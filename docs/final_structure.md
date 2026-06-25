@@ -1,8 +1,8 @@
-partnerly/
+partiance/
 
 .ai/
 
-00_PARTNERLY_BIBLE.md
+00_PARTIANCE_BIBLE.md
 
 01_PRODUCT_VISION.md
 
